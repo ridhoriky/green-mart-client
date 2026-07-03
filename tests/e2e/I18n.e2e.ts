@@ -2,36 +2,36 @@ import { expect, test } from '@playwright/test';
 
 test.describe('I18n', () => {
   test.describe('Language Switching', () => {
-    test('should switch language from English to French using dropdown and verify text on the homepage', async ({
+    test('should switch language from English to Indonesian using buttons and verify text on the homepage', async ({
       page,
     }) => {
       await page.goto('/');
 
       await expect(
         page.getByRole('heading', {
-          name: 'Boilerplate Code for Your Next.js Project with Tailwind CSS',
+          name: 'Fresh From Earth To Your Kitchen',
         }),
       ).toBeVisible();
 
-      await page.getByLabel('Change language').selectOption('fr');
+      await page.getByRole('button', { name: 'ID' }).click();
 
       await expect(
         page.getByRole('heading', {
-          name: 'Code de démarrage pour Next.js avec Tailwind CSS',
+          name: 'Segar Dari Bumi Ke Dapur Anda',
         }),
       ).toBeVisible();
     });
 
-    test('should switch language from English to French using URL and verify text on the sign-in page', async ({
+    test('should switch language from English to Indonesian using URL and verify text on the sign-in page', async ({
       page,
     }) => {
       await page.goto('/sign-in');
 
-      await expect(page.getByText('Email address')).toBeVisible();
+      await expect(page.getByText('EMAIL ADDRESS')).toBeVisible();
 
-      await page.goto('/fr/sign-in');
+      await page.goto('/id/sign-in');
 
-      await expect(page.getByText('Adresse e-mail')).toBeVisible();
+      await expect(page.getByText('ALAMAT EMAIL')).toBeVisible();
     });
   });
 });
