@@ -12,6 +12,7 @@ export default defineConfig({
 
     'sort-keys': 'off',
     'func-style': 'off',
+    'no-barrel-file': 'off',
 
     'typescript/no-unsafe-assignment': 'off', // Allow implicit `any` assignments
     'typescript/no-unsafe-call': 'off', // Allow implicit `any` calls
