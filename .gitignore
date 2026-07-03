@@ -60,3 +60,18 @@ build-archive.log
 /test-results/
 /playwright-report/
 /playwright/.cache/
+
+# docs
+/mydocs
+
+# txt files
+*.txt
+
+# env files
+.env
+.env.production
+.env.development
+.env.local
+
+# Swagger API specs
+swagger.json
