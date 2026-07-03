@@ -4,7 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { Loader2 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
-import { useParams } from 'next/navigation';
+import { useParams, useSearchParams } from 'next/navigation';
 import * as React from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
@@ -31,7 +31,8 @@ import { AuthFooter } from './AuthFooter';
 export const ResetPasswordForm = () => {
   const t = useTranslations('ResetPassword');
   const params = useParams<{ 'reset-password'?: string[] }>();
-  const token = params?.['reset-password']?.[0];
+  const searchParams = useSearchParams();
+  const token = params?.['reset-password']?.[0] ?? searchParams.get('token') ?? undefined;
 
   const [submitted, setSubmitted] = React.useState(false);
   const [showPassword, setShowPassword] = React.useState(false);
@@ -40,13 +41,10 @@ export const ResetPasswordForm = () => {
   const { mutate: forgotPassword, isPending: isForgotPasswordPending } = useForgotPassword();
   const { mutate: resetPassword, isPending: isResetPasswordPending } = useResetPassword();
 
-  // 1. Form for requesting reset link (forgot password)
   const forgotForm = useForm<ForgotPasswordFormValues>({
     resolver: zodResolver(forgotPasswordSchema),
     defaultValues: { email: '' },
   });
-
-  // 2. Form for setting new password
   const resetForm = useForm<ResetPasswordFormValues>({
     resolver: zodResolver(resetPasswordSchema),
     defaultValues: { newPassword: '', confirmPassword: '' },

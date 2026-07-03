@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
+import { Suspense } from 'react';
 import { ResetPasswordForm } from '@/features/auth';
 
 type ResetPasswordPageProps = {
@@ -23,5 +24,9 @@ export default async function ResetPasswordPage(props: ResetPasswordPageProps) {
   const { locale } = await props.params;
   setRequestLocale(locale);
 
-  return <ResetPasswordForm />;
+  return (
+    <Suspense fallback={null}>
+      <ResetPasswordForm />
+    </Suspense>
+  );
 }
