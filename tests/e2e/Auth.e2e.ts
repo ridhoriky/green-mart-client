@@ -2,16 +2,53 @@ import { faker } from '@faker-js/faker';
 import { expect, test } from '@playwright/test';
 
 test.describe('Authentication', () => {
-  test.describe('Sign up', () => {
-    test.beforeEach(({ page }) => {
-      page.on('console', (msg) => {
-        console.log('PAGE LOG:', msg.text());
-      });
-      page.on('pageerror', (err) => {
-        console.log('PAGE ERROR:', err.message);
+  test.beforeEach(async ({ page }) => {
+    page.on('console', (msg) => {
+      console.log('PAGE LOG:', msg.text());
+    });
+    page.on('pageerror', (err) => {
+      console.log('PAGE ERROR:', err.message);
+    });
+
+    // Mock register endpoint
+    await page.route('**/api/v1/auth/register', async (route) => {
+      await route.fulfill({
+        status: 201,
+        contentType: 'application/json',
+        json: {
+          success: true,
+          data: {
+            message: 'Registration successful',
+          },
+        },
       });
     });
 
+    // Mock login endpoint (unauthorized by default)
+    await page.route('**/api/v1/auth/login', async (route) => {
+      await route.fulfill({
+        status: 401,
+        contentType: 'application/json',
+        json: {
+          message: 'Invalid credentials',
+        },
+      });
+    });
+
+    // Mock forgot-password endpoint
+    await page.route('**/api/v1/auth/forgot-password', async (route) => {
+      await route.fulfill({
+        status: 200,
+        contentType: 'application/json',
+        json: {
+          success: true,
+          message: 'Success',
+        },
+      });
+    });
+  });
+
+  test.describe('Sign up', () => {
     test('displays validation errors on empty submission', async ({ page }) => {
       await page.goto('/en/sign-up');
 
