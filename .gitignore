@@ -75,3 +75,6 @@ build-archive.log
 
 # Swagger API specs
 swagger.json
+
+# Design notes
+DESIGN.md
