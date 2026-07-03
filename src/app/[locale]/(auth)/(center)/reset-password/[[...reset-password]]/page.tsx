@@ -1,16 +1,16 @@
 import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
-import { SignInForm } from '@/features/auth';
+import { ResetPasswordForm } from '@/features/auth';
 
-type SignInPageProps = {
+type ResetPasswordPageProps = {
   params: Promise<{ locale: string }>;
 };
 
-export async function generateMetadata(props: SignInPageProps): Promise<Metadata> {
+export async function generateMetadata(props: ResetPasswordPageProps): Promise<Metadata> {
   const { locale } = await props.params;
   const t = await getTranslations({
     locale,
-    namespace: 'SignIn',
+    namespace: 'ResetPassword',
   });
 
   return {
@@ -19,9 +19,9 @@ export async function generateMetadata(props: SignInPageProps): Promise<Metadata
   };
 }
 
-export default async function SignInPage(props: SignInPageProps) {
+export default async function ResetPasswordPage(props: ResetPasswordPageProps) {
   const { locale } = await props.params;
   setRequestLocale(locale);
 
-  return <SignInForm />;
+  return <ResetPasswordForm />;
 }
