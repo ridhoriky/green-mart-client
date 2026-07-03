@@ -1,0 +1,179 @@
+{
+  "Index": {
+    "meta_title": "GreenMart | Pertanian Presisi & Produk Segar",
+    "meta_description": "Dukung 2000+ petani lokal dan dapatkan produk organik berkualitas tinggi yang dikirim dalam 24 jam.",
+    "Hero": {
+      "seasonal_harvest": "PANEN MUSIMAN",
+      "title": "Segar Dari Bumi Ke Dapur Anda",
+      "subtitle": "Dukung 2000+ petani lokal dan dapatkan produk organik berkualitas tinggi yang dikirim dalam 24 jam.",
+      "shop_now": "Belanja Sekarang",
+      "farmer_stories": "Kisah Petani"
+    },
+    "QuickAccess": {
+      "free_shipping": "Gratis Ongkir",
+      "min_order": "Min. belanja Rp 50.000",
+      "new_user": "Pengguna Baru",
+      "get_discount": "Diskon 20%",
+      "organic_coll": "Koleksi Organik",
+      "certified_quality": "Kualitas Terverifikasi",
+      "sell_with_us": "Jual Bersama Kami",
+      "farmer_program": "Program Kemitraan"
+    },
+    "CategoryMenu": {
+      "fruits": "Buah-buahan",
+      "vegetables": "Sayur-mayur",
+      "rice_grains": "Beras & Biji-bijian",
+      "herbs": "Tanaman Herbal",
+      "organic": "Organik",
+      "fertilizer": "Pupuk",
+      "tools": "Peralatan",
+      "farmers": "Petani",
+      "seeds": "Benih",
+      "meat": "Daging",
+      "dairy": "Olahan Susu",
+      "spices": "Rempah-rempah",
+      "poultry": "Unggas",
+      "gardening": "Berkebun"
+    },
+    "FlashSale": {
+      "title": "Flash Sale",
+      "ends_in": "Berakhir dalam",
+      "view_all": "Lihat Semua"
+    },
+    "FeaturedCategories": {
+      "title": "Kategori Populer",
+      "cat_vegetables": "Sayur-mayur",
+      "desc_vegetables": "Hijauan segar dipanen setiap hari",
+      "cat_fruits": "Buah Segar",
+      "desc_fruits": "Pilihan manis dan musiman",
+      "cat_grains": "Beras & Biji-bijian",
+      "desc_grains": "Kebutuhan pokok dapur"
+    },
+    "FeaturedFarmers": {
+      "title": "Mitra Petani Pilihan",
+      "view_all": "Lihat Semua Petani",
+      "visit_store": "Kunjungi Toko"
+    },
+    "HarvestBanner": {
+      "title": "Kembangkan Bisnis Anda bersama GreenMart",
+      "subtitle": "Bergabunglah dengan jaringan 2.000+ petani sukses kami dan jangkau ribuan pelanggan setiap hari.",
+      "become_seller": "Mulai Menjual",
+      "top_farmer": "Stev Howards | Petani Terbaik Bulan Ini",
+      "top_farmer_desc": "Mencapai 500+ pengiriman sukses dengan peringkat bintang lima."
+    },
+    "RecommendedProducts": {
+      "title": "Rekomendasi Untuk Anda",
+      "view_all": "Lihat Semua"
+    },
+    "SustainabilityStats": {
+      "title": "Menumbuhkan Hari Esok yang Lebih Hijau",
+      "desc": "Kami lebih dari sekadar pasar. Kami adalah platform pertanian presisi yang menghubungkan Anda secara langsung dengan sumbernya, mengurangi jejak karbon dan memastikan pembayaran yang adil bagi mereka yang menanam makanan kita.",
+      "verified_farmers": "Petani Terverifikasi",
+      "eco_orders": "Pesanan Ramah Lingkungan",
+      "lower_carbon": "Jejak Karbon Lebih Rendah",
+      "farmer_revenue": "Pendapatan Petani"
+    },
+    "Newsletter": {
+      "title": "Tetap Terhubung dengan GreenMart",
+      "desc": "Dapatkan resep mingguan, kisah petani, dan diskon eksklusif yang dikirim ke kotak masuk Anda.",
+      "placeholder": "Masukkan alamat email Anda",
+      "subscribe_button": "Berlangganan",
+      "privacy_note": "Kami menghormati privasi Anda. Berhenti berlangganan kapan saja."
+    }
+  },
+  "About": {
+    "meta_title": "Tentang Kami | GreenMart",
+    "meta_description": "Pelajari lebih lanjut tentang GreenMart, misi kami untuk mendukung petani lokal, dan pasar pertanian berkelanjutan kami.",
+    "about_paragraph": "GreenMart adalah platform pertanian presisi dan marketplace pertanian berkelanjutan. Kami menghubungkan konsumen secara langsung dengan petani lokal terverifikasi, mempromosikan keberlanjutan dan produk organik segar."
+  },
+  "SignIn": {
+    "meta_title": "Masuk",
+    "meta_description": "Masuk ke akun Anda dengan mudah menggunakan proses masuk kami yang ramah pengguna.",
+    "welcome_back": "Selamat Datang Kembali",
+    "sign_in_subtitle": "Masuk ke akun GreenMart Anda",
+    "email_label": "ALAMAT EMAIL",
+    "email_placeholder": "petani@greenmart.com",
+    "password_label": "KATA SANDI",
+    "password_placeholder": "••••••••",
+    "forgot_password": "Lupa?",
+    "remember_me": "Ingat saya selama 30 hari",
+    "submit_button": "Masuk",
+    "social_divider": "atau lanjutkan dengan",
+    "google_button": "Google",
+    "new_to_greenmart": "Baru di GreenMart?",
+    "create_account": "Buat Akun",
+    "secure_access": "AKSES AMAN",
+    "sustainable_data": "DATA BERKELANJUTAN"
+  },
+  "SignUp": {
+    "meta_title": "Daftar GreenMart - Marketplace Pertanian Berkelanjutan",
+    "meta_description": "Bergabunglah dengan komunitas global petani berkelanjutan dan pembeli etis.",
+    "empowering_harvest": "Memberdayakan Panen Berikutnya.",
+    "left_subtitle": "Bergabunglah dengan komunitas global petani berkelanjutan dan pembeli etis. Platform kami menghadirkan teknologi presisi untuk pertanian organik.",
+    "trusted_network": "Jaringan Terpercaya",
+    "trusted_desc": "Lebih dari 50 ribu spesialis pertanian terverifikasi telah bergabung.",
+    "organic_title": "100% Organik",
+    "organic_desc": "Kami memastikan semua produk memenuhi standar keberlanjutan tertinggi.",
+    "create_account_title": "Buat Akun",
+    "create_account_subtitle": "Mulai perjalanan Anda dengan GreenMart hari ini.",
+    "fullname_label": "Nama Lengkap",
+    "fullname_placeholder": "Masukkan nama lengkap Anda",
+    "email_label": "Alamat Email",
+    "email_placeholder": "anda@contoh.com",
+    "password_label": "Kata Sandi",
+    "password_placeholder": "Minimal 8 karakter",
+    "terms_agree": "Saya menyetujui <tos>Ketentuan Layanan</tos> dan <privacy>Kebijakan Privasi</privacy>.",
+    "submit_button": "Buat Akun",
+    "google_button": "Google",
+    "already_have_account": "Sudah punya akun?",
+    "sign_in": "Masuk"
+  },
+  "ResetPassword": {
+    "meta_title": "Atur Ulang Kata Sandi | GreenMart",
+    "meta_description": "Masukkan email Anda untuk menerima tautan atur ulang kata sandi.",
+    "reset_password": "Atur Ulang Kata Sandi",
+    "reset_password_subtitle": "Masukkan email Anda untuk menerima tautan atur ulang kata sandi.",
+    "email_label": "ALAMAT EMAIL",
+    "email_placeholder": "misal. nama@perusahaan.com",
+    "submit_button": "Kirim Tautan Atur Ulang",
+    "sending_button": "Mengirim...",
+    "new_password_label": "KATA SANDI BARU",
+    "new_password_placeholder": "Minimal 8 karakter",
+    "confirm_password_label": "KONFIRMASI KATA SANDI BARU",
+    "confirm_password_placeholder": "Konfirmasikan kata sandi baru Anda",
+    "set_new_password_title": "Atur Kata Sandi Baru",
+    "set_new_password_subtitle": "Silakan masukkan dan konfirmasikan kata sandi baru Anda di bawah ini.",
+    "submit_new_password_button": "Perbarui Kata Sandi",
+    "submitting_new_password_button": "Memperbarui..."
+  },
+  "VerifyEmail": {
+    "meta_title": "Verifikasi Email Anda | GreenMart",
+    "meta_description": "Verifikasi email Anda untuk memulai perjalanan Anda. Kami telah mengirimkan kode ke kotak masuk Anda.",
+    "title": "Verifikasi email Anda",
+    "subtitle": "Verifikasi email Anda untuk memulai perjalanan Anda. Kami telah mengirimkan kode ke kotak masuk Anda.",
+    "verify_button": "Verifikasi Email",
+    "verifying_button": "Memverifikasi...",
+    "did_not_receive": "Tidak menerima kode?",
+    "resend_code": "Kirim Ulang Kode",
+    "resending_code": "Mengirim Ulang...",
+    "need_help": "Butuh bantuan?",
+    "contact_support": "Hubungi Dukungan",
+    "success_meta_title": "Sukses | GreenMart",
+    "success_meta_description": "Verifikasi selesai. Akun Anda siap untuk panen.",
+    "success_title": "Sukses!",
+    "success_subtitle": "Akun Anda siap untuk panen.",
+    "success_description": "Verifikasi selesai. Sekarang Anda dapat mengakses dasbor pertanian pribadi dan pasar berkelanjutan Anda.",
+    "go_to_marketplace": "Ke Marketplace",
+    "joined_growers": "Bergabung bersama 50.000+ petani",
+    "footer_copy": "© 2026 GreenMart Agricultural Systems."
+  },
+  "LocaleSwitcher": {
+    "change_language": "Ubah bahasa"
+  },
+  "AuthFooter": {
+    "copy": "© 2026 GreenMart Agricultural Systems. Hak cipta dilindungi undang-undang.",
+    "privacy": "Kebijakan Privasi",
+    "terms": "Ketentuan Layanan",
+    "support": "Hubungi Dukungan"
+  }
+}

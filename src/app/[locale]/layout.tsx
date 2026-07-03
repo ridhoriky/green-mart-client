@@ -2,9 +2,11 @@ import type { Metadata, Viewport } from 'next';
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
-import { DemoBadge } from '@/components/DemoBadge';
+import { Toaster } from '@/components/ui/sonner';
 import { routing } from '@/libs/I18nRouting';
+import { TanstackQueryProvider } from '@/libs/TanstackQueryProvider';
 import '@/styles/global.css';
+import 'material-symbols/outlined.css';
 
 export const metadata: Metadata = {
   icons: [
@@ -55,11 +57,10 @@ export default async function RootLayout(props: {
   return (
     <html lang={locale}>
       <body>
-        <NextIntlClientProvider>
-          {props.children}
-
-          <DemoBadge />
-        </NextIntlClientProvider>
+        <TanstackQueryProvider>
+          <NextIntlClientProvider>{props.children}</NextIntlClientProvider>
+          <Toaster richColors position="top-right" />
+        </TanstackQueryProvider>
       </body>
     </html>
   );

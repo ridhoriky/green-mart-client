@@ -1,78 +1,179 @@
 {
-  "RootLayout": {
-    "home_link": "Home",
-    "about_link": "About",
-    "counter_link": "Counter",
-    "portfolio_link": "Portfolio",
-    "sign_in_link": "Sign in",
-    "sign_up_link": "Sign up"
-  },
-  "BaseTemplate": {
-    "description": "Starter code for your Nextjs Boilerplate with Tailwind CSS",
-    "footer_text": "© {year} {name}. Made with <author></author>.",
-    "main_navigation_label": "Main navigation"
-  },
   "Index": {
-    "meta_title": "Next.js Boilerplate Presentation",
-    "meta_description": "Next js Boilerplate is the perfect starter code for your project. Build your React application with the Next.js framework.",
-    "sponsors_title": "Sponsors",
-    "zap_emoji_label": "Zap"
-  },
-  "Counter": {
-    "meta_title": "Counter",
-    "meta_description": "An example of DB operation",
-    "security_powered_by": "Security, bot detection and rate limiting powered by"
-  },
-  "CounterForm": {
-    "presentation": "The counter is stored in the database and incremented by the value you provide.",
-    "label_increment": "Increment by",
-    "button_increment": "Increment",
-    "error_increment_range": "Value must be between 1 and 3"
-  },
-  "CurrentCount": {
-    "count": "Count: {count}"
+    "meta_title": "GreenMart | Precision Agriculture & Fresh Produce",
+    "meta_description": "Support 2000+ local farmers and get the highest quality organic produce delivered within 24 hours.",
+    "Hero": {
+      "seasonal_harvest": "SEASONAL HARVEST",
+      "title": "Fresh From Earth To Your Kitchen",
+      "subtitle": "Support 2000+ local farmers and get the highest quality organic produce delivered within 24 hours.",
+      "shop_now": "Shop Now",
+      "farmer_stories": "Farmer Stories"
+    },
+    "QuickAccess": {
+      "free_shipping": "Free Shipping",
+      "min_order": "Min. order $35",
+      "new_user": "New User",
+      "get_discount": "Get 20% Off",
+      "organic_coll": "Organic Coll.",
+      "certified_quality": "Certified Quality",
+      "sell_with_us": "Sell with Us",
+      "farmer_program": "Farmer Program"
+    },
+    "CategoryMenu": {
+      "fruits": "Fruits",
+      "vegetables": "Vegetables",
+      "rice_grains": "Rice & Grains",
+      "herbs": "Herbs",
+      "organic": "Organic",
+      "fertilizer": "Fertilizer",
+      "tools": "Tools",
+      "farmers": "Farmers",
+      "seeds": "Seeds",
+      "meat": "Meat",
+      "dairy": "Dairy",
+      "spices": "Spices",
+      "poultry": "Poultry",
+      "gardening": "Gardening"
+    },
+    "FlashSale": {
+      "title": "Flash Sale",
+      "ends_in": "Ends in",
+      "view_all": "View All"
+    },
+    "FeaturedCategories": {
+      "title": "Popular Categories",
+      "cat_vegetables": "Vegetables",
+      "desc_vegetables": "Daily harvested greens",
+      "cat_fruits": "Fresh Fruits",
+      "desc_fruits": "Sweet and seasonal picks",
+      "cat_grains": "Grains & Rice",
+      "desc_grains": "Essential pantry staples"
+    },
+    "FeaturedFarmers": {
+      "title": "Featured Farmers",
+      "view_all": "View All Farmers",
+      "visit_store": "Visit Store"
+    },
+    "HarvestBanner": {
+      "title": "Grow Your Business with GreenMart",
+      "subtitle": "Join our network of 2,000+ successful farmers and reach thousands of customers every day.",
+      "become_seller": "Become a Seller",
+      "top_farmer": "Stev Howards | Top Farmer of the Month",
+      "top_farmer_desc": "Achieved 500+ successful deliveries with stellar ratings."
+    },
+    "RecommendedProducts": {
+      "title": "Recommended For You",
+      "view_all": "View All"
+    },
+    "SustainabilityStats": {
+      "title": "Growing a Greener Tomorrow",
+      "desc": "We're more than a marketplace. We're a precision agriculture platform connecting you directly to the source, reducing carbon footprints and ensuring fair pay for those who feed us.",
+      "verified_farmers": "Verified Farmers",
+      "eco_orders": "Eco-Friendly Orders",
+      "lower_carbon": "Lower Carbon Footprint",
+      "farmer_revenue": "Farmer Revenue"
+    },
+    "Newsletter": {
+      "title": "Stay Updated with GreenMart",
+      "desc": "Get weekly recipes, farmer stories, and exclusive discounts delivered to your inbox.",
+      "placeholder": "Enter your email address",
+      "subscribe_button": "Subscribe",
+      "privacy_note": "We respect your privacy. Unsubscribe at any time."
+    }
   },
   "About": {
-    "meta_title": "About",
-    "meta_description": "About page description",
-    "about_paragraph": "Welcome to our About page! We are a team of passionate individuals dedicated to creating amazing software.",
-    "translation_powered_by": "Translation powered by"
-  },
-  "Portfolio": {
-    "meta_title": "Portfolio",
-    "meta_description": "Welcome to my portfolio page!",
-    "presentation": "Welcome to my portfolio page! Here you will find a carefully curated collection of my work and accomplishments. Through this portfolio, I'm to showcase my expertise, creativity, and the value I can bring to your projects.",
-    "portfolio_name": "Portfolio {name}",
-    "error_reporting_powered_by": "Error reporting powered by"
-  },
-  "PortfolioSlug": {
-    "meta_title": "Portfolio {slug}",
-    "meta_description": "Portfolio {slug} description",
-    "header": "Portfolio {slug}",
-    "content": "Created a set of promotional materials and branding elements for a corporate event. Crafted a visually unified theme, encompassing a logo, posters, banners, and digital assets. Integrated the client's brand identity while infusing it with a contemporary and innovative approach.",
-    "code_review_powered_by": "Code review powered by"
+    "meta_title": "About Us | GreenMart",
+    "meta_description": "Learn more about GreenMart, our mission to support local farmers, and our sustainable agricultural marketplace.",
+    "about_paragraph": "GreenMart is a precision agriculture platform and marketplace. We connect consumers directly to verified local farmers, promoting sustainability and fresh organic produce."
   },
   "SignIn": {
     "meta_title": "Sign in",
-    "meta_description": "Seamlessly sign in to your account with our user-friendly login process."
+    "meta_description": "Seamlessly sign in to your account with our user-friendly login process.",
+    "welcome_back": "Welcome Back",
+    "sign_in_subtitle": "Sign in to your GreenMart account",
+    "email_label": "EMAIL ADDRESS",
+    "email_placeholder": "farmer@greenmart.com",
+    "password_label": "PASSWORD",
+    "password_placeholder": "••••••••",
+    "forgot_password": "Forgot?",
+    "remember_me": "Remember me for 30 days",
+    "submit_button": "Sign In",
+    "social_divider": "or continue with",
+    "google_button": "Google",
+    "new_to_greenmart": "New to GreenMart?",
+    "create_account": "Create an Account",
+    "secure_access": "SECURE ACCESS",
+    "sustainable_data": "SUSTAINABLE DATA"
   },
   "SignUp": {
-    "meta_title": "Sign up",
-    "meta_description": "Effortlessly create an account through our intuitive sign-up process."
+    "meta_title": "Join GreenMart - Sustainable Agriculture Marketplace",
+    "meta_description": "Join the global community of sustainable farmers and ethical buyers.",
+    "empowering_harvest": "Empowering the Next Harvest.",
+    "left_subtitle": "Join the global community of sustainable farmers and ethical buyers. Our platform brings precision technology to organic agriculture.",
+    "trusted_network": "Trusted Network",
+    "trusted_desc": "Over 50k verified agricultural specialists already on board.",
+    "organic_title": "100% Organic",
+    "organic_desc": "We ensure all products meet the highest sustainability standards.",
+    "create_account_title": "Create Account",
+    "create_account_subtitle": "Start your journey with GreenMart today.",
+    "fullname_label": "Full Name",
+    "fullname_placeholder": "Enter your legal name",
+    "email_label": "Email Address",
+    "email_placeholder": "you@example.com",
+    "password_label": "Password",
+    "password_placeholder": "At least 8 characters",
+    "terms_agree": "I agree to the <tos>Terms of Service</tos> and <privacy>Privacy Policy</privacy>.",
+    "submit_button": "Create Account",
+    "google_button": "Google",
+    "already_have_account": "Already have an account?",
+    "sign_in": "Sign In"
   },
-  "Dashboard": {
-    "hello_message": "Hello {email}!",
-    "alternative_message": "Need advanced features? Multi-tenancy & Teams, Roles & Permissions, Shadcn UI, End-to-End Typesafety with oRPC, Stripe Payment, Light / Dark mode. Try <url></url>.",
-    "max_message": "Or, need a Self-hosted auth stack (Better Auth)? Try <url></url>."
+  "ResetPassword": {
+    "meta_title": "Reset Password | GreenMart",
+    "meta_description": "Enter your email to receive a password reset link.",
+    "reset_password": "Reset Password",
+    "reset_password_subtitle": "Enter your email to receive a password reset link.",
+    "email_label": "EMAIL ADDRESS",
+    "email_placeholder": "e.g. name@company.com",
+    "submit_button": "Send Reset Link",
+    "sending_button": "Sending...",
+    "new_password_label": "NEW PASSWORD",
+    "new_password_placeholder": "At least 8 characters",
+    "confirm_password_label": "CONFIRM NEW PASSWORD",
+    "confirm_password_placeholder": "Confirm your new password",
+    "set_new_password_title": "Set New Password",
+    "set_new_password_subtitle": "Please enter and confirm your new password below.",
+    "submit_new_password_button": "Update Password",
+    "submitting_new_password_button": "Updating..."
   },
-  "DashboardLayout": {
-    "meta_title": "Dashboard",
-    "meta_description": "Manage your account from the dashboard.",
-    "dashboard_link": "Dashboard",
-    "user_profile_link": "Manage your account",
-    "sign_out": "Sign out"
+  "VerifyEmail": {
+    "meta_title": "Verify Your Email | GreenMart",
+    "meta_description": "Verify your email to sprout your journey. We've sent a code to your inbox.",
+    "title": "Verify your email",
+    "subtitle": "Verify your email to sprout your journey. We've sent a code to your inbox.",
+    "verify_button": "Verify Email",
+    "verifying_button": "Verifying...",
+    "did_not_receive": "Didn't receive the code?",
+    "resend_code": "Resend Code",
+    "resending_code": "Resending...",
+    "need_help": "Need help?",
+    "contact_support": "Contact Support",
+    "success_meta_title": "Success | GreenMart",
+    "success_meta_description": "Verification complete. Your account is ready for harvest.",
+    "success_title": "Success!",
+    "success_subtitle": "Your account is ready for harvest.",
+    "success_description": "Verification complete. You can now access your personalized agricultural dashboard and sustainable marketplace.",
+    "go_to_marketplace": "Go to Marketplace",
+    "joined_growers": "Joined by 50,000+ growers",
+    "footer_copy": "© 2026 GreenMart Agricultural Systems."
   },
   "LocaleSwitcher": {
     "change_language": "Change language"
+  },
+  "AuthFooter": {
+    "copy": "© 2026 GreenMart Agricultural Systems. All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "support": "Contact Support"
   }
 }
