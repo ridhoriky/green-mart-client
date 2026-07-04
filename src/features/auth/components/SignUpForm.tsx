@@ -18,6 +18,7 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
+import { useGoogleLogin } from '@/features/auth/hooks/useGoogleLogin';
 import { useRegister } from '@/features/auth/hooks/useRegister';
 import { getAuthErrorMessage } from '@/features/auth/utils/authError';
 import { registerSchema } from '@/features/auth/validations/authSchemas';
@@ -30,6 +31,7 @@ export const SignUpForm = () => {
   const [showPassword, setShowPassword] = React.useState(false);
 
   const { mutate: register, isPending, error } = useRegister();
+  const { initiateLogin: loginWithGoogle, isPending: isGooglePending } = useGoogleLogin();
 
   const form = useForm<RegisterFormValues>({
     resolver: zodResolver(registerSchema),
@@ -295,6 +297,10 @@ export const SignUpForm = () => {
                   variant="outline"
                   size="medium"
                   className="w-full gap-2 bg-surface-container-lowest hover:bg-surface-container-low active:scale-95"
+                  onClick={() => {
+                    loginWithGoogle();
+                  }}
+                  disabled={isPending || isGooglePending}
                 >
                   <svg className="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true">
                     <path

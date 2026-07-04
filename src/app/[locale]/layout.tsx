@@ -3,6 +3,7 @@ import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { Toaster } from '@/components/ui/sonner';
+import { GoogleAuthProvider } from '@/libs/GoogleAuthProvider';
 import { routing } from '@/libs/I18nRouting';
 import { TanstackQueryProvider } from '@/libs/TanstackQueryProvider';
 import '@/styles/global.css';
@@ -58,7 +59,9 @@ export default async function RootLayout(props: {
     <html lang={locale}>
       <body>
         <TanstackQueryProvider>
-          <NextIntlClientProvider>{props.children}</NextIntlClientProvider>
+          <GoogleAuthProvider>
+            <NextIntlClientProvider>{props.children}</NextIntlClientProvider>
+          </GoogleAuthProvider>
           <Toaster richColors position="top-right" />
         </TanstackQueryProvider>
       </body>
