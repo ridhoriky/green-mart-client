@@ -28,6 +28,7 @@
     "@arcjet/next": "^1.4.0",
     "@base-ui/react": "^1.6.0",
     "@hookform/resolvers": "^5.2.2",
+    "@react-oauth/google": "^0.13.5",
     "@sentry/nextjs": "^10.53.1",
     "@t3-oss/env-nextjs": "^0.13.11",
     "@tanstack/react-query": "^5.101.2",
