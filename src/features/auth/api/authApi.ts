@@ -2,6 +2,7 @@ import type {
   APIResponse,
   AuthTokenResponse,
   ForgotPasswordRequest,
+  GoogleLoginRequest,
   LoginRequest,
   LoginResponse,
   LogoutRequest,
@@ -92,6 +93,16 @@ export const authApi = {
    */
   logout: async (data: LogoutRequest): Promise<APIResponse> => {
     const res = await apiClient.post<APIResponse>('/auth/logout', data);
+    return res.data;
+  },
+
+  /**
+   * Sign in or register via Google OAuth ID token.
+   * @param data Google login request containing the ID token from Google popup.
+   * @returns Login response promise.
+   */
+  googleLogin: async (data: GoogleLoginRequest): Promise<LoginResponse> => {
+    const res = await apiClient.post<LoginResponse>('/auth/google', data);
     return res.data;
   },
 };

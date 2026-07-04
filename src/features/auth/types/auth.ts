@@ -69,6 +69,10 @@ export type LogoutRequest = {
   refreshToken: string;
 };
 
+export type GoogleLoginRequest = {
+  idToken: string;
+};
+
 // ────────────────────────────────────────────────
 // Response types
 // ────────────────────────────────────────────────
