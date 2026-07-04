@@ -12,6 +12,9 @@ jobs:
     name: Synchronize with Crowdin
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    permissions:
+      contents: write
+      pull-requests: write
 
     steps:
       - uses: actions/checkout@v6
