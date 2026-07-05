@@ -1,4 +1,17 @@
 {
+  "Navigation": {
+    "categories": "Kategori",
+    "flash_sale": "Flash Sale",
+    "deals": "Penawaran",
+    "about_us": "Tentang Kami",
+    "sign_in": "Masuk",
+    "sign_up": "Daftar",
+    "my_account": "Akun Saya",
+    "sign_out": "Keluar",
+    "search_placeholder": "Cari sayur, buah, beras, petani...",
+    "shopping_cart": "Keranjang Belanja",
+    "notifications": "Notifikasi"
+  },
   "Index": {
     "meta_title": "GreenMart | Pertanian Presisi & Produk Segar",
     "meta_description": "Dukung 2000+ petani lokal dan dapatkan produk organik berkualitas tinggi yang dikirim dalam 24 jam.",

@@ -8,7 +8,7 @@ commit-msg:
 pre-commit:
   jobs:
     - name: ultracite
-      run: npx ultracite fix --type-aware --type-check
+      run: npx ultracite fix --type-aware --type-check {staged_files}
       glob:
         - '**/*.js'
         - '**/*.jsx'

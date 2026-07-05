@@ -1,4 +1,17 @@
 {
+  "Navigation": {
+    "categories": "Categories",
+    "flash_sale": "Flash Sale",
+    "deals": "Deals",
+    "about_us": "About Us",
+    "sign_in": "Sign In",
+    "sign_up": "Sign Up",
+    "my_account": "My Account",
+    "sign_out": "Sign Out",
+    "search_placeholder": "Search vegetables, fruits, rice, farmers...",
+    "shopping_cart": "Shopping Cart",
+    "notifications": "Notifications"
+  },
   "Index": {
     "meta_title": "GreenMart | Precision Agriculture & Fresh Produce",
     "meta_description": "Support 2000+ local farmers and get the highest quality organic produce delivered within 24 hours.",
