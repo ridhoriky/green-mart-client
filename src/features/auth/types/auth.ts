@@ -11,10 +11,10 @@ export type UserResponse = {
 
 /** Generic API response wrapper from backend. */
 export type APIResponse<T = unknown> = {
-  status: number;
+  status: 'success' | 'error';
   message: string;
   data: T;
-  error: string;
+  error?: string;
 };
 
 /**
@@ -61,14 +61,6 @@ export type ResendOTPRequest = {
   email: string;
 };
 
-export type RefreshTokenRequest = {
-  refreshToken: string;
-};
-
-export type LogoutRequest = {
-  refreshToken: string;
-};
-
 export type GoogleLoginRequest = {
   idToken: string;
 };
@@ -79,21 +71,16 @@ export type GoogleLoginRequest = {
 
 export type LoginResponse = {
   accessToken: string;
-  refreshToken: string;
   expiresAt: number;
-  expiresRt: number;
   user: UserResponse;
-  message: string;
 };
 
 export type RegisterResponse = {
-  message: string;
   user: UserResponse;
 };
 
 export type AuthTokenResponse = {
   accessToken: string;
-  refreshToken: string;
   expiresAt: number;
-  expiresRt: number;
+  user: UserResponse;
 };
