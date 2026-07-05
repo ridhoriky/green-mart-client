@@ -53,7 +53,7 @@ export const PersistLogin = (props: { children: React.ReactNode }) => {
       <div className="flex min-h-screen w-full flex-col items-center justify-center bg-background text-on-surface">
         <div className="flex flex-col items-center gap-4">
           <Loader2 className="h-10 w-10 animate-spin text-primary" />
-          <p className="font-body-md animate-pulse text-secondary">Loading secure session...</p>
+          <p className="font-body-md animate-pulse text-secondary">Loading...</p>
         </div>
       </div>
     );

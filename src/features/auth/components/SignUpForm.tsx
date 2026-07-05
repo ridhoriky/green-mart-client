@@ -1,6 +1,7 @@
 'use client';
 
 import { zodResolver } from '@hookform/resolvers/zod';
+import { GoogleLogin } from '@react-oauth/google';
 import { Loader2 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
@@ -31,7 +32,7 @@ export const SignUpForm = () => {
   const [showPassword, setShowPassword] = React.useState(false);
 
   const { mutate: register, isPending, error } = useRegister();
-  const { initiateLogin: loginWithGoogle, isPending: isGooglePending } = useGoogleLogin();
+  const { handleGoogleSuccess } = useGoogleLogin();
 
   const form = useForm<RegisterFormValues>({
     resolver: zodResolver(registerSchema),
@@ -291,16 +292,14 @@ export const SignUpForm = () => {
               </p>
 
               {/* Social Registration - Google Only & Full Width */}
-              <div className="w-full">
+              <div className="relative w-full">
+                {/* Visible Custom Button */}
                 <Button
                   type="button"
                   variant="outline"
                   size="medium"
                   className="w-full gap-2 bg-surface-container-lowest hover:bg-surface-container-low active:scale-95"
-                  onClick={() => {
-                    loginWithGoogle();
-                  }}
-                  disabled={isPending || isGooglePending}
+                  disabled={isPending}
                 >
                   <svg className="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true">
                     <path
@@ -324,6 +323,20 @@ export const SignUpForm = () => {
                     {t('google_button')}
                   </span>
                 </Button>
+
+                {/* Invisible Google Login Overlay */}
+                <div className="absolute inset-0 z-10 h-full w-full cursor-pointer overflow-hidden opacity-0 [&_div]:h-full [&_div]:w-full [&_div]:max-w-none [&_iframe]:absolute [&_iframe]:inset-0 [&_iframe]:h-full [&_iframe]:min-h-full [&_iframe]:w-full [&_iframe]:min-w-full">
+                  <GoogleLogin
+                    onSuccess={handleGoogleSuccess}
+                    onError={() => {
+                      toast.error('Google sign-in was cancelled or failed.');
+                    }}
+                    theme="outline"
+                    size="large"
+                    shape="rectangular"
+                    width="100%"
+                  />
+                </div>
               </div>
             </footer>
           </section>
