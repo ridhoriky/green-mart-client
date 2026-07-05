@@ -46,6 +46,18 @@ test.describe('Authentication', () => {
         },
       });
     });
+
+    // Mock refresh endpoint (unauthorized by default for guest user)
+    await page.route('**/api/v1/auth/refresh', async (route) => {
+      await route.fulfill({
+        status: 401,
+        contentType: 'application/json',
+        json: {
+          status: 'error',
+          message: 'Invalid or expired refresh token',
+        },
+      });
+    });
   });
 
   test.describe('Sign up', () => {
@@ -118,6 +130,46 @@ test.describe('Authentication', () => {
 
       // Toast or error alert should appear containing error text
       await expect(page.locator('body')).toContainText(/error|invalid|failed|wrong/iu);
+    });
+
+    test('signs in successfully and redirects to home', async ({ page }) => {
+      await page.route('**/api/v1/auth/login', async (route) => {
+        await route.fulfill({
+          status: 200,
+          contentType: 'application/json',
+          headers: {
+            'Set-Cookie':
+              'refresh_token=mocked_refresh_token; Path=/api/v1/auth; HttpOnly; Secure; SameSite=Strict; Max-Age=604800',
+          },
+          json: {
+            status: 'success',
+            message: 'Login successful',
+            data: {
+              accessToken: 'mocked_access_token',
+              expiresAt: 1_720_000_000,
+              user: {
+                id: 'uuid-user',
+                name: 'Test User',
+                email: 'farmer@greenmart.com',
+                role: 'user',
+                isActive: true,
+              },
+            },
+          },
+        });
+      });
+
+      await page.goto('/en/sign-in');
+
+      // Fill in valid details
+      await page.getByPlaceholder('farmer@greenmart.com').fill('farmer@greenmart.com');
+      await page.getByPlaceholder('••••••••').fill('PasswordAman123!');
+
+      // Click submit
+      await page.getByRole('button', { name: /sign in/iu }).click();
+
+      // Should redirect away from sign-in page
+      await expect(page).not.toHaveURL(/sign-in/u);
     });
   });
 

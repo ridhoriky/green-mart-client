@@ -1,6 +1,19 @@
 import { expect, test } from '@playwright/test';
 
 test.describe('I18n', () => {
+  test.beforeEach(async ({ page }) => {
+    await page.route('**/api/v1/auth/refresh', async (route) => {
+      await route.fulfill({
+        status: 401,
+        contentType: 'application/json',
+        json: {
+          status: 'error',
+          message: 'Invalid or expired refresh token',
+        },
+      });
+    });
+  });
+
   test.describe('Language Switching', () => {
     test('should switch language from English to Indonesian using buttons and verify text on the homepage', async ({
       page,
