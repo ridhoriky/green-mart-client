@@ -1,17 +1,36 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import * as React from 'react';
+import { Button, buttonVariants } from '@/components/ui/button';
+import { useLogout } from '@/features/auth/hooks/useLogout';
+import { useAuthStore } from '@/features/auth/store/authStore';
+import { Link, usePathname, useRouter } from '@/libs/I18nNavigation';
 
 export const TopNavBar = () => {
+  const t = useTranslations('Navigation');
   const pathname = usePathname();
+  const [isOpen, setIsOpen] = React.useState(false);
+
+  const { mutate: logout, isPending: isLoggingOut } = useLogout();
+  const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
+  const user = useAuthStore((state) => state.user);
+  const router = useRouter();
+
+  const handleProtectedAction = (path: string) => {
+    if (isAuthenticated) {
+      router.push(path);
+    } else {
+      router.push('/sign-in');
+    }
+  };
 
   const navLinks = [
-    { name: 'Categories', href: '/categories' },
-    { name: 'Flash Sale', href: '/flash-sale' },
-    { name: 'Deals', href: '/deals' },
-    { name: 'About Us', href: '/about' },
+    { name: t('categories'), href: '/categories' },
+    { name: t('flash_sale'), href: '/flash-sale' },
+    { name: t('deals'), href: '/deals' },
+    { name: t('about_us'), href: '/about' },
   ];
 
   return (
@@ -38,8 +57,8 @@ export const TopNavBar = () => {
           </span>
           <input
             className="w-full rounded-lg border-transparent bg-surface-container-low py-2 pr-4 pl-12 font-body-sm text-body-sm transition-all focus:border-primary focus:ring-1 focus:ring-primary"
-            placeholder="Search vegetables, fruits, rice, farmers..."
-            aria-label="Search vegetables, fruits, rice, farmers"
+            placeholder={t('search_placeholder')}
+            aria-label={t('search_placeholder')}
             type="text"
           />
         </div>
@@ -47,10 +66,10 @@ export const TopNavBar = () => {
         {/* Nav Links */}
         <div className="hidden items-center gap-6 lg:flex">
           {navLinks.map((link) => {
-            const isActive = pathname.replace(/^\/(en|id)/u, '') === link.href;
+            const isActive = pathname === link.href;
             return (
               <Link
-                key={link.name}
+                key={link.href}
                 href={link.href}
                 className={`border-b-2 pb-1 font-label-bold text-label-bold transition-colors ${
                   isActive
@@ -66,40 +85,120 @@ export const TopNavBar = () => {
 
         {/* Actions */}
         <div className="flex items-center gap-4">
-          <button
-            type="button"
-            aria-label="Shopping Cart"
-            className="group relative hidden rounded-full p-2 transition-all hover:bg-surface-container-low active:scale-95 md:block"
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => {
+              handleProtectedAction('/cart');
+            }}
+            aria-label={t('shopping_cart')}
+            className="group relative hidden rounded-full md:flex"
           >
-            <span className="material-symbols-outlined text-on-surface-variant">shopping_cart</span>
+            <span className="material-symbols-outlined">shopping_cart</span>
             <span className="absolute top-1 right-1 flex h-4 w-4 items-center justify-center rounded-full bg-primary text-[10px] text-white">
               3
             </span>
-          </button>
-          <button
-            type="button"
-            aria-label="Notifications"
-            className="rounded-full p-2 transition-all hover:bg-surface-container-low active:scale-95"
+          </Button>
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => {
+              handleProtectedAction('/notifications');
+            }}
+            aria-label={t('notifications')}
+            className="rounded-full"
           >
-            <span className="material-symbols-outlined text-on-surface-variant">notifications</span>
-          </button>
-          <div className="mx-1 hidden h-8 w-[1px] bg-outline-variant md:block" />
-          <div className="hidden items-center gap-3 md:flex">
-            <Link
-              href="/sign-in"
-              className="flex items-center gap-2 rounded-full border border-primary px-4 py-2 font-label-bold text-label-bold text-primary transition-all hover:bg-primary/10 active:scale-95"
-            >
-              <span className="material-symbols-outlined text-[20px]">login</span>
-              Sign In
-            </Link>
-            <Link
-              href="/sign-up"
-              className="flex items-center gap-2 rounded-full border border-transparent bg-primary px-4 py-2 font-label-bold text-label-bold text-white transition-all hover:bg-primary/90 active:scale-95"
-            >
-              <span className="material-symbols-outlined text-[20px]">person_add</span>
-              Sign Up
-            </Link>
-          </div>
+            <span className="material-symbols-outlined">notifications</span>
+          </Button>
+          <div className="mx-1 hidden h-8 w-px bg-outline-variant md:block" />
+
+          {isAuthenticated ? (
+            <div className="relative">
+              <button
+                type="button"
+                onClick={() => {
+                  setIsOpen(!isOpen);
+                }}
+                className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-linear-to-tr from-primary to-secondary font-bold text-white shadow-md transition-all select-none hover:scale-105 active:scale-95"
+              >
+                {user?.name?.charAt(0).toUpperCase() ?? 'U'}
+              </button>
+
+              {isOpen && (
+                <>
+                  <button
+                    type="button"
+                    aria-label="Close menu"
+                    className="fixed inset-0 z-40 h-full w-full cursor-default border-0 bg-transparent p-0"
+                    onClick={() => {
+                      setIsOpen(false);
+                    }}
+                  />
+                  <div className="absolute right-0 z-50 mt-2 w-56 animate-fade-in-up rounded-xl border border-outline-variant bg-surface-container-lowest p-2 shadow-xl">
+                    <div className="px-3 py-2 font-body-sm text-body-sm text-on-surface">
+                      <p className="font-title-sm text-title-sm truncate font-bold">{user?.name}</p>
+                      <p className="truncate text-[12px] text-secondary">{user?.email}</p>
+                      <span className="mt-1 inline-block rounded-full bg-secondary-container px-2.5 py-0.5 text-[10px] font-bold text-on-secondary-container uppercase">
+                        {user?.role}
+                      </span>
+                    </div>
+
+                    <div className="my-1 border-t border-outline-variant" />
+
+                    <Link
+                      href="/account"
+                      onClick={() => {
+                        setIsOpen(false);
+                      }}
+                      className="flex items-center gap-2 rounded-lg px-3 py-2 font-label-bold text-label-bold text-on-surface transition-colors hover:bg-surface-container-low"
+                    >
+                      <span className="material-symbols-outlined text-[18px]">person</span>
+                      {t('my_account')}
+                    </Link>
+
+                    <Button
+                      variant="ghost"
+                      onClick={() => {
+                        setIsOpen(false);
+                        logout();
+                      }}
+                      disabled={isLoggingOut}
+                      className="w-full justify-start gap-2 text-error hover:bg-error/10 hover:text-error"
+                    >
+                      {isLoggingOut ? (
+                        <span className="material-symbols-outlined animate-spin text-[18px]">
+                          progress_activity
+                        </span>
+                      ) : (
+                        <span className="material-symbols-outlined text-[18px]">logout</span>
+                      )}
+                      {t('sign_out')}
+                    </Button>
+                  </div>
+                </>
+              )}
+            </div>
+          ) : (
+            <div className="hidden items-center gap-3 md:flex">
+              <Link
+                href="/sign-in"
+                className={buttonVariants({
+                  variant: 'outline',
+                  className: 'gap-2 rounded-full',
+                })}
+              >
+                <span className="material-symbols-outlined text-[20px]">login</span>
+                {t('sign_in')}
+              </Link>
+              <Link
+                href="/sign-up"
+                className={buttonVariants({ variant: 'primary', className: 'gap-2 rounded-full' })}
+              >
+                <span className="material-symbols-outlined text-[20px]">person_add</span>
+                {t('sign_up')}
+              </Link>
+            </div>
+          )}
         </div>
       </div>
     </nav>
