@@ -1,6 +1,10 @@
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Card } from '@/components/ui/card';
+import { Progress } from '@/components/ui/progress';
 
 export function FlashSale() {
   const t = useTranslations('Index.FlashSale');
@@ -38,11 +42,14 @@ export function FlashSale() {
           </Link>
         </div>
         <div className="hide-scrollbar flex gap-gutter overflow-x-auto pb-6">
-          {/* Product Card */}
-          <div className="product-card-hover group relative min-w-[240px] cursor-pointer overflow-hidden rounded-xl border border-outline-variant bg-white">
-            <div className="absolute top-2 left-2 z-10 rounded bg-error px-2 py-1 text-[10px] font-bold text-white">
+          {/* Card 1 */}
+          <Card className="product-card-hover group relative min-w-[240px] cursor-pointer overflow-hidden rounded-xl border border-outline-variant bg-white">
+            <Badge
+              variant="error"
+              className="absolute top-2 left-2 z-10 rounded px-2 py-1 text-[10px] font-bold uppercase"
+            >
               50% OFF
-            </div>
+            </Badge>
             <div className="relative aspect-square overflow-hidden">
               <Image
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuBP50p5foZKtlLlVs5Wn-EOyyF1aIQ3IutvyhYqjpGYrgmpzk0bgdxGSXpv4ya8JiUjZQJ_LzC3hvL44qozw1CKGpZLpHAgXidjX9EHhGdaXPyuafcAO6325qqqmfGitANK0ql5kt9TVejci14YnWdHBeCZM_5mDI0vFLnzzLdRKhEG9UNoURmwDCoxo1zZl4Pzsg32u-8soNh2y4YFSzuCR9yKRHKKF8XSV1MW_Q3FUIQWxQ3wS3xSFR2XBDwbMSu_fAfd97SGEpCd"
@@ -51,9 +58,13 @@ export function FlashSale() {
                 sizes="600px"
                 className="object-cover transition-transform duration-500 group-hover:scale-110"
               />
-              <button className="absolute right-2 bottom-2 translate-y-4 rounded-full bg-primary p-2 text-white opacity-0 shadow-lg transition-all group-hover:translate-y-0 group-hover:opacity-100 active:scale-90">
+              <Button
+                variant="primary"
+                size="icon"
+                className="absolute right-2 bottom-2 translate-y-4 rounded-full opacity-0 shadow-lg transition-all group-hover:translate-y-0 group-hover:opacity-100"
+              >
                 <span className="material-symbols-outlined">add_shopping_cart</span>
-              </button>
+              </Button>
             </div>
             <div className="p-4">
               <h4 className="mb-1 line-clamp-1 font-title-md text-body-lg">
@@ -68,18 +79,19 @@ export function FlashSale() {
                   <span>Available: 12</span>
                   <span>Sold: 48</span>
                 </div>
-                <div className="h-1.5 w-full overflow-hidden rounded-full bg-surface-container">
-                  <div className="h-full rounded-full bg-error" style={{ width: '80%' }}></div>
-                </div>
+                <Progress value={80} indicatorClassName="bg-error" className="h-1.5" />
               </div>
             </div>
-          </div>
+          </Card>
 
-          {/* Repeat for items */}
-          <div className="product-card-hover group relative min-w-[240px] cursor-pointer overflow-hidden rounded-xl border border-outline-variant bg-white">
-            <div className="absolute top-2 left-2 z-10 rounded bg-error px-2 py-1 text-[10px] font-bold text-white">
+          {/* Card 2 */}
+          <Card className="product-card-hover group relative min-w-[240px] cursor-pointer overflow-hidden rounded-xl border border-outline-variant bg-white">
+            <Badge
+              variant="error"
+              className="absolute top-2 left-2 z-10 rounded px-2 py-1 text-[10px] font-bold uppercase"
+            >
               30% OFF
-            </div>
+            </Badge>
             <div className="relative aspect-square overflow-hidden">
               <Image
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxZH7DQUnMwUNz6eQVMgrmEJhWq0nzS9c2mTlN1RSYVyWbjcLZpFshcX2TY-gapSNkteew2GkdYUldmmrPyfpoLf0UxQuH2jYy73fNfM-scjz2xtec3GIJRJoT79ehmAu0lVwbcbBxQ5ZCJFzqR1ineU_WN4SPfO3o0PDKgH5GyGvOgwaU5mfAuaOPyz_ReH8jMRpy9CeYh5AVdxENmTE6QbTV9Yl3EKx1aU8eQG6Qm0mS_HbLxFK1zYFHmnmijKkI8HYKjFjydGWO"
@@ -88,9 +100,13 @@ export function FlashSale() {
                 sizes="600px"
                 className="object-cover transition-transform duration-500 group-hover:scale-110"
               />
-              <button className="absolute right-2 bottom-2 translate-y-4 rounded-full bg-primary p-2 text-white opacity-0 shadow-lg transition-all group-hover:translate-y-0 group-hover:opacity-100 active:scale-90">
+              <Button
+                variant="primary"
+                size="icon"
+                className="absolute right-2 bottom-2 translate-y-4 rounded-full opacity-0 shadow-lg transition-all group-hover:translate-y-0 group-hover:opacity-100"
+              >
                 <span className="material-symbols-outlined">add_shopping_cart</span>
-              </button>
+              </Button>
             </div>
             <div className="p-4">
               <h4 className="mb-1 line-clamp-1 font-title-md text-body-lg">
@@ -105,29 +121,34 @@ export function FlashSale() {
                   <span>Available: 5</span>
                   <span>Sold: 95</span>
                 </div>
-                <div className="h-1.5 w-full overflow-hidden rounded-full bg-surface-container">
-                  <div className="h-full rounded-full bg-error" style={{ width: '95%' }}></div>
-                </div>
+                <Progress value={95} indicatorClassName="bg-error" className="h-1.5" />
               </div>
             </div>
-          </div>
+          </Card>
 
           {/* Card 3 */}
-          <div className="product-card-hover group relative min-w-[240px] cursor-pointer overflow-hidden rounded-xl border border-outline-variant bg-white">
-            <div className="absolute top-2 left-2 z-10 rounded bg-error px-2 py-1 text-[10px] font-bold text-white">
+          <Card className="product-card-hover group relative min-w-[240px] cursor-pointer overflow-hidden rounded-xl border border-outline-variant bg-white">
+            <Badge
+              variant="error"
+              className="absolute top-2 left-2 z-10 rounded px-2 py-1 text-[10px] font-bold uppercase"
+            >
               40% OFF
-            </div>
+            </Badge>
             <div className="relative aspect-square overflow-hidden">
               <Image
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoqq1UJyd5BAhbcLnQHlSPoM8WQcxQci_-bG0p28iGRIvisPrXnr-YXHGJWkikZhc_UQmnL0FdOWDeCdWUBoGR1dJGQnGfG1hcGq5uORwyW5anCZRcN2kUzAZBDaY5kBhUYBbdNOnwZtts9el1fT_5RclOjjT8B_oi1dd-BZORj2OoKpAGep4OHTev8SYos-SlZrThFwe5MJjlzEPCKys3nozdwb4F-eyxZAgq6AKgoDhbgcCyClSASK8Juc9e8pXfaGPRVZMMyNaf"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoqq1UJyd5BAhbcLnQHlSPoM8WQcxQci_-bG0p28iGRIvisPrXnr-YXHGJWkikZhc_UQmnL0FdOWDeCdWUBoGR1dJGQnGfG1hcGq5uORwyW5anCZRcN2wUzAZBDaY5kBhUYBbdNOnwZtts9el1fT_5RclOjjT8B_oi1dd-BZORj2OoKpAGep4OHTev8SYos-SlZrThFwe5MJjlzEPCKys3nozdwb4F-eyxZAgq6AKgoDhbgcCyClSASK8Juc9e8pXfaGPRVZMMyNaf"
                 alt="Fresh Green Grapes"
                 fill
                 sizes="600px"
                 className="object-cover transition-transform duration-500 group-hover:scale-110"
               />
-              <button className="absolute right-2 bottom-2 translate-y-4 rounded-full bg-primary p-2 text-white opacity-0 shadow-lg transition-all group-hover:translate-y-0 group-hover:opacity-100 active:scale-90">
+              <Button
+                variant="primary"
+                size="icon"
+                className="absolute right-2 bottom-2 translate-y-4 rounded-full opacity-0 shadow-lg transition-all group-hover:translate-y-0 group-hover:opacity-100"
+              >
                 <span className="material-symbols-outlined">add_shopping_cart</span>
-              </button>
+              </Button>
             </div>
             <div className="p-4">
               <h4 className="mb-1 line-clamp-1 font-title-md text-body-lg">Fresh Green Grapes</h4>
@@ -140,18 +161,19 @@ export function FlashSale() {
                   <span>Available: 20</span>
                   <span>Sold: 80</span>
                 </div>
-                <div className="h-1.5 w-full overflow-hidden rounded-full bg-surface-container">
-                  <div className="h-full rounded-full bg-error" style={{ width: '80%' }}></div>
-                </div>
+                <Progress value={80} indicatorClassName="bg-error" className="h-1.5" />
               </div>
             </div>
-          </div>
+          </Card>
 
           {/* Card 4 */}
-          <div className="product-card-hover group relative min-w-[240px] cursor-pointer overflow-hidden rounded-xl border border-outline-variant bg-white">
-            <div className="absolute top-2 left-2 z-10 rounded bg-error px-2 py-1 text-[10px] font-bold text-white">
+          <Card className="product-card-hover group relative min-w-[240px] cursor-pointer overflow-hidden rounded-xl border border-outline-variant bg-white">
+            <Badge
+              variant="error"
+              className="absolute top-2 left-2 z-10 rounded px-2 py-1 text-[10px] font-bold uppercase"
+            >
               25% OFF
-            </div>
+            </Badge>
             <div className="relative aspect-square overflow-hidden">
               <Image
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfALjQuLdalHXEN5mkWXLzRpitXYIXaPYzVpl6D0AfzxzSC9lefC-X5and-xXghQzZqm7jbAmcs2sPJkwca-0HR0J3bwLyGq_X6ASDKp2kj4gWX2WT8XZl8vzm-wCda6fCbVR5sJyh9ND2282UaBPRfeQ4LSF8tTPmfgIVjKaizLn0_hOSL7gHAScxL3ZxXEsFXgj6m125nQ5c6icOrjZ9YftZc6ecyTL4iN5CO2YuCLxpJEkWSJaj3mc99bKupCuzrchTzYjZgxh7"
@@ -160,9 +182,13 @@ export function FlashSale() {
                 sizes="600px"
                 className="object-cover transition-transform duration-500 group-hover:scale-110"
               />
-              <button className="absolute right-2 bottom-2 translate-y-4 rounded-full bg-primary p-2 text-white opacity-0 shadow-lg transition-all group-hover:translate-y-0 group-hover:opacity-100 active:scale-90">
+              <Button
+                variant="primary"
+                size="icon"
+                className="absolute right-2 bottom-2 translate-y-4 rounded-full opacity-0 shadow-lg transition-all group-hover:translate-y-0 group-hover:opacity-100"
+              >
                 <span className="material-symbols-outlined">add_shopping_cart</span>
-              </button>
+              </Button>
             </div>
             <div className="p-4">
               <h4 className="mb-1 line-clamp-1 font-title-md text-body-lg">Organic Farm Eggs</h4>
@@ -175,18 +201,19 @@ export function FlashSale() {
                   <span>Available: 15</span>
                   <span>Sold: 45</span>
                 </div>
-                <div className="h-1.5 w-full overflow-hidden rounded-full bg-surface-container">
-                  <div className="h-full rounded-full bg-error" style={{ width: '75%' }}></div>
-                </div>
+                <Progress value={75} indicatorClassName="bg-error" className="h-1.5" />
               </div>
             </div>
-          </div>
+          </Card>
 
           {/* Card 5 */}
-          <div className="product-card-hover group relative min-w-[240px] cursor-pointer overflow-hidden rounded-xl border border-outline-variant bg-white">
-            <div className="absolute top-2 left-2 z-10 rounded bg-error px-2 py-1 text-[10px] font-bold text-white">
+          <Card className="product-card-hover group relative min-w-[240px] cursor-pointer overflow-hidden rounded-xl border border-outline-variant bg-white">
+            <Badge
+              variant="error"
+              className="absolute top-2 left-2 z-10 rounded px-2 py-1 text-[10px] font-bold uppercase"
+            >
               15% OFF
-            </div>
+            </Badge>
             <div className="relative aspect-square overflow-hidden">
               <Image
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuBP50p5foZKtlLlVs5Wn-EOyyF1aIQ3IutvyhYqjpGYrgmpzk0bgdxGSXpv4ya8JiUjZQJ_LzC3hvL44qozw1CKGpZLpHAgXidjX9EHhGdaXPyuafcAO6325qqqmfGitANK0ql5kt9TVejci14YnWdHBeCZM_5mDI0vFLnzzLdRKhEG9UNoURmwDCoxo1zZl4Pzsg32u-8soNh2y4YFSzuCR9yKRHKKF8XSV1MW_Q3FUIQWxQ3wS3xSFR2XBDwbMSu_fAfd97SGEpCd"
@@ -195,9 +222,13 @@ export function FlashSale() {
                 sizes="600px"
                 className="object-cover transition-transform duration-500 group-hover:scale-110"
               />
-              <button className="absolute right-2 bottom-2 translate-y-4 rounded-full bg-primary p-2 text-white opacity-0 shadow-lg transition-all group-hover:translate-y-0 group-hover:opacity-100 active:scale-90">
+              <Button
+                variant="primary"
+                size="icon"
+                className="absolute right-2 bottom-2 translate-y-4 rounded-full opacity-0 shadow-lg transition-all group-hover:translate-y-0 group-hover:opacity-100"
+              >
                 <span className="material-symbols-outlined">add_shopping_cart</span>
-              </button>
+              </Button>
             </div>
             <div className="p-4">
               <h4 className="mb-1 line-clamp-1 font-title-md text-body-lg">Crisp Lettuce</h4>
@@ -210,12 +241,10 @@ export function FlashSale() {
                   <span>Available: 30</span>
                   <span>Sold: 20</span>
                 </div>
-                <div className="h-1.5 w-full overflow-hidden rounded-full bg-surface-container">
-                  <div className="h-full rounded-full bg-error" style={{ width: '40%' }}></div>
-                </div>
+                <Progress value={40} indicatorClassName="bg-error" className="h-1.5" />
               </div>
             </div>
-          </div>
+          </Card>
         </div>
       </div>
     </section>
