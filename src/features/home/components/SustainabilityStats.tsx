@@ -1,6 +1,22 @@
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 
+type StatItemProps = {
+  value: string;
+  label: string;
+};
+
+function StatItem(props: StatItemProps) {
+  return (
+    <div>
+      <div className="mb-1 text-4xl font-bold text-primary">{props.value}</div>
+      <div className="text-label-bold tracking-wider text-on-surface-variant uppercase">
+        {props.label}
+      </div>
+    </div>
+  );
+}
+
 export function SustainabilityStats() {
   const t = useTranslations('Index.SustainabilityStats');
 
@@ -23,30 +39,10 @@ export function SustainabilityStats() {
             {t('desc')}
           </p>
           <div className="grid grid-cols-2 gap-8">
-            <div>
-              <div className="mb-1 text-4xl font-bold text-primary">2,000+</div>
-              <div className="text-label-bold tracking-wider text-on-surface-variant uppercase">
-                {t('verified_farmers')}
-              </div>
-            </div>
-            <div>
-              <div className="mb-1 text-4xl font-bold text-primary">100k+</div>
-              <div className="text-label-bold tracking-wider text-on-surface-variant uppercase">
-                {t('eco_orders')}
-              </div>
-            </div>
-            <div>
-              <div className="mb-1 text-4xl font-bold text-primary">15%</div>
-              <div className="text-label-bold tracking-wider text-on-surface-variant uppercase">
-                {t('lower_carbon')}
-              </div>
-            </div>
-            <div>
-              <div className="mb-1 text-4xl font-bold text-primary">$5M+</div>
-              <div className="text-label-bold tracking-wider text-on-surface-variant uppercase">
-                {t('farmer_revenue')}
-              </div>
-            </div>
+            <StatItem value="2,000+" label={t('verified_farmers')} />
+            <StatItem value="100k+" label={t('eco_orders')} />
+            <StatItem value="15%" label={t('lower_carbon')} />
+            <StatItem value="$5M+" label={t('farmer_revenue')} />
           </div>
         </div>
       </div>
