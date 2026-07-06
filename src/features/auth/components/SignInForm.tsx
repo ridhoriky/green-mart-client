@@ -99,6 +99,7 @@ export const SignInForm = () => {
                           variant="primary"
                           size="medium"
                           placeholder={t('email_placeholder')}
+                          data-testid="email-input"
                         />
                       </FormControl>
                       <FormMessage />
@@ -133,6 +134,7 @@ export const SignInForm = () => {
                             size="medium"
                             className="pr-12"
                             placeholder={t('password_placeholder')}
+                            data-testid="password-input"
                           />
                           <button
                             type="button"
@@ -178,6 +180,7 @@ export const SignInForm = () => {
                   size="large"
                   disabled={isPending}
                   className="w-full"
+                  data-testid="signin-submit-btn"
                 >
                   {isPending ? (
                     <>

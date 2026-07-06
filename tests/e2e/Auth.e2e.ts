@@ -10,6 +10,11 @@ test.describe('Authentication', () => {
       console.log('PAGE ERROR:', err.message);
     });
 
+    // Block Google Sign-In SDK to prevent external requests/flakiness
+    await page.route('https://accounts.google.com/**', async (route) => {
+      await route.abort();
+    });
+
     // Mock register endpoint
     await page.route('**/api/v1/auth/register', async (route) => {
       await route.fulfill({
@@ -65,10 +70,10 @@ test.describe('Authentication', () => {
       await page.goto('/en/sign-up');
 
       // Click the terms checkbox to satisfy native HTML5 required validation
-      await page.getByRole('checkbox').click();
+      await page.getByTestId('terms-checkbox').click();
 
       // Click submit
-      await page.getByRole('button', { name: /create account/iu }).click();
+      await page.getByTestId('signup-submit-btn').click();
 
       // Capture screenshot for debugging
       await page.screenshot({ path: 'test-results/signup-empty-errors.png' });
@@ -86,15 +91,15 @@ test.describe('Authentication', () => {
       await page.goto('/en/sign-up');
 
       // Fill in form details
-      await page.getByPlaceholder('Enter your legal name').fill('Test Playwright');
-      await page.getByPlaceholder('you@example.com').fill(email);
-      await page.getByPlaceholder('At least 8 characters').fill(password);
+      await page.getByTestId('name-input').fill('Test Playwright');
+      await page.getByTestId('email-input').fill(email);
+      await page.getByTestId('password-input').fill(password);
 
       // Agree to terms and conditions by clicking checkbox
-      await page.getByRole('checkbox').click();
+      await page.getByTestId('terms-checkbox').click();
 
       // Submit form
-      await page.getByRole('button', { name: /create account/iu }).click();
+      await page.getByTestId('signup-submit-btn').click();
 
       // Capture screenshot after submit
       await page.waitForTimeout(2000);
@@ -111,7 +116,7 @@ test.describe('Authentication', () => {
       await page.goto('/en/sign-in');
 
       // Click submit
-      await page.getByRole('button', { name: /sign in/iu }).click();
+      await page.getByTestId('signin-submit-btn').click();
 
       // Check validation error messages
       await expect(page.getByText('Valid email is required')).toBeVisible();
@@ -122,11 +127,11 @@ test.describe('Authentication', () => {
       await page.goto('/en/sign-in');
 
       // Fill in invalid details
-      await page.getByPlaceholder('farmer@greenmart.com').fill('nonexistent@example.com');
-      await page.getByPlaceholder('••••••••').fill('wrongpassword');
+      await page.getByTestId('email-input').fill('nonexistent@example.com');
+      await page.getByTestId('password-input').fill('wrongpassword');
 
       // Click submit
-      await page.getByRole('button', { name: /sign in/iu }).click();
+      await page.getByTestId('signin-submit-btn').click();
 
       // Toast or error alert should appear containing error text
       await expect(page.locator('body')).toContainText(/error|invalid|failed|wrong/iu);
@@ -162,11 +167,11 @@ test.describe('Authentication', () => {
       await page.goto('/en/sign-in');
 
       // Fill in valid details
-      await page.getByPlaceholder('farmer@greenmart.com').fill('farmer@greenmart.com');
-      await page.getByPlaceholder('••••••••').fill('PasswordAman123!');
+      await page.getByTestId('email-input').fill('farmer@greenmart.com');
+      await page.getByTestId('password-input').fill('PasswordAman123!');
 
       // Click submit
-      await page.getByRole('button', { name: /sign in/iu }).click();
+      await page.getByTestId('signin-submit-btn').click();
 
       // Should redirect away from sign-in page
       await expect(page).not.toHaveURL(/sign-in/u);
@@ -178,7 +183,7 @@ test.describe('Authentication', () => {
       await page.goto('/en/reset-password');
 
       // Click submit
-      await page.getByRole('button', { name: /send reset link/iu }).click();
+      await page.getByTestId('reset-submit-btn').click();
 
       // Check validation error messages
       await expect(page.getByText('Valid email is required')).toBeVisible();
@@ -188,10 +193,10 @@ test.describe('Authentication', () => {
       await page.goto('/en/reset-password');
 
       // Fill in email
-      await page.getByPlaceholder('e.g. name@company.com').fill('user@example.com');
+      await page.getByTestId('reset-email-input').fill('user@example.com');
 
       // Click submit
-      await page.getByRole('button', { name: /send reset link/iu }).click();
+      await page.getByTestId('reset-submit-btn').click();
 
       // Should show success state message (e.g. check your email)
       await expect(page.locator('body')).toContainText(/check your email|sent|success/iu);

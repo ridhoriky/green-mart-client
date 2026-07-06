@@ -146,6 +146,7 @@ export const SignUpForm = () => {
                             className="bg-surface-container-low pl-10"
                             placeholder={t('fullname_placeholder')}
                             type="text"
+                            data-testid="name-input"
                           />
                         </div>
                       </FormControl>
@@ -175,6 +176,7 @@ export const SignUpForm = () => {
                             className="bg-surface-container-low pl-10"
                             placeholder={t('email_placeholder')}
                             type="email"
+                            data-testid="email-input"
                           />
                         </div>
                       </FormControl>
@@ -204,6 +206,7 @@ export const SignUpForm = () => {
                             className="bg-surface-container-low pr-12 pl-10"
                             placeholder={t('password_placeholder')}
                             type={showPassword ? 'text' : 'password'}
+                            data-testid="password-input"
                           />
                           <button
                             className="absolute top-1/2 right-3 -translate-y-1/2 cursor-pointer text-outline transition-colors hover:text-primary"
@@ -230,6 +233,7 @@ export const SignUpForm = () => {
                     id="signup-terms"
                     required
                     aria-label="Terms of Service and Privacy Policy"
+                    data-testid="terms-checkbox"
                   />
                   <label
                     className="cursor-pointer font-body-sm text-body-sm text-secondary select-none"
@@ -264,6 +268,7 @@ export const SignUpForm = () => {
                   className="mt-4 w-full tracking-widest"
                   type="submit"
                   disabled={isPending}
+                  data-testid="signup-submit-btn"
                 >
                   {isPending ? (
                     <>

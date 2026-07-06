@@ -244,6 +244,7 @@ export const ResetPasswordForm = () => {
                         className="pr-4 pl-10"
                         placeholder={t('email_placeholder')}
                         type="email"
+                        data-testid="reset-email-input"
                       />
                     </div>
                   </FormControl>
@@ -258,6 +259,7 @@ export const ResetPasswordForm = () => {
               className="w-full gap-2"
               type="submit"
               disabled={isPending}
+              data-testid="reset-submit-btn"
             >
               {isPending && <Loader2 className="h-5 w-5 animate-spin text-white" />}
               <span>{isPending ? t('sending_button') : t('submit_button')}</span>
