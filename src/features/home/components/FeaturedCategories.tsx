@@ -1,16 +1,21 @@
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
+import { Link } from '@/libs/I18nNavigation';
 
 type CategoryItemProps = {
   src: string;
   alt: string;
   title: string;
   description: string;
+  href: string;
 };
 
 function CategoryItem(props: CategoryItemProps) {
   return (
-    <div className="group relative h-64 cursor-pointer overflow-hidden rounded-2xl">
+    <Link
+      href={props.href}
+      className="group relative block h-64 cursor-pointer overflow-hidden rounded-2xl"
+    >
       <Image
         src={props.src}
         alt={props.alt}
@@ -23,7 +28,7 @@ function CategoryItem(props: CategoryItemProps) {
         <h3 className="mb-1 font-headline-lg text-headline-lg-mobile">{props.title}</h3>
         <p className="text-body-sm opacity-90">{props.description}</p>
       </div>
-    </div>
+    </Link>
   );
 }
 
@@ -39,18 +44,21 @@ export function FeaturedCategories() {
           alt="Vegetables"
           title={t('cat_vegetables')}
           description={t('desc_vegetables')}
+          href="/products?category=vegetables"
         />
         <CategoryItem
           src="/assets/images/categories-02.jpg"
           alt="Fresh Fruits"
           title={t('cat_fruits')}
           description={t('desc_fruits')}
+          href="/products?category=fruits"
         />
         <CategoryItem
           src="/assets/images/categories-03.jpg"
           alt="Grains & Rice"
           title={t('cat_grains')}
           description={t('desc_grains')}
+          href="/products?category=grains"
         />
       </div>
     </section>
