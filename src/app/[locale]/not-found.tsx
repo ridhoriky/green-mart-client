@@ -1,14 +1,10 @@
-import { NextIntlClientProvider, useTranslations } from 'next-intl';
+import { useTranslations } from 'next-intl';
 import { BottomNavBar } from '@/components/layout/BottomNavBar';
 import { Footer } from '@/components/layout/Footer';
 import { TopNavBar } from '@/components/layout/TopNavBar';
 import { Link } from '@/libs/I18nNavigation';
-import { TanstackQueryProvider } from '@/libs/TanstackQueryProvider';
-import messages from '@/locales/en.json';
-import '@/styles/global.css';
-import 'material-symbols/outlined.css';
 
-function NotFoundInner() {
+export default function NotFound() {
   const t = useTranslations('NotFound');
 
   return (
@@ -50,22 +46,5 @@ function NotFoundInner() {
       <Footer />
       <BottomNavBar />
     </div>
-  );
-}
-
-export default function NotFound() {
-  return (
-    <html lang="en">
-      <head>
-        <title>404 - Page Not Found</title>
-      </head>
-      <body>
-        <TanstackQueryProvider>
-          <NextIntlClientProvider locale="en" messages={messages}>
-            <NotFoundInner />
-          </NextIntlClientProvider>
-        </TanstackQueryProvider>
-      </body>
-    </html>
   );
 }
