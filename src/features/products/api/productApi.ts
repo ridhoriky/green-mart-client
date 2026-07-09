@@ -1,0 +1,83 @@
+import type { APIResponse } from '@/features/auth/types/auth';
+import type {
+  CategoryTreeNode,
+  ProductDetail,
+  ProductListResponse,
+  ProductQueryParams,
+  ReviewListResponse,
+} from '@/features/products/types/product';
+import { apiClient } from '@/libs/apiClient';
+
+export const productApi = {
+  /**
+   * Retrieve list of products with filters.
+   * @param params Query filters for product listing.
+   * @returns Product list response.
+   */
+  getProducts: async (params?: ProductQueryParams): Promise<ProductListResponse> => {
+    const res = await apiClient.get<APIResponse<ProductListResponse>>('/products', { params });
+    return res.data.data;
+  },
+
+  /**
+   * Get single product detail by ID or Slug.
+   * @param idOrSlug UUID or Slug of the product.
+   * @returns Product detail response.
+   */
+  getProductDetail: async (idOrSlug: string): Promise<ProductDetail> => {
+    const res = await apiClient.get<APIResponse<ProductDetail>>(`/products/${idOrSlug}`);
+    return res.data.data;
+  },
+
+  /**
+   * Get list of categories in a tree structure.
+   * @returns Category tree node list.
+   */
+  getCategories: async (): Promise<CategoryTreeNode[]> => {
+    const res = await apiClient.get<APIResponse<CategoryTreeNode[]>>('/categories');
+    return res.data.data;
+  },
+
+  /**
+   * Get reviews for a specific product.
+   * @param idOrSlug Product UUID or Slug.
+   * @param params Pagination parameters.
+   * @returns Product reviews response.
+   */
+  getProductReviews: async (
+    idOrSlug: string,
+    params?: { page?: number; limit?: number },
+  ): Promise<ReviewListResponse> => {
+    const res = await apiClient.get<APIResponse<ReviewListResponse>>(
+      `/products/${idOrSlug}/reviews`,
+      {
+        params,
+      },
+    );
+    return res.data.data;
+  },
+
+  /**
+   * Toggle a product inside user's wishlist.
+   * @param productId Product UUID.
+   * @returns API response wrapper.
+   */
+  toggleWishlist: async (productId: string): Promise<APIResponse> => {
+    const res = await apiClient.post<APIResponse>('/wishlist/toggle', { product_id: productId });
+    return res.data;
+  },
+
+  /**
+   * Add a product to the user's shopping cart.
+   * @param productId Product UUID.
+   * @param quantity Number of items.
+   * @returns API response wrapper.
+   */
+  addToCart: async (productId: string, quantity: number): Promise<APIResponse> => {
+    const res = await apiClient.post<APIResponse>('/cart', {
+      product_id: productId,
+      quantity,
+    });
+    return res.data;
+  },
+};
