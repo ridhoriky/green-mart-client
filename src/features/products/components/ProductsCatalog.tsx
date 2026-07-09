@@ -71,13 +71,6 @@ function isCategoryMatch(node: CategoryTreeNode, categoryParam: string) {
     return true;
   }
 
-  if (normalizedName.includes(normalizedParam)) {
-    return true;
-  }
-  if (slugifiedName.includes(normalizedParam)) {
-    return true;
-  }
-
   return false;
 }
 
@@ -204,15 +197,20 @@ function CatalogFilters(props: CatalogFiltersProps) {
   } = props;
 
   // Recursive rendering of category tree
-  const renderCategories = (nodes: CategoryTreeNode[], depth = 0): React.ReactNode =>
+  const renderCategories = (
+    nodes: CategoryTreeNode[],
+    depth = 0,
+    isParentSelected = false,
+  ): React.ReactNode =>
     nodes.map((node) => {
-      const isSelected = isCategoryMatch(node, category);
+      const isExactSelected = isCategoryMatch(node, category);
+      const isSelected = isParentSelected || isExactSelected;
       return (
         <div key={node.id} style={{ paddingLeft: `${depth * 12}px` }} className="my-1">
           <button
             type="button"
             onClick={() => {
-              updateParams({ category: isSelected ? undefined : node.name });
+              updateParams({ category: isExactSelected ? undefined : node.name });
             }}
             className={`flex w-full items-center justify-between truncate rounded-md px-2 py-1 text-left font-body-sm text-[13px] transition-colors hover:bg-surface-container-low ${
               isSelected ? 'bg-primary/10 font-bold text-primary' : 'text-on-surface-variant'
@@ -221,7 +219,9 @@ function CatalogFilters(props: CatalogFiltersProps) {
             <span>{node.name}</span>
             <span className="text-[10px] text-outline">({node.product_count})</span>
           </button>
-          {node.children && node.children.length > 0 && renderCategories(node.children, depth + 1)}
+          {node.children &&
+            node.children.length > 0 &&
+            renderCategories(node.children, depth + 1, isSelected)}
         </div>
       );
     });

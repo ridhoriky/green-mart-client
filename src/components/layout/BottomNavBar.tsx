@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { Link } from '@/libs/I18nNavigation';
 
 export const BottomNavBar = () => (
   <nav className="border-border-subtle fixed bottom-0 z-50 w-full rounded-t-xl border-t bg-surface-container-lowest shadow-sm md:hidden">
@@ -17,7 +17,7 @@ export const BottomNavBar = () => (
         <span className="font-label-md text-label-md mt-0.5">Home</span>
       </Link>
       <Link
-        href="/shop"
+        href="/products"
         className="flex flex-col items-center justify-center text-on-surface-variant transition-colors duration-200 hover:text-primary active:scale-90"
       >
         <span className="material-symbols-outlined" data-icon="storefront">
