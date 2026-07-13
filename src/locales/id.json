@@ -237,5 +237,32 @@
     "description": "Tanaman yang Anda cari tidak ada di kebun kami hari ini.",
     "back_to_home": "Kembali ke Beranda",
     "marketplace": "Marketplace"
+  },
+  "CategoriesPage": {
+    "meta_title": "Kategori Produk | GreenMart",
+    "meta_description": "Cari produk pertanian organik berdasarkan kategori langsung dari petani lokal di GreenMart.",
+    "search_placeholder": "Cari kategori...",
+    "product_count": "{count} Produk",
+    "browse_all": "Semua Produk",
+    "view_products": "Lihat Produk",
+    "explore_button": "Jelajahi",
+    "items_found": "{count} item ditemukan",
+    "empty_state": "Kategori tidak ditemukan.",
+    "error_message": "Gagal memuat kategori. Silakan coba lagi.",
+    "no_subcategories": "Tidak ada subkategori.",
+    "view_all_products": "Lihat semua produk di kategori ini",
+    "category_label": "Kategori",
+    "category_count": "{count} Kategori",
+    "search_results_for": "Hasil Pencarian untuk \"{query}\"",
+    "search_help": "Coba cari kata kunci lain seperti \"Buah\" atau \"Sayur\".",
+    "main_categories": "Kategori Utama",
+    "subcategories": "Subkategori",
+    "error_description": "Silakan periksa koneksi Anda dan coba lagi.",
+    "retry_button": "Coba Lagi",
+    "view_all_help": "Anda dapat melihat semua produk di kategori utama ini menggunakan tombol di atas.",
+    "default_category_description": "Jelajahi pilihan organik premium yang dipetik langsung dari kebun.",
+    "default_subcategory_description": "Langsung dari kebun.",
+    "empty_categories": "Tidak ada kategori yang tersedia.",
+    "empty_categories_description": "Kategori akan ditampilkan setelah ditambahkan."
   }
 }

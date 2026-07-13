@@ -74,16 +74,6 @@ export type ProductDetail = {
   updated_at: string;
 };
 
-export type CategoryTreeNode = {
-  id: string;
-  name: string;
-  description?: string;
-  image_url?: string;
-  product_count: number;
-  sort_order: number;
-  children: CategoryTreeNode[];
-};
-
 type ProductReview = {
   id: string;
   buyer_name: string;

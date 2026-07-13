@@ -28,17 +28,6 @@ export const useProductDetailQuery = (idOrSlug: string) =>
   });
 
 /**
- * Hook to fetch categories hierarchical tree.
- *
- * @returns Query result containing hierarchical categories list
- */
-export const useCategoriesQuery = () =>
-  useQuery({
-    queryKey: ['categories'],
-    queryFn: async () => await productApi.getCategories(),
-  });
-
-/**
  * Hook to fetch reviews list of a product.
  *
  * @param idOrSlug UUID or Slug of the product

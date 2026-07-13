@@ -1,6 +1,5 @@
 import type { APIResponse } from '@/features/auth/types/auth';
 import type {
-  CategoryTreeNode,
   ProductDetail,
   ProductListResponse,
   ProductQueryParams,
@@ -26,15 +25,6 @@ export const productApi = {
    */
   getProductDetail: async (idOrSlug: string): Promise<ProductDetail> => {
     const res = await apiClient.get<APIResponse<ProductDetail>>(`/products/${idOrSlug}`);
-    return res.data.data;
-  },
-
-  /**
-   * Get list of categories in a tree structure.
-   * @returns Category tree node list.
-   */
-  getCategories: async (): Promise<CategoryTreeNode[]> => {
-    const res = await apiClient.get<APIResponse<CategoryTreeNode[]>>('/categories');
     return res.data.data;
   },
 

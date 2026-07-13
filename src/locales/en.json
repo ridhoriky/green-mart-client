@@ -237,5 +237,32 @@
     "description": "The crop you're looking for isn't in our fields today.",
     "back_to_home": "Back to Home",
     "marketplace": "Marketplace"
+  },
+  "CategoriesPage": {
+    "meta_title": "Product Categories | GreenMart",
+    "meta_description": "Browse organic produce by categories directly from local farmers at GreenMart.",
+    "search_placeholder": "Search categories...",
+    "product_count": "{count} Products",
+    "browse_all": "Browse All Products",
+    "view_products": "View Products",
+    "explore_button": "Explore",
+    "items_found": "{count} items found",
+    "empty_state": "No categories found matching your search.",
+    "error_message": "Failed to load categories. Please try again.",
+    "no_subcategories": "No subcategories available.",
+    "view_all_products": "View all products in this category",
+    "category_label": "Category",
+    "category_count": "{count} Categories",
+    "search_results_for": "Search Results for \"{query}\"",
+    "search_help": "Try searching for other terms like \"Fruits\" or \"Vegetables\".",
+    "main_categories": "Main Categories",
+    "subcategories": "Subcategories",
+    "error_description": "Please check your connection and try again.",
+    "retry_button": "Retry",
+    "view_all_help": "You can view all products under this main category using the button above.",
+    "default_category_description": "Explore premium organic selections hand-picked from the farm.",
+    "default_subcategory_description": "Direct from the farm.",
+    "empty_categories": "No categories available.",
+    "empty_categories_description": "Categories will be displayed once they are added."
   }
 }

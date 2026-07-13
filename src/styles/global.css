@@ -150,6 +150,12 @@
     -webkit-backdrop-filter: blur(12px);
   }
 
+  .sidebar-item-active {
+    color: var(--color-primary);
+    font-weight: 600;
+    background: var(--color-secondary-container);
+  }
+
   .agro-gradient {
     background: linear-gradient(135deg, var(--color-background) 0%, #f0f4f1 100%);
   }

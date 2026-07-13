@@ -19,12 +19,10 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select } from '@/components/ui/select';
-import { useProductsQuery, useCategoriesQuery } from '@/features/products/hooks/useProducts';
-import type {
-  CategoryTreeNode,
-  ProductQueryParams,
-  ProductListResponse,
-} from '@/features/products/types/product';
+import { useCategoriesQuery } from '@/features/categories/hooks/useCategories';
+import type { CategoryTreeNode } from '@/features/categories/types/category';
+import { useProductsQuery } from '@/features/products/hooks/useProducts';
+import type { ProductQueryParams, ProductListResponse } from '@/features/products/types/product';
 import { useRouter, usePathname } from '@/libs/I18nNavigation';
 import { ProductCard } from './ProductCard';
 
