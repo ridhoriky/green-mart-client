@@ -1,6 +1,5 @@
 import { Star } from 'lucide-react';
 import { useTranslations } from 'next-intl';
-import * as React from 'react';
 import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
@@ -9,9 +8,9 @@ import type { CategoryTreeNode } from '@/features/categories/types/category';
 import { isCategoryMatch } from '../utils/helpers';
 
 /**
- * Filters component for FlashSaleCatalog, providing category hierarchy selection, price range inputs, rating triggers, and stock status.
+ * Shared filters sidebar component for catalog layouts.
  *
- * @param props - The component props.
+ * @param props - Component props including filters state and update handlers.
  * @returns The filters sidebar component.
  */
 export function CatalogFilters(props: {
@@ -27,8 +26,9 @@ export function CatalogFilters(props: {
   inStock: boolean;
   activeFiltersLength: number;
   handleClearAll: () => void;
+  translationNamespace: 'ProductsPage' | 'DealsPage' | 'FlashSalePage';
 }) {
-  const t = useTranslations('FlashSalePage');
+  const t = useTranslations(props.translationNamespace);
 
   const renderCategories = (
     nodes: CategoryTreeNode[],
@@ -61,6 +61,7 @@ export function CatalogFilters(props: {
 
   return (
     <div className="space-y-6">
+      {/* Category Filter */}
       <div>
         <h3 className="font-title-sm text-body-md mb-3 font-bold text-on-surface">
           {t('categories')}
@@ -76,6 +77,7 @@ export function CatalogFilters(props: {
 
       <hr className="border-outline-variant" />
 
+      {/* Price Range Filter */}
       <div>
         <h3 className="font-title-sm text-body-md mb-3 font-bold text-on-surface">
           {t('price_range')}
@@ -112,6 +114,7 @@ export function CatalogFilters(props: {
 
       <hr className="border-outline-variant" />
 
+      {/* Rating Filter */}
       <div>
         <h3 className="font-title-sm text-body-md mb-3 font-bold text-on-surface">
           {t('minimum_rating')}
@@ -149,12 +152,13 @@ export function CatalogFilters(props: {
 
       <hr className="border-outline-variant" />
 
+      {/* Stock Filter */}
       <div className="flex items-center space-x-2">
         <Checkbox
           id="in_stock"
           checked={props.inStock}
           onCheckedChange={(checked) => {
-            props.updateParams({ in_stock: checked });
+            props.updateParams({ in_stock: checked ? true : undefined });
           }}
         />
         <Label

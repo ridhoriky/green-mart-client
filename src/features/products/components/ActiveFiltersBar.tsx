@@ -2,9 +2,9 @@ import { X } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 
 /**
- * Renders currently active filter badges that can be individually removed.
+ * Shared component to render currently active filter badges that can be individually removed.
  *
- * @param props - The component props.
+ * @param props - Component props including active filters array and state setters.
  * @returns The active filters bar component.
  */
 export function ActiveFiltersBar(props: {

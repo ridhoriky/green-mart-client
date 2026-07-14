@@ -5,7 +5,7 @@ import { findCategoryName } from '../utils/helpers';
 /**
  * Custom hook to generate a list of active filters with user-friendly labels.
  *
- * @param params - The filter values and data.
+ * @param params - The filter values, data, and translation namespace.
  * @returns Array of active filters with label and key.
  */
 export function useActiveFilters(params: {
@@ -16,8 +16,9 @@ export function useActiveFilters(params: {
   maxPrice: string;
   rating: string;
   inStock: boolean;
+  translationNamespace: 'ProductsPage' | 'DealsPage' | 'FlashSalePage';
 }) {
-  const t = useTranslations('DealsPage');
+  const t = useTranslations(params.translationNamespace);
   const activeFilters: { label: string; key: string }[] = [];
 
   if (params.q) {

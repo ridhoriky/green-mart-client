@@ -6,16 +6,16 @@ import * as React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { useCategoriesQuery } from '@/features/categories/hooks/useCategories';
+import { ActiveFiltersBar } from '@/features/products/components/ActiveFiltersBar';
+import { CatalogFilters } from '@/features/products/components/CatalogFilters';
+import { CatalogTopBar } from '@/features/products/components/CatalogTopBar';
+import { PaginationSection } from '@/features/products/components/PaginationSection';
+import { useActiveFilters } from '@/features/products/hooks/useActiveFilters';
+import { useCatalogParams } from '@/features/products/hooks/useCatalogParams';
 import { useProductsQuery } from '@/features/products/hooks/useProducts';
 import type { ProductQueryParams } from '@/features/products/types/product';
-import { useActiveFilters } from '../hooks/useActiveFilters';
-import { useCatalogParams } from '../hooks/useCatalogParams';
-import { ActiveFiltersBar } from './ActiveFiltersBar';
-import { CatalogFilters } from './CatalogFilters';
 import { CatalogGrid } from './CatalogGrid';
-import { CatalogTopBar } from './CatalogTopBar';
 import { FlashSaleBanner } from './FlashSaleBanner';
-import { PaginationSection } from './PaginationSection';
 
 /**
  * Renders the main catalog layout for Flash Sales.
@@ -26,7 +26,7 @@ export function FlashSaleCatalog() {
   const t = useTranslations('FlashSalePage');
 
   const { q, category, minPrice, maxPrice, rating, inStock, sort, page, updateParams } =
-    useCatalogParams();
+    useCatalogParams('popular');
 
   const limit = 12;
 
@@ -102,6 +102,7 @@ export function FlashSaleCatalog() {
     maxPrice,
     rating,
     inStock,
+    translationNamespace: 'FlashSalePage',
   });
 
   return (
@@ -128,6 +129,7 @@ export function FlashSaleCatalog() {
               inStock={inStock}
               activeFiltersLength={activeFilters.length}
               handleClearAll={handleClearAll}
+              translationNamespace="FlashSalePage"
             />
           </Card>
         </aside>
@@ -141,6 +143,7 @@ export function FlashSaleCatalog() {
             setMobileFiltersOpen={setMobileFiltersOpen}
             sort={sort}
             updateParams={updateParams}
+            translationNamespace="FlashSalePage"
           />
 
           <ActiveFiltersBar
@@ -227,6 +230,7 @@ export function FlashSaleCatalog() {
               inStock={inStock}
               activeFiltersLength={activeFilters.length}
               handleClearAll={handleClearAll}
+              translationNamespace="FlashSalePage"
             />
           </div>
         </>

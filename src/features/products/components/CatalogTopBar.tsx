@@ -1,14 +1,13 @@
 import { Search, Sliders } from 'lucide-react';
 import { useTranslations } from 'next-intl';
-import * as React from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Select } from '@/components/ui/select';
 
 /**
- * Top bar component for search input and sort option dropdown.
+ * Shared top bar component for search input and sort option dropdown.
  *
- * @param props - The component props.
+ * @param props - Component props including search/sort states and page translation namespace.
  * @returns The catalog top bar component.
  */
 export function CatalogTopBar(props: {
@@ -19,11 +18,13 @@ export function CatalogTopBar(props: {
   setMobileFiltersOpen: (val: boolean) => void;
   sort: string;
   updateParams: (newParams: Record<string, string | number | boolean | undefined | null>) => void;
+  translationNamespace: 'ProductsPage' | 'DealsPage' | 'FlashSalePage';
 }) {
-  const t = useTranslations('FlashSalePage');
+  const t = useTranslations(props.translationNamespace);
 
   return (
     <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      {/* Search Input */}
       <form onSubmit={props.handleSearchSubmit} className="relative max-w-md flex-1">
         <Input
           type="text"
@@ -44,6 +45,7 @@ export function CatalogTopBar(props: {
       </form>
 
       <div className="flex items-center justify-between gap-4">
+        {/* Mobile Filter Toggle */}
         <Button
           onClick={() => {
             props.setMobileFiltersOpen(!props.mobileFiltersOpen);
@@ -55,6 +57,7 @@ export function CatalogTopBar(props: {
           <span>{t('filter_title')}</span>
         </Button>
 
+        {/* Sorting */}
         <div className="flex items-center gap-2">
           <span className="hidden text-[12px] font-medium whitespace-nowrap text-outline sm:inline">
             {t('sort_by')}:

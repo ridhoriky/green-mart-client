@@ -2,9 +2,9 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 /**
- * Handles catalog paging using simple prev/next buttons.
+ * Shared component to handle catalog paging using simple prev/next buttons.
  *
- * @param props - The component props.
+ * @param props - Component props including current page, total page count, and parameter update trigger.
  * @returns The pagination section component.
  */
 export function PaginationSection(props: {

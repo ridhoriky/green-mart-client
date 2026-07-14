@@ -3,11 +3,12 @@ import type { ProductQueryParams } from '@/features/products/types/product';
 import { useRouter, usePathname } from '@/libs/I18nNavigation';
 
 /**
- * Handle routing and URLSearchParams parsing for Flash Sale Page.
+ * Handle routing and URLSearchParams parsing for Catalog pages.
  *
+ * @param defaultSort - The default sort value if not provided in search query.
  * @returns Query states and parameter update function.
  */
-export function useCatalogParams() {
+export function useCatalogParams(defaultSort: ProductQueryParams['sort'] = 'newest') {
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
@@ -17,7 +18,7 @@ export function useCatalogParams() {
   const minPrice = searchParams.get('min_price') ?? '';
   const maxPrice = searchParams.get('max_price') ?? '';
   const rating = searchParams.get('rating') ?? '';
-  const inStock = searchParams.get('in_stock') !== 'false'; // defaults to true for flash sale
+  const inStock = searchParams.get('in_stock') === 'true';
   const sortParam = searchParams.get('sort');
   const sort: ProductQueryParams['sort'] =
     sortParam === 'newest' ||
@@ -26,7 +27,7 @@ export function useCatalogParams() {
     sortParam === 'rating' ||
     sortParam === 'popular'
       ? sortParam
-      : 'popular';
+      : defaultSort;
   const page = Number(searchParams.get('page') ?? '1');
 
   const updateParams = (
