@@ -333,5 +333,32 @@
     "sort_price_desc": "Harga: Tinggi ke Rendah",
     "sort_rating": "Rating Tertinggi",
     "sort_popular": "Terpopuler"
+  },
+  "CartPage": {
+    "meta_title": "Keranjang Belanja | GreenMart",
+    "meta_description": "Lihat dan kelola keranjang belanja Anda sebelum memesan hasil bumi organik di GreenMart.",
+    "title": "Keranjang Belanja",
+    "subtitle": "Periksa produk yang Anda tambahkan ke keranjang",
+    "items_found": "{count} produk ditemukan",
+    "empty_title": "Keranjang Belanja Kosong",
+    "empty_desc": "Jelajahi hasil panen segar organik kami dan tambahkan produk ke keranjang Anda.",
+    "start_shopping": "Mulai Belanja",
+    "error_title": "Gagal memuat keranjang",
+    "error_desc": "Kami tidak dapat mengambil produk keranjang Anda. Silakan coba lagi.",
+    "retry": "Coba Lagi",
+    "remove_item": "Hapus",
+    "summary_title": "Ringkasan Pesanan",
+    "subtotal": "Subtotal",
+    "shipping": "Pengiriman",
+    "free": "Gratis",
+    "total": "Total",
+    "checkout": "Bayar Sekarang",
+    "clear_cart": "Kosongkan Keranjang",
+    "item_removed": "Produk dihapus dari keranjang.",
+    "cart_cleared": "Semua produk dikosongkan dari keranjang.",
+    "error_update_failed": "Gagal mengubah jumlah produk.",
+    "error_remove_failed": "Gagal menghapus produk.",
+    "error_clear_failed": "Gagal mengosongkan keranjang.",
+    "checkout_placeholder_msg": "Fitur pembayaran akan segera diintegrasikan!"
   }
 }

@@ -6,6 +6,7 @@ import * as React from 'react';
 import { Button, buttonVariants } from '@/components/ui/button';
 import { useLogout } from '@/features/auth/hooks/useLogout';
 import { useAuthStore } from '@/features/auth/store/authStore';
+import { useCartQuery } from '@/features/cart';
 import { Link, usePathname, useRouter } from '@/libs/I18nNavigation';
 
 export const TopNavBar = () => {
@@ -17,6 +18,9 @@ export const TopNavBar = () => {
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
   const user = useAuthStore((state) => state.user);
   const router = useRouter();
+
+  const { data: cartData } = useCartQuery();
+  const cartCount = isAuthenticated ? (cartData?.total_items ?? 0) : 0;
 
   const handleProtectedAction = (path: string) => {
     if (isAuthenticated) {
@@ -95,9 +99,11 @@ export const TopNavBar = () => {
             className="group relative hidden rounded-full md:flex"
           >
             <span className="material-symbols-outlined">shopping_cart</span>
-            <span className="absolute top-1 right-1 flex h-4 w-4 items-center justify-center rounded-full bg-primary text-[10px] text-white">
-              3
-            </span>
+            {cartCount > 0 && (
+              <span className="absolute top-1 right-1 flex h-4 w-4 items-center justify-center rounded-full bg-primary text-[10px] text-white">
+                {cartCount}
+              </span>
+            )}
           </Button>
           <Button
             variant="ghost"

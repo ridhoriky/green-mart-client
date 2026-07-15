@@ -333,5 +333,32 @@
     "sort_price_desc": "Price: High to Low",
     "sort_rating": "Highest Rating",
     "sort_popular": "Popularity"
+  },
+  "CartPage": {
+    "meta_title": "Shopping Cart | GreenMart",
+    "meta_description": "View and manage your shopping cart before ordering organic produce on GreenMart.",
+    "title": "Shopping Cart",
+    "subtitle": "Review items you added to your cart",
+    "items_found": "{count} items found",
+    "empty_title": "Your Cart is Empty",
+    "empty_desc": "Explore our fresh organic harvest and add items to your cart.",
+    "start_shopping": "Start Shopping",
+    "error_title": "Failed to load cart",
+    "error_desc": "We couldn't retrieve your cart items. Please try again.",
+    "retry": "Retry",
+    "remove_item": "Remove",
+    "summary_title": "Order Summary",
+    "subtotal": "Subtotal",
+    "shipping": "Shipping",
+    "free": "Free",
+    "total": "Total",
+    "checkout": "Checkout Now",
+    "clear_cart": "Clear Cart",
+    "item_removed": "Item removed from cart.",
+    "cart_cleared": "All items cleared from cart.",
+    "error_update_failed": "Failed to update item quantity.",
+    "error_remove_failed": "Failed to remove item.",
+    "error_clear_failed": "Failed to clear cart.",
+    "checkout_placeholder_msg": "Checkout functionality will be integrated soon!"
   }
 }
