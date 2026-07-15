@@ -21,11 +21,11 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { useAuthStore } from '@/features/auth/store/authStore';
+import { useAddToCartMutation } from '@/features/cart/hooks/useCart';
 import {
   useProductDetailQuery,
   useProductReviewsQuery,
   useToggleWishlistMutation,
-  useAddToCartMutation,
 } from '@/features/products/hooks/useProducts';
 import type { ProductImage, ReviewListResponse } from '@/features/products/types/product';
 import { Link, useRouter } from '@/libs/I18nNavigation';
@@ -117,14 +117,14 @@ function ProductReviewsSection(props: ProductReviewsSectionProps) {
               {t('average_rating')}
             </span>
             <span className="mb-2 font-display-lg text-[48px] leading-none font-bold text-on-surface">
-              {Number(reviewsData.average_rating as unknown).toFixed(1)}
+              {reviewsData.average_rating.toFixed(1)}
             </span>
             <div className="mb-2 flex items-center gap-0.5 text-yellow-500">
               {Array.from({ length: 5 }).map((_, i) => (
                 <Star
                   key={i}
                   className={`h-4.5 w-4.5 ${
-                    i < Math.round(Number(reviewsData.average_rating as unknown))
+                    i < Math.round(reviewsData.average_rating)
                       ? 'fill-yellow-500 text-yellow-500'
                       : 'text-outline-variant'
                   }`}
@@ -487,9 +487,7 @@ export function ProductDetailSection(props: ProductDetailSectionProps) {
             <div className="flex items-center gap-4 text-[13px] font-medium text-on-surface-variant">
               <div className="flex items-center gap-1">
                 <Star className="h-4 w-4 fill-yellow-500 text-yellow-500" />
-                <span className="font-bold text-on-surface">
-                  {Number(product.rating_avg as unknown).toFixed(1)}
-                </span>
+                <span className="font-bold text-on-surface">{product.rating_avg.toFixed(1)}</span>
                 <span className="text-outline">({product.total_reviews} reviews)</span>
               </div>
               <div className="h-3.5 w-px bg-outline-variant" />
@@ -505,8 +503,7 @@ export function ProductDetailSection(props: ProductDetailSectionProps) {
           <Card className="space-y-4 rounded-2xl border border-outline-variant bg-surface-container-lowest p-6">
             <div className="flex items-baseline justify-between">
               <span className="font-display-md text-[32px] font-bold text-primary">
-                {product.price &&
-                  `Rp ${Math.round(Number(product.price as unknown)).toLocaleString('id-ID')}`}
+                {product.price && `Rp ${Math.round(product.price).toLocaleString('id-ID')}`}
               </span>
               <div>
                 {isOutOfStock ? (

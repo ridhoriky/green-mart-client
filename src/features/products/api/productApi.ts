@@ -56,18 +56,4 @@ export const productApi = {
     const res = await apiClient.post<APIResponse>('/wishlist/toggle', { product_id: productId });
     return res.data;
   },
-
-  /**
-   * Add a product to the user's shopping cart.
-   * @param productId Product UUID.
-   * @param quantity Number of items.
-   * @returns API response wrapper.
-   */
-  addToCart: async (productId: string, quantity: number): Promise<APIResponse> => {
-    const res = await apiClient.post<APIResponse>('/cart', {
-      product_id: productId,
-      quantity,
-    });
-    return res.data;
-  },
 };

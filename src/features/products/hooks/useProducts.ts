@@ -61,21 +61,3 @@ export const useToggleWishlistMutation = () => {
     },
   });
 };
-
-/**
- * Hook to add an item to the shopping cart.
- *
- * @returns Mutation object for adding item to cart
- */
-export const useAddToCartMutation = () => {
-  const queryClient = useQueryClient();
-
-  return useMutation({
-    mutationFn: async (props: { productId: string; quantity: number }) =>
-      await productApi.addToCart(props.productId, props.quantity),
-    onSuccess: () => {
-      // Invalidate cart related queries (if any) to refresh badge numbers
-      void queryClient.invalidateQueries({ queryKey: ['cart'] });
-    },
-  });
-};

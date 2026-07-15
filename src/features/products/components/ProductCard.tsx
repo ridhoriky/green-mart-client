@@ -8,10 +8,8 @@ import { toast } from 'sonner';
 import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
 import { useAuthStore } from '@/features/auth/store/authStore';
-import {
-  useToggleWishlistMutation,
-  useAddToCartMutation,
-} from '@/features/products/hooks/useProducts';
+import { useAddToCartMutation } from '@/features/cart/hooks/useCart';
+import { useToggleWishlistMutation } from '@/features/products/hooks/useProducts';
 import type { Product } from '@/features/products/types/product';
 import { Link, useRouter } from '@/libs/I18nNavigation';
 
@@ -190,11 +188,11 @@ export function ProductCard(props: ProductCardProps) {
               )}
               <span className="text-[16px] font-bold text-primary">
                 {props.product.price &&
-                  `Rp ${Math.round(Number(props.product.price as unknown)).toLocaleString('id-ID')}`}
+                  `Rp ${Math.round(props.product.price).toLocaleString('id-ID')}`}
               </span>
               <div className="flex items-center gap-1 text-[11px] font-medium text-on-surface-variant">
                 <Star className="h-3.5 w-3.5 fill-yellow-500 text-yellow-500" />
-                <span>{Number(props.product.rating_avg as unknown).toFixed(1)}</span>
+                <span>{props.product.rating_avg.toFixed(1)}</span>
                 <span className="text-outline">({props.product.total_sold})</span>
               </div>
             </div>
