@@ -2,6 +2,7 @@ import { NextIntlClientProvider, useTranslations } from 'next-intl';
 import { BottomNavBar } from '@/components/layout/BottomNavBar';
 import { Footer } from '@/components/layout/Footer';
 import { TopNavBar } from '@/components/layout/TopNavBar';
+import { PersistLogin } from '@/features/auth';
 import { Link } from '@/libs/I18nNavigation';
 import { TanstackQueryProvider } from '@/libs/TanstackQueryProvider';
 import messages from '@/locales/en.json';
@@ -62,7 +63,9 @@ export default function NotFound() {
       <body>
         <TanstackQueryProvider>
           <NextIntlClientProvider locale="en" messages={messages}>
-            <NotFoundInner />
+            <PersistLogin>
+              <NotFoundInner />
+            </PersistLogin>
           </NextIntlClientProvider>
         </TanstackQueryProvider>
       </body>
