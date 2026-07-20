@@ -9,8 +9,8 @@ import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
 import { useAuthStore } from '@/features/auth/store/authStore';
 import { useAddToCartMutation } from '@/features/cart/hooks/useCart';
-import { useToggleWishlistMutation } from '@/features/products/hooks/useProducts';
 import type { Product } from '@/features/products/types/product';
+import { useToggleWishlistMutation } from '@/features/wishlist/hooks/useWishlist';
 import { Link, useRouter } from '@/libs/I18nNavigation';
 
 type ProductCardProps = {

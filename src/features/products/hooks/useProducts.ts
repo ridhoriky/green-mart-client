@@ -1,7 +1,6 @@
-import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+import { useQuery } from '@tanstack/react-query';
 import { productApi } from '@/features/products/api/productApi';
 import type { ProductQueryParams } from '@/features/products/types/product';
-import { wishlistApi } from '@/features/wishlist/api/wishlistApi';
 
 /**
  * Hook to fetch lists of products with query parameters.
@@ -44,21 +43,3 @@ export const useProductReviewsQuery = (
     queryFn: async () => await productApi.getProductReviews(idOrSlug, params),
     enabled: Boolean(idOrSlug),
   });
-
-/**
- * Hook to toggle wishlist status of a product.
- *
- * @returns Mutation object for toggling wishlist
- */
-export const useToggleWishlistMutation = () => {
-  const queryClient = useQueryClient();
-
-  return useMutation({
-    mutationFn: async (productId: string) => await wishlistApi.toggleWishlist(productId),
-    onSuccess: () => {
-      // Invalidate products lists and product details to refresh wishlist indicators
-      void queryClient.invalidateQueries({ queryKey: ['products'] });
-      void queryClient.invalidateQueries({ queryKey: ['product'] });
-    },
-  });
-};

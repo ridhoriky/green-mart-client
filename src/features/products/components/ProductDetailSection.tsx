@@ -25,9 +25,9 @@ import { useAddToCartMutation } from '@/features/cart/hooks/useCart';
 import {
   useProductDetailQuery,
   useProductReviewsQuery,
-  useToggleWishlistMutation,
 } from '@/features/products/hooks/useProducts';
 import type { ProductImage, ReviewListResponse } from '@/features/products/types/product';
+import { useToggleWishlistMutation } from '@/features/wishlist/hooks/useWishlist';
 import { Link, useRouter } from '@/libs/I18nNavigation';
 
 type ProductDetailSectionProps = {
