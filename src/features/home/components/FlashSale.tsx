@@ -143,7 +143,7 @@ export function FlashSale() {
           </div>
           <Link
             className="font-label-bold text-[14px] whitespace-nowrap text-primary hover:underline"
-            href="/products"
+            href="/flash-sale"
           >
             {t('view_all')}
           </Link>

@@ -57,7 +57,7 @@ export function RecommendedProducts() {
         <h2 className="font-headline-lg text-headline-lg">{t('title')}</h2>
         <Link
           className="font-label-bold text-[14px] whitespace-nowrap text-primary hover:underline"
-          href="/products"
+          href="/deals"
         >
           {t('view_all')}
         </Link>
