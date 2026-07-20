@@ -46,14 +46,4 @@ export const productApi = {
     );
     return res.data.data;
   },
-
-  /**
-   * Toggle a product inside user's wishlist.
-   * @param productId Product UUID.
-   * @returns API response wrapper.
-   */
-  toggleWishlist: async (productId: string): Promise<APIResponse> => {
-    const res = await apiClient.post<APIResponse>('/wishlist/toggle', { product_id: productId });
-    return res.data;
-  },
 };
