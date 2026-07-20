@@ -10,7 +10,8 @@
     "sign_out": "Sign Out",
     "search_placeholder": "Search vegetables, fruits, rice, farmers...",
     "shopping_cart": "Shopping Cart",
-    "notifications": "Notifications"
+    "notifications": "Notifications",
+    "become_seller": "Become a Seller"
   },
   "Index": {
     "meta_title": "GreenMart | Precision Agriculture & Fresh Produce",
@@ -360,5 +361,38 @@
     "error_remove_failed": "Failed to remove item.",
     "error_clear_failed": "Failed to clear cart.",
     "checkout_placeholder_msg": "Checkout functionality will be integrated soon!"
+  },
+  "SellerRegisterPage": {
+    "meta_title": "Become a Seller | GreenMart",
+    "meta_description": "Start your journey as a seller on GreenMart and reach thousands of buyers every day.",
+    "title": "Open Your Store on GreenMart",
+    "subtitle": "Join thousands of sellers and start selling in minutes.",
+    "store_name_label": "Store Name",
+    "store_name_placeholder": "e.g. Budi's Organic Store",
+    "store_name_min_length": "Store name must be at least 3 characters.",
+    "store_name_max_length": "Store name must not exceed 50 characters.",
+    "store_description_label": "Store Description",
+    "store_description_placeholder": "Tell us about your store...",
+    "optional": "optional",
+    "submit_registration": "Open Store Now",
+    "submitting": "Registering...",
+    "registration_success": "Store created successfully! Welcome to GreenMart.",
+    "registration_failed": "Registration failed. Please try again."
+  },
+  "SellerDashboard": {
+    "meta_title": "Seller Dashboard | GreenMart",
+    "meta_description": "Manage your store, view sales reports, and track your orders on GreenMart.",
+    "title": "Seller Dashboard",
+    "total_revenue": "Total Revenue",
+    "total_orders": "Total Orders",
+    "items_sold": "Items Sold",
+    "pending_orders": "Pending Orders",
+    "recent_orders": "Recent Orders",
+    "no_recent_orders": "No recent orders yet.",
+    "top_products": "Top Products",
+    "no_top_products": "No products sold yet.",
+    "sold": "sold",
+    "loading": "Loading dashboard data...",
+    "error": "Failed to load dashboard data. Please try again later."
   }
 }

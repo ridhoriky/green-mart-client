@@ -162,6 +162,19 @@ export const TopNavBar = () => {
                       {t('my_account')}
                     </Link>
 
+                    {user?.role === 'user' && (
+                      <Link
+                        href="/seller/register"
+                        onClick={() => {
+                          setIsOpen(false);
+                        }}
+                        className="flex items-center gap-2 rounded-lg px-3 py-2 font-label-bold text-label-bold text-primary transition-colors hover:bg-primary/10"
+                      >
+                        <span className="material-symbols-outlined text-[18px]">storefront</span>
+                        {t('become_seller')}
+                      </Link>
+                    )}
+
                     <Button
                       variant="ghost"
                       onClick={() => {

@@ -10,7 +10,8 @@
     "sign_out": "Keluar",
     "search_placeholder": "Cari sayur, buah, beras, petani...",
     "shopping_cart": "Keranjang Belanja",
-    "notifications": "Notifikasi"
+    "notifications": "Notifikasi",
+    "become_seller": "Jadi Penjual"
   },
   "Index": {
     "meta_title": "GreenMart | Pertanian Presisi & Produk Segar",
@@ -360,5 +361,38 @@
     "error_remove_failed": "Gagal menghapus produk.",
     "error_clear_failed": "Gagal mengosongkan keranjang.",
     "checkout_placeholder_msg": "Fitur pembayaran akan segera diintegrasikan!"
+  },
+  "SellerRegisterPage": {
+    "meta_title": "Daftar Menjadi Seller | GreenMart",
+    "meta_description": "Mulai perjalanan Anda sebagai penjual di GreenMart dan jangkau ribuan pembeli setiap hari.",
+    "title": "Buka Toko Anda di GreenMart",
+    "subtitle": "Bergabunglah dengan ribuan penjual dan mulai berjualan dalam hitungan menit.",
+    "store_name_label": "Nama Toko",
+    "store_name_placeholder": "misal. Toko Organik Pak Budi",
+    "store_name_min_length": "Nama toko harus memiliki minimal 3 karakter.",
+    "store_name_max_length": "Nama toko tidak boleh melebihi 50 karakter.",
+    "store_description_label": "Deskripsi Toko",
+    "store_description_placeholder": "Ceritakan tentang toko Anda...",
+    "optional": "opsional",
+    "submit_registration": "Buka Toko Sekarang",
+    "submitting": "Mendaftarkan...",
+    "registration_success": "Toko berhasil dibuat! Selamat datang di GreenMart.",
+    "registration_failed": "Gagal mendaftar. Silakan coba lagi."
+  },
+  "SellerDashboard": {
+    "meta_title": "Dashboard Penjual | GreenMart",
+    "meta_description": "Kelola toko Anda, lihat laporan penjualan, dan pantau pesanan Anda di GreenMart.",
+    "title": "Dashboard Penjual",
+    "total_revenue": "Total Pendapatan",
+    "total_orders": "Total Pesanan",
+    "items_sold": "Produk Terjual",
+    "pending_orders": "Pesanan Tertunda",
+    "recent_orders": "Pesanan Terbaru",
+    "no_recent_orders": "Belum ada pesanan terbaru.",
+    "top_products": "Produk Teratas",
+    "no_top_products": "Belum ada produk yang terjual.",
+    "sold": "terjual",
+    "loading": "Memuat data dashboard...",
+    "error": "Gagal memuat data dashboard. Silakan coba lagi nanti."
   }
 }
