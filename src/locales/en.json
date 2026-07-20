@@ -394,5 +394,15 @@
     "sold": "sold",
     "loading": "Loading dashboard data...",
     "error": "Failed to load dashboard data. Please try again later."
+  },
+  "WishlistPage": {
+    "meta_title": "My Wishlist | GreenMart",
+    "meta_description": "View and manage your favorite items on GreenMart.",
+    "title": "My Wishlist",
+    "empty_title": "Your Wishlist is Empty",
+    "empty_subtitle": "Explore our products and tap the heart icon to save them here.",
+    "browse_products": "Browse Products",
+    "error_loading": "Failed to load wishlist. Please try again.",
+    "loading": "Loading your wishlist..."
   }
 }

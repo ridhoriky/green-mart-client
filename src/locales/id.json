@@ -394,5 +394,15 @@
     "sold": "terjual",
     "loading": "Memuat data dashboard...",
     "error": "Gagal memuat data dashboard. Silakan coba lagi nanti."
+  },
+  "WishlistPage": {
+    "meta_title": "Wishlist Saya | GreenMart",
+    "meta_description": "Lihat dan kelola produk favorit Anda di GreenMart.",
+    "title": "Wishlist Saya",
+    "empty_title": "Wishlist Anda Kosong",
+    "empty_subtitle": "Jelajahi produk kami dan ketuk ikon hati untuk menyimpannya di sini.",
+    "browse_products": "Jelajahi Produk",
+    "error_loading": "Gagal memuat wishlist. Silakan coba lagi.",
+    "loading": "Memuat wishlist Anda..."
   }
 }
