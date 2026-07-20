@@ -575,7 +575,11 @@ export function ProductDetailSection(props: ProductDetailSectionProps) {
                     }`}
                     aria-label="Wishlist"
                   >
-                    <Heart className={`h-5 w-5 ${product.is_in_wishlist ? 'fill-red-500' : ''}`} />
+                    <Heart
+                      className={`h-5 w-5 transition-transform duration-300 ${
+                        product.is_in_wishlist ? 'fill-red-500' : ''
+                      } ${toggleWishlistMutation.isPending ? 'animate-bounce scale-110' : ''}`}
+                    />
                   </Button>
                 </div>
               </div>
