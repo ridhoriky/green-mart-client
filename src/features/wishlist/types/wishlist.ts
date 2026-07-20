@@ -3,7 +3,7 @@ import type { Product } from '@/features/products/types/product';
 /**
  * Represents a single item in the user's wishlist.
  */
-export type WishlistItem = {
+type WishlistItem = {
   id: string;
   product: Product;
   added_at: string;

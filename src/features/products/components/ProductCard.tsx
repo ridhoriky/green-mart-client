@@ -137,7 +137,7 @@ export function ProductCard(props: ProductCardProps) {
           <Heart
             className={`h-4 w-4 transition-transform duration-300 ${
               props.product.is_in_wishlist ? 'fill-current' : ''
-            } ${toggleWishlistMutation.isPending ? 'animate-bounce scale-110' : ''}`}
+            } ${toggleWishlistMutation.isPending ? 'scale-110 animate-bounce' : ''}`}
           />
         </button>
 

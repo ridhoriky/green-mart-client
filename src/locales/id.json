@@ -404,5 +404,15 @@
     "browse_products": "Jelajahi Produk",
     "error_loading": "Gagal memuat wishlist. Silakan coba lagi.",
     "loading": "Memuat wishlist Anda..."
+  },
+  "StorePage": {
+    "meta_title": "{storeName} | Toko GreenMart",
+    "title": "Detail Toko",
+    "products_tab": "Produk",
+    "verified": "Terverifikasi",
+    "error_loading": "Gagal memuat detail toko. Silakan coba lagi.",
+    "no_products": "Tidak ada produk yang tersedia di toko ini.",
+    "search_placeholder": "Cari produk di toko ini...",
+    "total_products": "{count} Produk"
   }
 }

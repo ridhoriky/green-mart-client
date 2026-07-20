@@ -404,5 +404,15 @@
     "browse_products": "Browse Products",
     "error_loading": "Failed to load wishlist. Please try again.",
     "loading": "Loading your wishlist..."
+  },
+  "StorePage": {
+    "meta_title": "{storeName} | GreenMart Store",
+    "title": "Store Details",
+    "products_tab": "Products",
+    "verified": "Verified",
+    "error_loading": "Failed to load store details. Please try again.",
+    "no_products": "No products available in this store.",
+    "search_placeholder": "Search products in this store...",
+    "total_products": "{count} Products"
   }
 }
