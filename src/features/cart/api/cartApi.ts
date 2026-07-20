@@ -1,6 +1,19 @@
 import type { APIResponse } from '@/features/auth/types/auth';
-import type { CartResponse } from '@/features/cart/types/cart';
+import type { CartResponse, CartItem } from '@/features/cart/types/cart';
+import type { Product } from '@/features/products/types/product';
 import { apiClient } from '@/libs/apiClient';
+
+type BackendCartItem = Omit<CartItem, 'subtotal' | 'product'> & {
+  subtotal: string | number;
+  product: Omit<Product, 'price'> & {
+    price: string | number;
+  };
+};
+
+type BackendCartResponse = Omit<CartResponse, 'items' | 'total_amount'> & {
+  items: BackendCartItem[];
+  total_amount: string | number;
+};
 
 export const cartApi = {
   /**
@@ -8,8 +21,20 @@ export const cartApi = {
    * @returns The cart items, total amount, and total item count.
    */
   getCart: async (): Promise<CartResponse> => {
-    const res = await apiClient.get<APIResponse<CartResponse>>('/cart');
-    return res.data.data;
+    const res = await apiClient.get<APIResponse<BackendCartResponse>>('/cart');
+    const { data } = res.data;
+    return {
+      ...data,
+      total_amount: Number(data.total_amount),
+      items: data.items.map((item) => ({
+        ...item,
+        subtotal: Number(item.subtotal),
+        product: {
+          ...item.product,
+          price: Number(item.product.price),
+        },
+      })),
+    };
   },
 
   /**

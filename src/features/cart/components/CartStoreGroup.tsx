@@ -27,7 +27,7 @@ export function CartStoreGroup(props: {
       <div className="mb-4 flex items-center gap-2 border-b border-outline-variant pb-3">
         <Store className="h-5 w-5 text-primary" />
         <span className="font-title-md text-title-md font-bold text-on-surface">
-          {props.store.name}
+          {props.store.store_name}
         </span>
         {props.store.is_verified && (
           <span

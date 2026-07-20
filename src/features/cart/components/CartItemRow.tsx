@@ -63,7 +63,7 @@ export function CartItemRow(props: {
             onClick={() => {
               props.onDecrement(props.item);
             }}
-            disabled={props.isPendingUpdate || props.isPendingRemove}
+            disabled={props.isPendingRemove}
             className="h-7 w-7 rounded-full text-on-surface hover:bg-surface-container-high"
           >
             {props.item.quantity === 1 ? (
@@ -73,11 +73,7 @@ export function CartItemRow(props: {
             )}
           </Button>
           <span className="w-8 text-center text-[13px] font-bold text-on-surface">
-            {props.isItemUpdating ? (
-              <Loader2 className="mx-auto h-3.5 w-3.5 animate-spin text-primary" />
-            ) : (
-              props.item.quantity
-            )}
+            {props.item.quantity}
           </span>
           <Button
             variant="ghost"
@@ -85,17 +81,22 @@ export function CartItemRow(props: {
             onClick={() => {
               props.onIncrement(props.item);
             }}
-            disabled={props.isPendingUpdate}
+            disabled={props.isPendingRemove}
             className="h-7 w-7 rounded-full text-on-surface hover:bg-surface-container-high"
           >
             <Plus className="h-3.5 w-3.5" />
           </Button>
         </div>
 
-        <div className="min-w-[100px] text-right">
-          <p className="font-title-sm text-title-sm font-bold text-primary">
-            Rp {Math.round(props.item.subtotal).toLocaleString('id-ID')}
-          </p>
+        <div className="min-w-[120px] text-right">
+          <div className="flex items-center justify-end gap-1.5">
+            {props.isItemUpdating && (
+              <Loader2 className="h-3.5 w-3.5 animate-spin text-primary/70" />
+            )}
+            <p className="font-title-sm text-title-sm font-bold text-primary">
+              Rp {Math.round(props.item.subtotal).toLocaleString('id-ID')}
+            </p>
+          </div>
           <button
             type="button"
             onClick={() => {

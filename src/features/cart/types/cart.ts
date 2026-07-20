@@ -5,7 +5,7 @@ import type { Product } from '@/features/products/types/product';
  */
 export type CartStore = {
   id: string;
-  name: string;
+  store_name: string;
   slug?: string;
   logo_url?: string;
   is_verified?: boolean;
