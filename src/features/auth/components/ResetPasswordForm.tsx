@@ -68,7 +68,7 @@ export const ResetPasswordForm = () => {
       return;
     }
     resetPassword(
-      { token, newPassword: values.newPassword },
+      { token, new_password: values.newPassword },
       {
         onSuccess: () => {
           toast.success('Password updated successfully. Please login.');

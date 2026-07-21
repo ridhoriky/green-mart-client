@@ -24,7 +24,7 @@ export const PersistLogin = (props: { children: React.ReactNode }) => {
       try {
         const response = await authApi.refreshToken();
         if (isMounted) {
-          setCredentials(response.user, response.accessToken);
+          setCredentials(response.user, response.access_token);
         }
       } catch {
         if (isMounted) {

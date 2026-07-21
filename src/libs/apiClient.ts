@@ -62,9 +62,9 @@ const handleTokenRefresh = async (): Promise<string> => {
         {},
         { withCredentials: true },
       );
-      const { accessToken, user } = res.data.data;
-      useAuthStore.getState().setCredentials(user, accessToken);
-      return accessToken;
+      const { access_token, user } = res.data.data;
+      useAuthStore.getState().setCredentials(user, access_token);
+      return access_token;
     } finally {
       refreshPromise = null;
     }

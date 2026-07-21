@@ -19,7 +19,7 @@ export const useLogin = () => {
   return useMutation({
     mutationFn: async (data: LoginRequest) => await authApi.login(data),
     onSuccess: (response) => {
-      setCredentials(response.user, response.accessToken);
+      setCredentials(response.user, response.access_token);
       const redirect = searchParams.get('redirect');
       const safeRedirect =
         redirect && redirect.startsWith('/') && !redirect.startsWith('//') ? redirect : '/';

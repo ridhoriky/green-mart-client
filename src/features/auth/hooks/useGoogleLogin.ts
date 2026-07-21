@@ -19,9 +19,9 @@ export const useGoogleLogin = () => {
   const setCredentials = useAuthStore((state) => state.setCredentials);
 
   const mutation = useMutation({
-    mutationFn: async (idToken: string) => await authApi.googleLogin({ idToken }),
+    mutationFn: async (idToken: string) => await authApi.googleLogin({ id_token: idToken }),
     onSuccess: (response) => {
-      setCredentials(response.user, response.accessToken);
+      setCredentials(response.user, response.access_token);
       router.push('/');
     },
     onError: () => {
