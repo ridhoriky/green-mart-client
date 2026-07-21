@@ -3,6 +3,7 @@
 import { ArrowLeft } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
+import * as React from 'react';
 import { toast } from 'sonner';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
@@ -12,6 +13,7 @@ import {
   useConfirmOrderMutation,
 } from '@/features/orders/hooks/useOrders';
 import type { Order, OrderItem, OrderStore } from '@/features/orders/types/order';
+import { ReviewForm } from '@/features/reviews/components/ReviewForm';
 import { Link } from '@/libs/I18nNavigation';
 
 /**
@@ -24,6 +26,7 @@ function StatusBadge(props: { status: Order['status'] }) {
   const config = {
     pending:
       'bg-amber-100 text-amber-800 border-amber-200 dark:bg-amber-900/30 dark:text-amber-400 dark:border-amber-800',
+    paid: 'bg-emerald-100 text-emerald-800 border-emerald-200 dark:bg-emerald-900/30 dark:text-emerald-400 dark:border-emerald-800',
     processing:
       'bg-blue-100 text-blue-800 border-blue-200 dark:bg-blue-900/30 dark:text-blue-400 dark:border-blue-800',
     shipped:
@@ -50,6 +53,7 @@ function StatusBadge(props: { status: Order['status'] }) {
  */
 export function OrderDetailPage(props: { orderId: string }) {
   const t = useTranslations('OrderDetailPage');
+  const [reviewProductId, setReviewProductId] = React.useState<string | null>(null);
   const { data: order, isLoading, isError, refetch } = useOrderDetailQuery(props.orderId);
 
   const cancelOrderMutation = useCancelOrderMutation();
@@ -151,7 +155,7 @@ export function OrderDetailPage(props: { orderId: string }) {
                 <span className="mb-1 block text-xs font-semibold text-on-surface-variant uppercase">
                   {t('store')}
                 </span>
-                <span className="text-body-md font-bold text-primary">{store.store_name}</span>
+                <span className="text-body-md font-bold text-primary">{store.name}</span>
               </div>
             </div>
 
@@ -188,9 +192,9 @@ export function OrderDetailPage(props: { orderId: string }) {
             <div className="divide-y divide-outline-variant">
               {order.items.map((item) => (
                 <div key={item.id} className="flex gap-4 py-4 first:pt-0 last:pb-0">
-                  <div className="h-16 w-16 shrink-0 overflow-hidden rounded-lg border border-outline-variant bg-surface-container-low">
+                  <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-lg border border-outline-variant bg-surface-container-low">
                     <Image
-                      src={item.product_image}
+                      src={item.product_image || '/images/placeholder.png'}
                       alt={item.product_name}
                       fill
                       sizes="64px"
@@ -205,8 +209,22 @@ export function OrderDetailPage(props: { orderId: string }) {
                       {item.quantity} x Rp {Math.round(item.price).toLocaleString('id-ID')}
                     </p>
                   </div>
-                  <div className="text-right font-bold text-on-surface">
-                    Rp {Math.round(item.subtotal).toLocaleString('id-ID')}
+                  <div className="flex flex-col items-end gap-2 text-right">
+                    <div className="font-bold text-on-surface">
+                      Rp {Math.round(item.subtotal).toLocaleString('id-ID')}
+                    </div>
+                    {order.status === 'delivered' && (
+                      <Button
+                        size="small"
+                        variant="outline"
+                        className="h-8 text-xs font-semibold"
+                        onClick={() => {
+                          setReviewProductId(item.product_id);
+                        }}
+                      >
+                        {t('write_review') || 'Beri Ulasan'}
+                      </Button>
+                    )}
                   </div>
                 </div>
               ))}
@@ -271,6 +289,16 @@ export function OrderDetailPage(props: { orderId: string }) {
           </Card>
         </div>
       </div>
+
+      {reviewProductId && (
+        <ReviewForm
+          order_id={props.orderId}
+          product_id={reviewProductId}
+          onClose={() => {
+            setReviewProductId(null);
+          }}
+        />
+      )}
     </div>
   );
 }
