@@ -423,6 +423,7 @@
     "meta_description": "Kelola dan lacak pesanan belanja hasil tani organik Anda di GreenMart.",
     "title": "Pesanan Saya",
     "status_all": "Semua",
+    "status_paid": "Dibayar",
     "status_pending": "Menunggu Pembayaran",
     "status_processing": "Diproses",
     "status_shipped": "Dikirim",
@@ -468,7 +469,8 @@
     "free": "Gratis",
     "bank_transfer": "Transfer Bank",
     "e_wallet": "E-Wallet",
-    "credit_card": "Kartu Kredit"
+    "credit_card": "Kartu Kredit",
+    "write_review": "Beri Ulasan"
   },
   "PaymentPage": {
     "meta_title": "Pembayaran Pesanan | GreenMart",
@@ -491,5 +493,16 @@
     "expired_subtitle": "Batas waktu pembayaran telah habis. Silakan buat pesanan baru.",
     "back_to_orders": "Kembali ke Pesanan Saya",
     "view_order_details": "Lihat Detail Pesanan"
+  },
+  "ReviewForm": {
+    "title": "Tulis Ulasan",
+    "rating_label": "Penilaian",
+    "comment_label": "Komentar (Opsional)",
+    "comment_placeholder": "Ceritakan pengalaman Anda...",
+    "photo_label": "Foto (Opsional)",
+    "cancel_button": "Batal",
+    "submit_button": "Kirim Ulasan",
+    "success_message": "Ulasan berhasil dikirim",
+    "error_message": "Gagal mengirim ulasan"
   }
 }

@@ -424,6 +424,7 @@
     "title": "My Orders",
     "status_all": "All",
     "status_pending": "Pending",
+    "status_paid": "Paid",
     "status_processing": "Processing",
     "status_shipped": "Shipped",
     "status_delivered": "Delivered",
@@ -468,7 +469,8 @@
     "free": "Free",
     "bank_transfer": "Bank Transfer",
     "e_wallet": "E-Wallet",
-    "credit_card": "Credit Card"
+    "credit_card": "Credit Card",
+    "write_review": "Write a Review"
   },
   "PaymentPage": {
     "meta_title": "Order Payment | GreenMart",
@@ -491,5 +493,16 @@
     "expired_subtitle": "The payment time limit has expired. Please place a new order.",
     "back_to_orders": "Back to My Orders",
     "view_order_details": "View Order Details"
+  },
+  "ReviewForm": {
+    "title": "Write a Review",
+    "rating_label": "Rating",
+    "comment_label": "Comment (Optional)",
+    "comment_placeholder": "Tell us about your experience...",
+    "photo_label": "Photos (Optional)",
+    "cancel_button": "Cancel",
+    "submit_button": "Submit Review",
+    "success_message": "Review submitted successfully",
+    "error_message": "Failed to submit review"
   }
 }
