@@ -25,7 +25,6 @@ type StoreCatalogContentProps = {
   totalPages: number;
   page: number;
   updateParams: (newParams: Record<string, string | number | boolean | undefined | null>) => void;
-  t: ReturnType<typeof useTranslations>;
 };
 
 /**
@@ -35,6 +34,8 @@ type StoreCatalogContentProps = {
  * @returns The product catalog content.
  */
 function StoreCatalogContent(props: StoreCatalogContentProps) {
+  const t = useTranslations('StorePage');
+
   if (props.isLoading) {
     return (
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
@@ -64,7 +65,7 @@ function StoreCatalogContent(props: StoreCatalogContentProps) {
   if (props.products.length === 0) {
     return (
       <div className="py-16 text-center">
-        <p className="text-[14px] font-medium text-on-surface-variant">{props.t('no_products')}</p>
+        <p className="text-[14px] font-medium text-on-surface-variant">{t('no_products')}</p>
       </div>
     );
   }
@@ -238,7 +239,6 @@ export function StoreDetailPage(props: StoreDetailPageProps) {
           totalPages={totalPages}
           page={page}
           updateParams={updateParams}
-          t={t}
         />
       </div>
     </div>
