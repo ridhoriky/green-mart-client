@@ -469,5 +469,27 @@
     "bank_transfer": "Bank Transfer",
     "e_wallet": "E-Wallet",
     "credit_card": "Credit Card"
+  },
+  "PaymentPage": {
+    "meta_title": "Order Payment | GreenMart",
+    "title": "Order Payment",
+    "method_label": "Select Payment Method",
+    "success_title": "Payment Successful!",
+    "failed_title": "Payment Failed!",
+    "expired_title": "Payment Expired!",
+    "waiting_payment": "Waiting for Payment...",
+    "order_number": "Order Number",
+    "total_payment": "Total Payment",
+    "payment_method": "Payment Method",
+    "bank_transfer": "Bank Transfer",
+    "e_wallet": "E-Wallet",
+    "credit_card": "Credit Card",
+    "pay_button": "Pay Now",
+    "processing": "Processing Payment...",
+    "success_subtitle": "Thank you for your payment. Your order will be processed by the seller shortly.",
+    "failed_subtitle": "We're sorry, your payment transaction was unsuccessful. Please try again.",
+    "expired_subtitle": "The payment time limit has expired. Please place a new order.",
+    "back_to_orders": "Back to My Orders",
+    "view_order_details": "View Order Details"
   }
 }

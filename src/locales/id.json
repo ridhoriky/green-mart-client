@@ -469,5 +469,27 @@
     "bank_transfer": "Transfer Bank",
     "e_wallet": "E-Wallet",
     "credit_card": "Kartu Kredit"
+  },
+  "PaymentPage": {
+    "meta_title": "Pembayaran Pesanan | GreenMart",
+    "title": "Pembayaran Pesanan",
+    "method_label": "Pilih Metode Pembayaran",
+    "success_title": "Pembayaran Berhasil!",
+    "failed_title": "Pembayaran Gagal!",
+    "expired_title": "Pembayaran Kedaluwarsa!",
+    "waiting_payment": "Menunggu Pembayaran...",
+    "order_number": "Nomor Pesanan",
+    "total_payment": "Total Pembayaran",
+    "payment_method": "Metode Pembayaran",
+    "bank_transfer": "Transfer Bank",
+    "e_wallet": "E-Wallet",
+    "credit_card": "Kartu Kredit",
+    "pay_button": "Bayar Sekarang",
+    "processing": "Memproses Pembayaran...",
+    "success_subtitle": "Terima kasih atas pembayaran Anda. Pesanan Anda akan segera diproses oleh penjual.",
+    "failed_subtitle": "Mohon maaf, transaksi pembayaran Anda tidak berhasil. Silakan coba lagi.",
+    "expired_subtitle": "Batas waktu pembayaran telah habis. Silakan buat pesanan baru.",
+    "back_to_orders": "Kembali ke Pesanan Saya",
+    "view_order_details": "Lihat Detail Pesanan"
   }
 }
