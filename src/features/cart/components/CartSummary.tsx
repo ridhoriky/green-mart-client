@@ -12,7 +12,11 @@ import { Card } from '@/components/ui/card';
  * @param props - The component props.
  * @returns The CartSummary component.
  */
-export function CartSummary(props: { totalAmount: number; onCheckout: () => void }) {
+export function CartSummary(props: {
+  totalAmount: number;
+  onCheckout: () => void;
+  isLoading?: boolean;
+}) {
   const t = useTranslations('CartPage');
 
   return (
@@ -38,10 +42,20 @@ export function CartSummary(props: { totalAmount: number; onCheckout: () => void
       </div>
       <Button
         onClick={props.onCheckout}
+        disabled={props.isLoading}
         className="w-full rounded-md py-6 font-bold shadow-md transition-shadow hover:shadow-lg"
       >
-        {t('checkout')}
-        <ArrowRight className="ml-2 h-4 w-4" />
+        {props.isLoading ? (
+          <span className="flex w-full items-center justify-center gap-2">
+            <span className="h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
+            {t('checkout_loading')}...
+          </span>
+        ) : (
+          <>
+            {t('checkout')}
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </>
+        )}
       </Button>
     </Card>
   );

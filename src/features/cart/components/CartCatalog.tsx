@@ -10,6 +10,7 @@ import {
   useClearCartMutation,
 } from '@/features/cart/hooks/useCart';
 import type { CartItem, CartStore } from '@/features/cart/types/cart';
+import { useCheckoutMutation } from '@/features/orders/hooks/useOrders';
 import { CartEmptyState } from './CartEmptyState';
 import { CartErrorState } from './CartErrorState';
 import { CartHeader } from './CartHeader';
@@ -29,6 +30,7 @@ export function CartCatalog() {
   const updateCartItemMutation = useUpdateCartItemMutation();
   const removeCartItemMutation = useRemoveCartItemMutation();
   const clearCartMutation = useClearCartMutation();
+  const checkoutMutation = useCheckoutMutation();
 
   const [localQuantities, setLocalQuantities] = useState<Record<string, number>>({});
   const timeoutsRef = useRef<Record<string, NodeJS.Timeout>>({});
@@ -184,10 +186,6 @@ export function CartCatalog() {
     });
   };
 
-  const handleCheckoutPlaceholder = () => {
-    toast.info(t('checkout_placeholder_msg'));
-  };
-
   if (isLoading) {
     return <CartSkeleton />;
   }
@@ -239,6 +237,28 @@ export function CartCatalog() {
 
   const hasItems = items.length > 0;
 
+  const handleCheckout = () => {
+    if (optimisticItems.length === 0) {
+      return;
+    }
+
+    checkoutMutation.mutate(
+      {
+        cart_ids: optimisticItems.map((item) => item.id),
+        payment_method: 'bank_transfer',
+        shipping_address: [0, 0],
+      },
+      {
+        onSuccess: () => {
+          toast.success(t('checkout_success'));
+        },
+        onError: () => {
+          toast.error(t('checkout_failed'));
+        },
+      },
+    );
+  };
+
   return (
     <div className="mx-auto max-w-container-max px-margin-mobile py-stack-md md:px-margin-desktop md:py-stack-lg">
       <CartHeader
@@ -272,7 +292,11 @@ export function CartCatalog() {
           </div>
 
           {/* Cart Summary Column */}
-          <CartSummary totalAmount={totalAmount} onCheckout={handleCheckoutPlaceholder} />
+          <CartSummary
+            totalAmount={totalAmount}
+            onCheckout={handleCheckout}
+            isLoading={checkoutMutation.isPending}
+          />
         </div>
       ) : (
         <CartEmptyState />
