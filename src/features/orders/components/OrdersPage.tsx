@@ -21,6 +21,7 @@ function StatusBadge(props: { status: Order['status'] }) {
   const config = {
     pending:
       'bg-amber-100 text-amber-800 border-amber-200 dark:bg-amber-900/30 dark:text-amber-400 dark:border-amber-800',
+    paid: 'bg-emerald-100 text-emerald-800 border-emerald-200 dark:bg-emerald-900/30 dark:text-emerald-400 dark:border-emerald-800',
     processing:
       'bg-blue-100 text-blue-800 border-blue-200 dark:bg-blue-900/30 dark:text-blue-400 dark:border-blue-800',
     shipped:
@@ -191,7 +192,7 @@ export function OrdersPage() {
                           })}
                         </span>
                       </div>
-                      <div className="font-bold text-primary">{order.store.store_name}</div>
+                      <div className="font-bold text-primary">{order.store.name}</div>
                     </div>
                     <StatusBadge status={order.status} />
                   </div>

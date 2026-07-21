@@ -18,7 +18,7 @@ export type OrderItem = {
  */
 export type OrderStore = {
   id: string;
-  store_name: string;
+  name: string;
 };
 
 /**
@@ -27,7 +27,7 @@ export type OrderStore = {
 export type Order = {
   id: string;
   order_number: string;
-  status: 'pending' | 'processing' | 'shipped' | 'delivered' | 'cancelled';
+  status: 'pending' | 'processing' | 'shipped' | 'delivered' | 'cancelled' | 'paid';
   total_amount: number;
   items: OrderItem[];
   store: OrderStore;
