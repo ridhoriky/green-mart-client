@@ -626,5 +626,33 @@
     "error_loading": "Failed to load store profile. Please try again.",
     "loading": "Loading store profile...",
     "verified_badge": "Verified Store"
+  },
+  "UserProfilePage": {
+    "meta_title": "My Profile | GreenMart",
+    "meta_description": "Manage your profile and account information on GreenMart.",
+    "title": "My Profile",
+    "subtitle": "Manage your personal information and account settings.",
+    "personal_info_title": "Personal Information",
+    "field_name": "Full Name",
+    "field_name_placeholder": "Enter your full name",
+    "field_email": "Email Address",
+    "field_role": "Account Role",
+    "field_phone": "Phone Number",
+    "field_phone_placeholder": "Enter phone number (optional)",
+    "field_avatar_url": "Profile Photo URL",
+    "field_avatar_placeholder": "https://...",
+    "save_button": "Save Changes",
+    "saving_button": "Saving...",
+    "update_success": "Profile updated successfully.",
+    "update_failed": "Failed to update profile.",
+    "security_title": "Security & Password",
+    "security_desc": "Want to update your password? Click the button below to navigate to the reset password page.",
+    "change_password_button": "Reset Password",
+    "loading": "Loading profile data...",
+    "error_loading": "Failed to load profile. Please try again.",
+    "role_buyer": "Buyer",
+    "role_seller": "Seller",
+    "role_admin": "Administrator",
+    "avatar_preview": "Profile Photo Preview"
   }
 }

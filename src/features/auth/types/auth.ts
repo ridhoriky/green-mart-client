@@ -67,6 +67,12 @@ export type GoogleLoginRequest = {
   id_token: string;
 };
 
+export type UpdateUserRequest = {
+  name?: string;
+  phone?: string;
+  avatar_url?: string;
+};
+
 // ────────────────────────────────────────────────
 // Response types
 // ────────────────────────────────────────────────

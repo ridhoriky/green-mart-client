@@ -626,5 +626,33 @@
     "error_loading": "Gagal memuat informasi toko. Silakan coba lagi.",
     "loading": "Memuat informasi toko...",
     "verified_badge": "Toko Terverifikasi"
+  },
+  "UserProfilePage": {
+    "meta_title": "Profil Saya | GreenMart",
+    "meta_description": "Kelola profil dan informasi akun Anda di GreenMart.",
+    "title": "Profil Saya",
+    "subtitle": "Kelola informasi pribadi dan pengaturan akun Anda.",
+    "personal_info_title": "Informasi Pribadi",
+    "field_name": "Nama Lengkap",
+    "field_name_placeholder": "Masukkan nama lengkap Anda",
+    "field_email": "Alamat Email",
+    "field_role": "Peran Akun",
+    "field_phone": "Nomor Telepon",
+    "field_phone_placeholder": "Masukkan nomor telepon (opsional)",
+    "field_avatar_url": "URL Foto Profil",
+    "field_avatar_placeholder": "https://...",
+    "save_button": "Simpan Perubahan",
+    "saving_button": "Menyimpan...",
+    "update_success": "Profil berhasil diperbarui.",
+    "update_failed": "Gagal memperbarui profil.",
+    "security_title": "Keamanan & Kata Sandi",
+    "security_desc": "Ingin memperbarui kata sandi Anda? Klik tombol di bawah untuk pergi ke halaman atur ulang kata sandi.",
+    "change_password_button": "Atur Ulang Kata Sandi",
+    "loading": "Memuat data profil...",
+    "error_loading": "Gagal memuat profil. Silakan coba lagi.",
+    "role_buyer": "Pembeli",
+    "role_seller": "Penjual",
+    "role_admin": "Administrator",
+    "avatar_preview": "Pratinjau Foto Profil"
   }
 }
