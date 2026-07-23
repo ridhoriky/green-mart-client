@@ -603,5 +603,28 @@
     "loading": "Loading order details...",
     "error_loading": "Failed to load order details. Please try again.",
     "not_found": "Order not found."
+  },
+  "SellerStorePage": {
+    "meta_title": "Store Settings | GreenMart Seller",
+    "title": "Store Settings",
+    "subtitle": "Manage profile details and view store performance metrics.",
+    "stats_title": "Store Performance Overview",
+    "total_products": "Total Products",
+    "active_products": "Active Products",
+    "rating_avg": "Average Rating",
+    "total_sales": "Total Sales",
+    "total_revenue": "Total Revenue",
+    "store_info_title": "Store Profile Details",
+    "field_store_name": "Store Name",
+    "field_description": "Store Description",
+    "field_logo_url": "Store Logo URL",
+    "field_banner_url": "Store Banner URL",
+    "save_button": "Save Changes",
+    "saving_button": "Saving...",
+    "update_success": "Store profile updated successfully.",
+    "update_failed": "Failed to update store profile.",
+    "error_loading": "Failed to load store profile. Please try again.",
+    "loading": "Loading store profile...",
+    "verified_badge": "Verified Store"
   }
 }

@@ -15,7 +15,7 @@ export type StoreResponse = {
   updated_at: string;
 };
 
-type OrderSummary = {
+export type OrderSummary = {
   id: string;
   order_number?: string;
   buyer_name: string;
@@ -30,7 +30,7 @@ type ProductLowStock = {
   stock: number;
 };
 
-type SellerSalesSummary = {
+export type SellerSalesSummary = {
   total_revenue: number;
   total_orders: number;
   total_items_sold: number;
@@ -39,7 +39,7 @@ type SellerSalesSummary = {
   period: string;
 };
 
-type SellerTopProduct = {
+export type SellerTopProduct = {
   product_id: string;
   product_name: string;
   total_sold: number;

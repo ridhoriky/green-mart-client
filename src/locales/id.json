@@ -603,5 +603,28 @@
     "loading": "Memuat detail pesanan...",
     "error_loading": "Gagal memuat detail pesanan. Silakan coba lagi.",
     "not_found": "Pesanan tidak ditemukan."
+  },
+  "SellerStorePage": {
+    "meta_title": "Pengaturan Toko | GreenMart Seller",
+    "title": "Pengaturan Toko",
+    "subtitle": "Kelola profil dan lihat statistik kinerja toko Anda.",
+    "stats_title": "Ringkasan Performa Toko",
+    "total_products": "Total Produk",
+    "active_products": "Produk Aktif",
+    "rating_avg": "Rating Rata-rata",
+    "total_sales": "Total Penjualan",
+    "total_revenue": "Total Pendapatan",
+    "store_info_title": "Informasi Profil Toko",
+    "field_store_name": "Nama Toko",
+    "field_description": "Deskripsi Toko",
+    "field_logo_url": "URL Logo Toko",
+    "field_banner_url": "URL Spanduk Toko",
+    "save_button": "Simpan Perubahan",
+    "saving_button": "Menyimpan...",
+    "update_success": "Profil toko berhasil diperbarui.",
+    "update_failed": "Gagal memperbarui profil toko.",
+    "error_loading": "Gagal memuat informasi toko. Silakan coba lagi.",
+    "loading": "Memuat informasi toko...",
+    "verified_badge": "Toko Terverifikasi"
   }
 }
