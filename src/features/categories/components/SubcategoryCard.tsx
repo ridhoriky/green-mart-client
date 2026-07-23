@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { Badge } from '@/components/ui/badge';
 import type { CategoryTreeNode } from '@/features/categories/types/category';
 import { Link } from '@/libs/I18nNavigation';
+import { getImageUrl } from '@/utils/Helpers';
 
 /**
  * Render a single subcategory card with image, hover overlay, and metadata.
@@ -20,10 +21,10 @@ export function SubcategoryCard(props: { category: CategoryTreeNode }) {
     >
       <div className="relative aspect-square overflow-hidden rounded-xl border border-outline-variant/20 bg-surface-container shadow-sm">
         <Image
-          src={
-            props.category.image_url ??
-            'https://images.unsplash.com/photo-1540420773420-3366772f4999?w=500'
-          }
+          src={getImageUrl(
+            props.category.image_url,
+            'https://images.unsplash.com/photo-1540420773420-3366772f4999?w=500',
+          )}
           alt={props.category.name}
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"

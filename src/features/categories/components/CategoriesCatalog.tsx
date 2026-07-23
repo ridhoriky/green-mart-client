@@ -10,6 +10,7 @@ import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { useCategoriesQuery } from '@/features/categories/hooks/useCategories';
 import { Link } from '@/libs/I18nNavigation';
+import { getImageUrl } from '@/utils/Helpers';
 import { getFlattenedCategories } from '../utils/helpers';
 import { CategoriesSkeleton } from './CategoriesSkeleton';
 import { SearchResults } from './SearchResults';
@@ -178,10 +179,10 @@ export function CategoriesCatalog() {
                     >
                       <div className="relative h-62.5 overflow-hidden rounded-2xl border border-outline-variant/20 shadow-sm">
                         <Image
-                          src={
-                            parent.image_url ??
-                            'https://images.unsplash.com/photo-1540420773420-3366772f4999?w=800'
-                          }
+                          src={getImageUrl(
+                            parent.image_url,
+                            'https://images.unsplash.com/photo-1540420773420-3366772f4999?w=800',
+                          )}
                           alt={parent.name}
                           fill
                           sizes="(max-width: 768px) 100vw, 80vw"

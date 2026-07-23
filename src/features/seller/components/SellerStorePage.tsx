@@ -150,7 +150,7 @@ function StoreProfileForm(props: { store?: MyStore }) {
               void form.register('logo_url').onChange(e);
             }}
           />
-          {logoUrl && !logoError && (
+          {logoUrl && logoUrl.trim() !== '' && !logoError && (
             <div className="mt-2">
               <p className="mb-1 text-xs font-medium text-muted-foreground">Logo Preview:</p>
               <div className="relative h-16 w-16 overflow-hidden rounded-full border">
@@ -182,7 +182,7 @@ function StoreProfileForm(props: { store?: MyStore }) {
               void form.register('banner_url').onChange(e);
             }}
           />
-          {bannerUrl && !bannerError && (
+          {bannerUrl && bannerUrl.trim() !== '' && !bannerError && (
             <div className="mt-2">
               <p className="mb-1 text-xs font-medium text-muted-foreground">Banner Preview:</p>
               <div className="relative h-28 w-full overflow-hidden rounded-lg border">

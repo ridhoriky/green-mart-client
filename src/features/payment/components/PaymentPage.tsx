@@ -23,6 +23,7 @@ import {
 } from '@/features/payment/hooks/usePayment';
 import { apiClient } from '@/libs/apiClient';
 import { Link } from '@/libs/I18nNavigation';
+import { getImageUrl } from '@/utils/Helpers';
 
 type PaymentMethodType = 'bank_transfer' | 'e_wallet' | 'credit_card';
 
@@ -349,7 +350,7 @@ export function PaymentPage(props: { orderId: string }) {
                 <div key={item.id} className="flex gap-3 py-3 first:pt-0 last:pb-0">
                   <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-lg border border-outline-variant bg-surface-container-low">
                     <Image
-                      src={item.product_image}
+                      src={getImageUrl(item.product_image, '/assets/images/placeholder.png')}
                       alt={item.product_name}
                       fill
                       sizes="40px"

@@ -33,6 +33,7 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import { Link } from '@/libs/I18nNavigation';
+import { getImageUrl } from '@/utils/Helpers';
 import { useDeleteProductMutation, useUpdateProductMutation } from '../hooks/useSellerProducts';
 import type { SellerProduct } from '../types/seller-product';
 
@@ -75,7 +76,7 @@ function ProductRow({ product }: { product: SellerProduct }) {
         <div className="flex items-center space-x-3">
           {product.primary_image && (
             <Image
-              src={product.primary_image}
+              src={getImageUrl(product.primary_image, '/assets/images/placeholder.png')}
               alt={product.name}
               width={40}
               height={40}

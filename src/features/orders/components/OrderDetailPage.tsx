@@ -15,6 +15,7 @@ import {
 import type { Order, OrderItem, OrderStore } from '@/features/orders/types/order';
 import { ReviewForm } from '@/features/reviews/components/ReviewForm';
 import { Link } from '@/libs/I18nNavigation';
+import { getImageUrl } from '@/utils/Helpers';
 
 /**
  * Renders status badge for orders.
@@ -194,7 +195,7 @@ export function OrderDetailPage(props: { orderId: string }) {
                 <div key={item.id} className="flex gap-4 py-4 first:pt-0 last:pb-0">
                   <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-lg border border-outline-variant bg-surface-container-low">
                     <Image
-                      src={item.product_image || '/images/placeholder.png'}
+                      src={getImageUrl(item.product_image, '/assets/images/placeholder.png')}
                       alt={item.product_name}
                       fill
                       sizes="64px"

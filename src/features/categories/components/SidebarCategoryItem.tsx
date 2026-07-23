@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import type { CategoryTreeNode } from '@/features/categories/types/category';
+import { getImageUrl } from '@/utils/Helpers';
 
 /**
  * Sidebar parent category item with active state.
@@ -23,10 +24,10 @@ export function SidebarCategoryItem(props: {
       >
         <div className="relative h-6 w-6 shrink-0 overflow-hidden rounded-md">
           <Image
-            src={
-              props.category.image_url ??
-              'https://images.unsplash.com/photo-1540420773420-3366772f4999?w=100'
-            }
+            src={getImageUrl(
+              props.category.image_url,
+              'https://images.unsplash.com/photo-1540420773420-3366772f4999?w=100',
+            )}
             alt={props.category.name}
             fill
             sizes="24px"

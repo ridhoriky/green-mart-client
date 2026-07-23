@@ -35,7 +35,7 @@ function UserHeader(props: { user?: UserResponse; avatarUrl?: string }) {
     <div className="flex flex-col items-center gap-4 rounded-xl border border-outline-variant bg-surface-container-lowest p-6 shadow-sm sm:flex-row sm:justify-between">
       <div className="flex flex-col items-center gap-4 text-center sm:flex-row sm:text-left">
         <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-full border-2 border-primary/20 bg-linear-to-tr from-primary to-secondary font-bold text-white shadow-md">
-          {props.avatarUrl ? (
+          {props.avatarUrl && props.avatarUrl.trim() !== '' ? (
             <Image
               src={props.avatarUrl}
               alt={props.user?.name ?? 'User Avatar'}

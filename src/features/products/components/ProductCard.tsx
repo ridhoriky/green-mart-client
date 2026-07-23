@@ -12,6 +12,7 @@ import { useAddToCartMutation } from '@/features/cart/hooks/useCart';
 import type { Product } from '@/features/products/types/product';
 import { useToggleWishlistMutation } from '@/features/wishlist/hooks/useWishlist';
 import { Link, useRouter } from '@/libs/I18nNavigation';
+import { getImageUrl } from '@/utils/Helpers';
 
 type ProductCardProps = {
   product: Product;
@@ -75,9 +76,10 @@ export function ProductCard(props: ProductCardProps) {
     props.product.category_name.toLowerCase().includes('organic') ||
     props.product.name.toLowerCase().includes('organic');
 
-  const imageUrl =
-    props.product.primary_image ??
-    'https://images.unsplash.com/photo-1542838132-92c53300491e?w=500&auto=format&fit=crop&q=60';
+  const imageUrl = getImageUrl(
+    props.product.primary_image,
+    'https://images.unsplash.com/photo-1542838132-92c53300491e?w=500&auto=format&fit=crop&q=60',
+  );
 
   const renderBadge = () => {
     if (props.discountPercent) {

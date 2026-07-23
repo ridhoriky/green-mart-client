@@ -5,6 +5,7 @@ import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
 import type { CategoryTreeNode } from '@/features/categories/types/category';
 import { Link } from '@/libs/I18nNavigation';
+import { getImageUrl } from '@/utils/Helpers';
 
 /**
  * Render search results in a grid layout.
@@ -39,10 +40,10 @@ export function SearchResults(props: {
             >
               <div className="relative h-44 w-full bg-surface-container">
                 <Image
-                  src={
-                    node.image_url ??
-                    'https://images.unsplash.com/photo-1540420773420-3366772f4999?w=500'
-                  }
+                  src={getImageUrl(
+                    node.image_url,
+                    'https://images.unsplash.com/photo-1540420773420-3366772f4999?w=500',
+                  )}
                   alt={node.name}
                   fill
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 33vw, 25vw"

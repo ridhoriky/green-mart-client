@@ -10,6 +10,7 @@ import type { Order } from '@/features/orders/types/order';
 import { PaginationSection } from '@/features/products/components/PaginationSection';
 import { cn } from '@/lib/utils';
 import { Link, usePathname, useRouter } from '@/libs/I18nNavigation';
+import { getImageUrl } from '@/utils/Helpers';
 
 /**
  * Renders status badge for orders.
@@ -203,7 +204,10 @@ export function OrdersPage() {
                       <div className="flex gap-4">
                         <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-lg border border-outline-variant bg-surface-container-low">
                           <Image
-                            src={firstItem.product_image}
+                            src={getImageUrl(
+                              firstItem.product_image,
+                              '/assets/images/placeholder.png',
+                            )}
                             alt={firstItem.product_name}
                             fill
                             sizes="64px"

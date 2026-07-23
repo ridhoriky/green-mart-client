@@ -3,6 +3,7 @@ import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { Badge } from '@/components/ui/badge';
 import type { StoreDetail } from '@/features/stores/types/store';
+import { getImageUrl } from '@/utils/Helpers';
 
 type StoreHeaderProps = {
   store: StoreDetail;
@@ -17,12 +18,14 @@ type StoreHeaderProps = {
 export function StoreHeader(props: StoreHeaderProps) {
   const t = useTranslations('StorePage');
 
-  const bannerUrl =
-    props.store.banner_url ??
-    'https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=1200&auto=format&fit=crop&q=60';
-  const logoUrl =
-    props.store.logo_url ??
-    'https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=150&auto=format&fit=crop&q=60';
+  const bannerUrl = getImageUrl(
+    props.store.banner_url,
+    'https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=1200&auto=format&fit=crop&q=60',
+  );
+  const logoUrl = getImageUrl(
+    props.store.logo_url,
+    'https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=150&auto=format&fit=crop&q=60',
+  );
   const formattedDate = new Date(props.store.created_at).toLocaleDateString('id-ID', {
     year: 'numeric',
     month: 'long',

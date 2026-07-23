@@ -13,6 +13,7 @@ import {
 import type { SellerOrderStatus } from '@/features/seller/types/seller-order';
 import { cn } from '@/lib/utils';
 import { Link } from '@/libs/I18nNavigation';
+import { getImageUrl } from '@/utils/Helpers';
 
 /**
  * Status badge for seller order detail view.
@@ -126,7 +127,7 @@ export function SellerOrderDetailPage(props: { orderId: string }) {
                 <div key={item.id} className="flex gap-4 py-4 first:pt-0 last:pb-0">
                   <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-lg border bg-muted">
                     <Image
-                      src={item.product_image || '/images/placeholder.png'}
+                      src={getImageUrl(item.product_image, '/assets/images/placeholder.png')}
                       alt={item.product_name}
                       fill
                       sizes="64px"

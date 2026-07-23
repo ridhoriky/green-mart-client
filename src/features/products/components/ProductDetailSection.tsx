@@ -29,6 +29,7 @@ import {
 import type { ProductImage, ReviewListResponse } from '@/features/products/types/product';
 import { useToggleWishlistMutation } from '@/features/wishlist/hooks/useWishlist';
 import { Link, useRouter } from '@/libs/I18nNavigation';
+import { getImageUrl } from '@/utils/Helpers';
 
 type ProductDetailSectionProps = {
   slug: string;
@@ -146,7 +147,7 @@ function ProductReviewsSection(props: ProductReviewsSectionProps) {
                 <div className="mb-3 flex items-center justify-between gap-4">
                   <div className="flex items-center gap-3">
                     <Avatar className="h-10 w-10 border border-outline-variant">
-                      {review.buyer_avatar && (
+                      {review.buyer_avatar && review.buyer_avatar.trim() !== '' && (
                         <AvatarImage
                           src={review.buyer_avatar}
                           alt={review.buyer_name}
@@ -191,7 +192,7 @@ function ProductReviewsSection(props: ProductReviewsSectionProps) {
                         className="relative h-16 w-16 overflow-hidden rounded-lg border border-outline-variant bg-surface-container-low"
                       >
                         <Image
-                          src={imgUrl}
+                          src={getImageUrl(imgUrl, '/assets/images/placeholder.png')}
                           alt="Review image"
                           fill
                           sizes="64px"
@@ -413,9 +414,10 @@ export function ProductDetailSection(props: ProductDetailSectionProps) {
       : [
           {
             id: 'placeholder',
-            url:
-              product.images?.[0]?.url ??
+            url: getImageUrl(
+              product.images?.[0]?.url,
               'https://images.unsplash.com/photo-1542838132-92c53300491e?w=800&auto=format&fit=crop&q=80',
+            ),
             alt_text: '',
             is_primary: true,
             sort_order: 1,

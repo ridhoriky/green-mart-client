@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import type { CartItem } from '@/features/cart/types/cart';
 import { Link } from '@/libs/I18nNavigation';
+import { getImageUrl } from '@/utils/Helpers';
 
 /**
  * Renders a single cart item row with details, quantity controls, and actions.
@@ -24,9 +25,10 @@ export function CartItemRow(props: {
 }) {
   const t = useTranslations('CartPage');
 
-  const imageUrl =
-    props.item.product.primary_image ??
-    'https://images.unsplash.com/photo-1542838132-92c53300491e?w=500&auto=format&fit=crop&q=60';
+  const imageUrl = getImageUrl(
+    props.item.product.primary_image,
+    'https://images.unsplash.com/photo-1542838132-92c53300491e?w=500&auto=format&fit=crop&q=60',
+  );
 
   return (
     <div className="flex flex-col items-start gap-4 py-3 last:pb-0 sm:flex-row sm:items-center">
