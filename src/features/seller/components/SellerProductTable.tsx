@@ -159,7 +159,7 @@ export function SellerProductTable(props: SellerProductTableProps) {
 
   if (!props.products.length) {
     return (
-      <div className="flex min-h-[300px] animate-in flex-col items-center justify-center rounded-md border border-dashed p-8 text-center fade-in-50">
+      <div className="flex min-h-75 animate-in flex-col items-center justify-center rounded-md border border-dashed p-8 text-center fade-in-50">
         <h3 className="mt-4 text-lg font-semibold">{t('empty_title')}</h3>
         <p className="mt-2 mb-4 text-sm text-muted-foreground">{t('empty_subtitle')}</p>
         <Link href="/seller/products/new" className={buttonVariants({ variant: 'default' })}>
