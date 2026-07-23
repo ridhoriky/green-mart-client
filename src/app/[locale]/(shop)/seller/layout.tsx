@@ -1,5 +1,6 @@
 import { setRequestLocale } from 'next-intl/server';
 import { AuthGuard } from '@/features/auth/components/AuthGuard';
+import { SellerGuard } from '@/features/seller/components/SellerGuard';
 import { SellerSidebar } from '@/features/seller/components/SellerSidebar';
 
 export default async function SellerLayout(props: {
@@ -11,7 +12,9 @@ export default async function SellerLayout(props: {
 
   return (
     <AuthGuard>
-      <SellerSidebar>{props.children}</SellerSidebar>
+      <SellerGuard>
+        <SellerSidebar>{props.children}</SellerSidebar>
+      </SellerGuard>
     </AuthGuard>
   );
 }
