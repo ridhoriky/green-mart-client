@@ -38,14 +38,3 @@ export type StoreStats = {
   total_reviews?: number;
   average_rating: number;
 };
-
-/**
- * Filter options for seller store reports.
- */
-export type SellerReportParams = {
-  period?: string;
-  date_from?: string;
-  date_to?: string;
-  limit?: number;
-  offset?: number;
-};

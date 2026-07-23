@@ -30,7 +30,7 @@ type ProductLowStock = {
   stock: number;
 };
 
-export type SellerSalesSummary = {
+type SellerSalesSummary = {
   total_revenue: number;
   total_orders: number;
   total_items_sold: number;

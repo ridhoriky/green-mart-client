@@ -1,14 +1,11 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { sellerStoreApi } from '@/features/seller/api/sellerStoreApi';
-import type { SellerReportParams, UpdateStoreRequest } from '@/features/seller/types/seller-store';
+import type { UpdateStoreRequest } from '@/features/seller/types/seller-store';
 
 const sellerStoreKeys = {
   all: ['seller-store'] as const,
   mine: () => [...sellerStoreKeys.all, 'me'] as const,
   stats: () => [...sellerStoreKeys.all, 'stats'] as const,
-  summary: (params?: SellerReportParams) => [...sellerStoreKeys.all, 'summary', params] as const,
-  topProducts: (params?: SellerReportParams) =>
-    [...sellerStoreKeys.all, 'top-products', params] as const,
 };
 
 /**
@@ -44,26 +41,4 @@ export const useStoreStatsQuery = () =>
   useQuery({
     queryKey: sellerStoreKeys.stats(),
     queryFn: async () => await sellerStoreApi.getStoreStats(),
-  });
-
-/**
- * Fetches seller sales summary report.
- * @param params - Query parameters for filtering report.
- * @returns Query result containing sales summary.
- */
-export const useSellerSummaryQuery = (params?: SellerReportParams) =>
-  useQuery({
-    queryKey: sellerStoreKeys.summary(params),
-    queryFn: async () => await sellerStoreApi.getSellerSummary(params),
-  });
-
-/**
- * Fetches seller top products report.
- * @param params - Query parameters for filtering top products.
- * @returns Query result containing top products.
- */
-export const useSellerTopProductsQuery = (params?: SellerReportParams) =>
-  useQuery({
-    queryKey: sellerStoreKeys.topProducts(params),
-    queryFn: async () => await sellerStoreApi.getSellerTopProducts(params),
   });

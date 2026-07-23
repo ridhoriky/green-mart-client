@@ -6,11 +6,9 @@ import { sellerApi } from '@/features/seller/api/sellerApi';
 import type {
   OrderSummary,
   SellerDashboard as DashboardData,
-  SellerSalesSummary,
   SellerTopProduct,
 } from '@/features/seller/types/seller';
 import { Link } from '@/libs/I18nNavigation';
-import { useSellerSummaryQuery, useSellerTopProductsQuery } from '../hooks/useSellerStore';
 
 const formatCurrency = (value: number) =>
   new Intl.NumberFormat('id-ID', {
@@ -155,18 +153,13 @@ function TopProductsList(props: { products?: SellerTopProduct[] }) {
   );
 }
 
-function DashboardMainView(props: {
-  dashboard?: DashboardData;
-  summary?: SellerSalesSummary;
-  topProducts?: SellerTopProduct[];
-}) {
+function DashboardMainView(props: { dashboard?: DashboardData }) {
   const t = useTranslations('SellerDashboard');
 
-  const revenue = props.summary?.total_revenue ?? props.dashboard?.summary.total_revenue ?? 0;
-  const totalOrders = props.summary?.total_orders ?? props.dashboard?.summary.total_orders ?? 0;
-  const itemsSold =
-    props.summary?.total_items_sold ?? props.dashboard?.summary.total_items_sold ?? 0;
-  const topProducts = props.topProducts ?? props.dashboard?.top_products ?? [];
+  const revenue = props.dashboard?.summary.total_revenue ?? 0;
+  const totalOrders = props.dashboard?.summary.total_orders ?? 0;
+  const itemsSold = props.dashboard?.summary.total_items_sold ?? 0;
+  const topProducts = props.dashboard?.top_products ?? [];
 
   return (
     <div className="space-y-6">
@@ -214,9 +207,6 @@ export const SellerDashboard = () => {
     queryFn: async () => await sellerApi.getDashboard('this_week'),
   });
 
-  const { data: summaryData } = useSellerSummaryQuery({ period: 'this_week' });
-  const { data: topProductsData } = useSellerTopProductsQuery({ period: 'this_week' });
-
   if (isLoading) {
     return (
       <div className="flex min-h-75 items-center justify-center">
@@ -235,5 +225,5 @@ export const SellerDashboard = () => {
     );
   }
 
-  return <DashboardMainView dashboard={data} summary={summaryData} topProducts={topProductsData} />;
+  return <DashboardMainView dashboard={data} />;
 };

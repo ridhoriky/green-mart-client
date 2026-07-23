@@ -1,11 +1,5 @@
 import type { APIResponse } from '@/features/auth/types/auth';
-import type { SellerSalesSummary, SellerTopProduct } from '@/features/seller/types/seller';
-import type {
-  MyStore,
-  SellerReportParams,
-  StoreStats,
-  UpdateStoreRequest,
-} from '@/features/seller/types/seller-store';
+import type { MyStore, StoreStats, UpdateStoreRequest } from '@/features/seller/types/seller-store';
 import { apiClient } from '@/libs/apiClient';
 
 export const sellerStoreApi = {
@@ -34,33 +28,6 @@ export const sellerStoreApi = {
    */
   getStoreStats: async (): Promise<StoreStats> => {
     const res = await apiClient.get<APIResponse<StoreStats>>('/seller/store/stats');
-    return res.data.data;
-  },
-
-  /**
-   * Fetches sales summary report for the seller.
-   * @param params - Optional query filter parameters.
-   * @returns Sales summary object.
-   */
-  getSellerSummary: async (params?: SellerReportParams): Promise<SellerSalesSummary> => {
-    const res = await apiClient.get<APIResponse<SellerSalesSummary>>('/seller/reports/summary', {
-      params,
-    });
-    return res.data.data;
-  },
-
-  /**
-   * Fetches list of top selling products for the seller.
-   * @param params - Optional query filter parameters.
-   * @returns Array of top products.
-   */
-  getSellerTopProducts: async (params?: SellerReportParams): Promise<SellerTopProduct[]> => {
-    const res = await apiClient.get<APIResponse<SellerTopProduct[]>>(
-      '/seller/reports/top-products',
-      {
-        params,
-      },
-    );
     return res.data.data;
   },
 };
