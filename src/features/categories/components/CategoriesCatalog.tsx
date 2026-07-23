@@ -176,7 +176,7 @@ export function CategoriesCatalog() {
                       href={`/products?category=${encodeURIComponent(parent.name)}`}
                       className="group block"
                     >
-                      <div className="relative h-[250px] overflow-hidden rounded-2xl border border-outline-variant/20 shadow-sm">
+                      <div className="relative h-62.5 overflow-hidden rounded-2xl border border-outline-variant/20 shadow-sm">
                         <Image
                           src={
                             parent.image_url ??

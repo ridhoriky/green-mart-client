@@ -132,7 +132,7 @@ export const ReviewForm = (props: ReviewFormProps) => {
                   <FormControl>
                     <textarea
                       {...field}
-                      className="min-h-[100px] w-full rounded-lg border border-outline bg-surface p-3 text-on-surface outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+                      className="min-h-25 w-full rounded-lg border border-outline bg-surface p-3 text-on-surface outline-none focus:border-primary focus:ring-1 focus:ring-primary"
                       placeholder={t('comment_placeholder') || 'Tell us about your experience...'}
                     />
                   </FormControl>

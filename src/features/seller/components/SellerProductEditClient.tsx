@@ -10,7 +10,7 @@ export function SellerProductEditClient({ id }: { id: string }) {
 
   if (isLoading) {
     return (
-      <div className="flex min-h-[300px] items-center justify-center">
+      <div className="flex min-h-75 items-center justify-center">
         <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" />
       </div>
     );

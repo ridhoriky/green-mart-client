@@ -55,7 +55,7 @@ export function FlashSale() {
     flashSaleContent = Array.from({ length: 4 }).map((_, i) => (
       <Card
         key={i}
-        className="flex h-[380px] max-w-[240px] min-w-[240px] animate-pulse flex-col overflow-hidden rounded-xl border border-outline-variant bg-white"
+        className="flex h-95 max-w-60 min-w-60 animate-pulse flex-col overflow-hidden rounded-xl border border-outline-variant bg-white"
       >
         <div className="aspect-square bg-surface-container-high" />
         <div className="flex-1 space-y-3 p-4">
@@ -78,7 +78,7 @@ export function FlashSale() {
       const soldPercentage = Math.round((soldItems / totalItems) * 100);
 
       return (
-        <div key={product.id} className="relative max-w-[240px] min-w-[240px]">
+        <div key={product.id} className="relative max-w-60 min-w-60">
           <ProductCard
             product={product}
             originalPrice={originalPrice}

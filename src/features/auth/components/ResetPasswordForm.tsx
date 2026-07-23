@@ -102,7 +102,7 @@ export const ResetPasswordForm = () => {
     if (token) {
       return (
         <>
-          <p className="mb-stack-lg max-w-[280px] font-body-lg text-body-lg text-secondary">
+          <p className="mb-stack-lg max-w-70 font-body-lg text-body-lg text-secondary">
             {t('set_new_password_subtitle')}
           </p>
 
@@ -215,7 +215,7 @@ export const ResetPasswordForm = () => {
 
     return (
       <>
-        <p className="mb-stack-lg max-w-[280px] font-body-lg text-body-lg text-secondary">
+        <p className="mb-stack-lg max-w-70 font-body-lg text-body-lg text-secondary">
           {t('reset_password_subtitle')}
         </p>
 
@@ -279,7 +279,7 @@ export const ResetPasswordForm = () => {
           style={{ animationDelay: '0s' }}
         ></div>
         <div
-          className="bg-blob right-[-5%] bottom-[-10%] h-[500px] w-[500px] bg-secondary-fixed"
+          className="bg-blob right-[-5%] bottom-[-10%] h-125 w-125 bg-secondary-fixed"
           style={{ animationDelay: '2s' }}
         ></div>
       </div>

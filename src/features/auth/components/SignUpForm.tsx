@@ -55,7 +55,7 @@ export const SignUpForm = () => {
 
       <main className="relative flex flex-1 items-center justify-center px-margin-mobile py-8 md:px-0 md:py-12">
         {/* Registration Content Shell */}
-        <div className="relative z-10 my-auto grid w-full max-w-[1100px] grid-cols-1 overflow-hidden rounded-xl bg-surface-container-lowest shadow-2xl md:grid-cols-2">
+        <div className="relative z-10 my-auto grid w-full max-w-275 grid-cols-1 overflow-hidden rounded-xl bg-surface-container-lowest shadow-2xl md:grid-cols-2">
           {/* Left Side: Brand Imagery & Messaging */}
           <section className="relative hidden flex-col justify-between overflow-hidden bg-primary p-12 text-on-primary md:flex">
             {/* Background Graphic Pattern */}

@@ -20,7 +20,7 @@ export const SellerDashboard = () => {
 
   if (isLoading) {
     return (
-      <div className="flex min-h-[300px] items-center justify-center">
+      <div className="flex min-h-75 items-center justify-center">
         <span className="material-symbols-outlined animate-spin text-[32px] text-primary">
           progress_activity
         </span>

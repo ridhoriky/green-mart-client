@@ -88,7 +88,7 @@ export function CartItemRow(props: {
           </Button>
         </div>
 
-        <div className="min-w-[120px] text-right">
+        <div className="min-w-30 text-right">
           <div className="flex items-center justify-end gap-1.5">
             {props.isItemUpdating && (
               <Loader2 className="h-3.5 w-3.5 animate-spin text-primary/70" />

@@ -28,7 +28,7 @@ export function SellerProductListPage() {
       </div>
 
       {isLoading && (
-        <div className="flex min-h-[300px] items-center justify-center rounded-md border">
+        <div className="flex min-h-75 items-center justify-center rounded-md border">
           <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" />
         </div>
       )}

@@ -26,7 +26,7 @@ export function CatalogGrid(props: {
         {Array.from({ length: 8 }).map((_, i) => (
           <Card
             key={i}
-            className="flex h-[360px] flex-col overflow-hidden rounded-xl border border-outline-variant bg-white"
+            className="flex h-90 flex-col overflow-hidden rounded-xl border border-outline-variant bg-white"
           >
             <div className="aspect-square animate-pulse bg-surface-container-high" />
             <div className="flex flex-1 flex-col space-y-3 p-4">

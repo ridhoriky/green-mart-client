@@ -39,7 +39,7 @@ export function AboutHowItWorks() {
         </div>
         <div className="relative grid grid-cols-1 gap-12 sm:grid-cols-3">
           {/* Connector lines for desktop layout */}
-          <div className="absolute top-10 right-[16.66%] left-[16.66%] -z-1 hidden h-[2px] bg-border sm:block" />
+          <div className="absolute top-10 right-[16.66%] left-[16.66%] -z-1 hidden h-0.5 bg-border sm:block" />
 
           <StepItem
             num="1"

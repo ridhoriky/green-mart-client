@@ -7,7 +7,7 @@ export function HeroSection() {
 
   return (
     <section className="mx-auto mt-stack-md max-w-container-max px-margin-mobile md:px-margin-desktop">
-      <div className="relative min-h-[500px] overflow-hidden rounded-2xl md:aspect-21/9 md:min-h-0 lg:aspect-3/1">
+      <div className="relative min-h-125 overflow-hidden rounded-2xl md:aspect-21/9 md:min-h-0 lg:aspect-3/1">
         <div className="absolute inset-0 z-10 flex flex-col justify-center bg-linear-to-r from-black/80 via-black/50 to-transparent p-6 text-white sm:p-8 md:px-12">
           <span className="mb-4 w-fit rounded-full bg-primary px-3 py-1 font-label-bold text-label-bold text-white">
             {t('seasonal_harvest')}

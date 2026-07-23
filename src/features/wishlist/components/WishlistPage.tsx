@@ -27,7 +27,7 @@ export function WishlistPage() {
           {Array.from({ length: 5 }).map((_, i) => (
             <Card
               key={i}
-              className="flex h-[320px] animate-pulse flex-col overflow-hidden rounded-xl border border-outline-variant bg-white"
+              className="flex h-80 animate-pulse flex-col overflow-hidden rounded-xl border border-outline-variant bg-white"
             >
               <div className="aspect-square bg-surface-container-high" />
               <div className="flex flex-1 flex-col space-y-2 p-3">
