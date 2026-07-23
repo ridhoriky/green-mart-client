@@ -152,17 +152,50 @@ export const TopNavBar = () => {
                     <div className="my-1 border-t border-outline-variant" />
 
                     <Link
-                      href="/account"
+                      href="/account/profile"
                       onClick={() => {
                         setIsOpen(false);
                       }}
                       className="flex items-center gap-2 rounded-lg px-3 py-2 font-label-bold text-label-bold text-on-surface transition-colors hover:bg-surface-container-low"
                     >
                       <span className="material-symbols-outlined text-[18px]">person</span>
-                      {t('my_account')}
+                      {t('my_profile')}
                     </Link>
 
-                    {user?.role === 'user' && (
+                    <Link
+                      href="/account/orders"
+                      onClick={() => {
+                        setIsOpen(false);
+                      }}
+                      className="flex items-center gap-2 rounded-lg px-3 py-2 font-label-bold text-label-bold text-on-surface transition-colors hover:bg-surface-container-low"
+                    >
+                      <span className="material-symbols-outlined text-[18px]">receipt_long</span>
+                      {t('my_orders')}
+                    </Link>
+
+                    <Link
+                      href="/wishlist"
+                      onClick={() => {
+                        setIsOpen(false);
+                      }}
+                      className="flex items-center gap-2 rounded-lg px-3 py-2 font-label-bold text-label-bold text-on-surface transition-colors hover:bg-surface-container-low"
+                    >
+                      <span className="material-symbols-outlined text-[18px]">favorite</span>
+                      {t('wishlist')}
+                    </Link>
+
+                    {user?.role === 'seller' || user?.role === 'admin' ? (
+                      <Link
+                        href="/seller/dashboard"
+                        onClick={() => {
+                          setIsOpen(false);
+                        }}
+                        className="flex items-center gap-2 rounded-lg px-3 py-2 font-label-bold text-label-bold text-primary transition-colors hover:bg-primary/10"
+                      >
+                        <span className="material-symbols-outlined text-[18px]">storefront</span>
+                        {t('seller_dashboard')}
+                      </Link>
+                    ) : (
                       <Link
                         href="/seller/register"
                         onClick={() => {
