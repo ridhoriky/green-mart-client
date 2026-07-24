@@ -4,17 +4,19 @@ export type UserResponse = {
   email: string;
   name: string;
   role: string;
-  isVerified: boolean;
-  createdAt: string;
-  updatedAt: string;
+  avatar_url?: string;
+  is_active: boolean;
+  phone?: string;
+  created_at: string;
+  updated_at: string;
 };
 
 /** Generic API response wrapper from backend. */
 export type APIResponse<T = unknown> = {
-  status: number;
+  status: 'success' | 'error';
   message: string;
   data: T;
-  error: string;
+  error?: string;
 };
 
 /**
@@ -45,7 +47,7 @@ export type RegisterRequest = {
 
 export type VerifyEmailRequest = {
   email: string;
-  otpCode: string;
+  otp_code: string;
 };
 
 export type ForgotPasswordRequest = {
@@ -54,23 +56,21 @@ export type ForgotPasswordRequest = {
 
 export type ResetPasswordRequest = {
   token: string;
-  newPassword: string;
+  new_password: string;
 };
 
 export type ResendOTPRequest = {
   email: string;
 };
 
-export type RefreshTokenRequest = {
-  refreshToken: string;
-};
-
-export type LogoutRequest = {
-  refreshToken: string;
-};
-
 export type GoogleLoginRequest = {
-  idToken: string;
+  id_token: string;
+};
+
+export type UpdateUserRequest = {
+  name?: string;
+  phone?: string;
+  avatar_url?: string;
 };
 
 // ────────────────────────────────────────────────
@@ -78,22 +78,18 @@ export type GoogleLoginRequest = {
 // ────────────────────────────────────────────────
 
 export type LoginResponse = {
-  accessToken: string;
-  refreshToken: string;
-  expiresAt: number;
-  expiresRt: number;
+  access_token: string;
+  expires_at: number;
+  message?: string;
   user: UserResponse;
-  message: string;
 };
 
 export type RegisterResponse = {
-  message: string;
   user: UserResponse;
 };
 
 export type AuthTokenResponse = {
-  accessToken: string;
-  refreshToken: string;
-  expiresAt: number;
-  expiresRt: number;
+  access_token: string;
+  expires_at: number;
+  user: UserResponse;
 };

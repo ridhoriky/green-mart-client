@@ -5,8 +5,6 @@ import type {
   GoogleLoginRequest,
   LoginRequest,
   LoginResponse,
-  LogoutRequest,
-  RefreshTokenRequest,
   RegisterRequest,
   RegisterResponse,
   ResendOTPRequest,
@@ -22,8 +20,8 @@ export const authApi = {
    * @returns Login response promise.
    */
   login: async (data: LoginRequest): Promise<LoginResponse> => {
-    const res = await apiClient.post<LoginResponse>('/auth/login', data);
-    return res.data;
+    const res = await apiClient.post<APIResponse<LoginResponse>>('/auth/login', data);
+    return res.data.data;
   },
 
   /**
@@ -32,8 +30,8 @@ export const authApi = {
    * @returns Register response promise.
    */
   register: async (data: RegisterRequest): Promise<RegisterResponse> => {
-    const res = await apiClient.post<RegisterResponse>('/auth/register', data);
-    return res.data;
+    const res = await apiClient.post<APIResponse<RegisterResponse>>('/auth/register', data);
+    return res.data.data;
   },
 
   /**
@@ -78,21 +76,19 @@ export const authApi = {
 
   /**
    * Silently refresh the access token using a refresh token.
-   * @param data Refresh token request data.
    * @returns Auth token response promise.
    */
-  refreshToken: async (data: RefreshTokenRequest): Promise<AuthTokenResponse> => {
-    const res = await apiClient.post<AuthTokenResponse>('/auth/refresh', data);
-    return res.data;
+  refreshToken: async (): Promise<AuthTokenResponse> => {
+    const res = await apiClient.post<APIResponse<AuthTokenResponse>>('/auth/refresh');
+    return res.data.data;
   },
 
   /**
    * Invalidate the current session on the backend.
-   * @param data Logout request data.
    * @returns API response promise.
    */
-  logout: async (data: LogoutRequest): Promise<APIResponse> => {
-    const res = await apiClient.post<APIResponse>('/auth/logout', data);
+  logout: async (): Promise<APIResponse> => {
+    const res = await apiClient.post<APIResponse>('/auth/logout');
     return res.data;
   },
 
@@ -102,7 +98,7 @@ export const authApi = {
    * @returns Login response promise.
    */
   googleLogin: async (data: GoogleLoginRequest): Promise<LoginResponse> => {
-    const res = await apiClient.post<LoginResponse>('/auth/google', data);
-    return res.data;
+    const res = await apiClient.post<APIResponse<LoginResponse>>('/auth/google', data);
+    return res.data.data;
   },
 };

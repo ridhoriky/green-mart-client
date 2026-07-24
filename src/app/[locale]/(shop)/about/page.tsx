@@ -1,5 +1,12 @@
 import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
+import {
+  AboutHero,
+  AboutVisionMission,
+  AboutValues,
+  AboutHowItWorks,
+  AboutCTA,
+} from '@/features/about';
 
 type AboutPageProps = {
   params: Promise<{ locale: string }>;
@@ -18,21 +25,17 @@ export async function generateMetadata(props: AboutPageProps): Promise<Metadata>
   };
 }
 
-export default async function About(props: AboutPageProps) {
+export default async function AboutPage(props: AboutPageProps) {
   const { locale } = await props.params;
   setRequestLocale(locale);
 
-  const t = await getTranslations({
-    locale,
-    namespace: 'About',
-  });
-
   return (
-    <div className="mx-auto max-w-container-max px-margin-mobile py-stack-lg md:px-margin-desktop">
-      <h1 className="font-display-md text-display-md mb-4">{t('meta_title')}</h1>
-      <p className="max-w-2xl font-body-lg text-body-lg leading-relaxed text-on-surface-variant">
-        {t('about_paragraph')}
-      </p>
+    <div className="flex flex-col gap-y-12">
+      <AboutHero />
+      <AboutVisionMission />
+      <AboutValues />
+      <AboutHowItWorks />
+      <AboutCTA />
     </div>
   );
 }

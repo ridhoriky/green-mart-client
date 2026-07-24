@@ -13,7 +13,7 @@ export default async function Layout(props: {
   return (
     <div className="font-body-md flex min-h-screen flex-col overflow-x-hidden bg-surface text-on-surface antialiased">
       <TopNavBar />
-      <main className="flex-grow pt-16 pb-24 md:pb-0">{props.children}</main>
+      <main className="grow pt-16 pb-24 md:pb-0">{props.children}</main>
       <Footer />
       <BottomNavBar />
     </div>

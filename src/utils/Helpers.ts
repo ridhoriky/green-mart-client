@@ -26,3 +26,20 @@ export const getI18nPath = (url: string, locale: string) => {
 
   return `/${locale}${url}`;
 };
+
+/**
+ * Safely resolves an image URL by returning a fallback image if the URL is empty or whitespace.
+ * @param url The image URL string which may be empty, null, or undefined.
+ * @param fallback The fallback image path to use if url is empty. Defaults to '/assets/images/placeholder.png'.
+ * @returns Non-empty image URL string.
+ */
+export const getImageUrl = (
+  url: string | null | undefined,
+  fallback = '/assets/images/placeholder.png',
+) => {
+  if (!url || url.trim() === '') {
+    return fallback;
+  }
+
+  return url;
+};

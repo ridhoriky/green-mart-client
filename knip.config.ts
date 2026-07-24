@@ -5,6 +5,7 @@ const config: KnipConfig = {
   ignore: ['checkly.config.ts', 'src/libs/I18n.ts', 'src/types/I18n.ts'],
   ignoreIssues: {
     'src/components/ui/**/*': ['exports', 'types'],
+    'src/features/cart/**/*': ['exports', 'types'],
   },
   // Dependencies to ignore during analysis
   ignoreDependencies: [

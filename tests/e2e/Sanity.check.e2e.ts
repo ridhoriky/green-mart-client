@@ -8,6 +8,19 @@ import { expect, test } from '@playwright/test';
 // You can run them locally or on CI to ensure that the application is ready for deployment.
 
 test.describe('Sanity', () => {
+  test.beforeEach(async ({ page }) => {
+    await page.route('**/api/v1/auth/refresh', async (route) => {
+      await route.fulfill({
+        status: 401,
+        contentType: 'application/json',
+        json: {
+          status: 'error',
+          message: 'Invalid or expired refresh token',
+        },
+      });
+    });
+  });
+
   test.describe('Static pages', () => {
     test('should display the homepage', async ({ page }) => {
       await page.goto('/');

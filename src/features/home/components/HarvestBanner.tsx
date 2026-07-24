@@ -1,17 +1,22 @@
 import { useTranslations } from 'next-intl';
+import { Button } from '@/components/ui/button';
 
 export function HarvestBanner() {
   const t = useTranslations('Index.HarvestBanner');
 
   return (
     <section className="mx-auto mt-stack-lg max-w-container-max px-margin-desktop">
-      <div className="relative flex flex-col items-center justify-between overflow-hidden rounded-3xl bg-gradient-to-r from-primary to-[#1B5E20] p-8 text-white sm:p-12 md:flex-row md:gap-8">
+      <div className="relative flex flex-col items-center justify-between overflow-hidden rounded-3xl bg-linear-to-r from-primary to-[#1B5E20] p-8 text-white sm:p-12 md:flex-row md:gap-8">
         <div className="relative z-10 max-w-xl text-center md:text-left">
           <h2 className="mb-4 font-display-lg text-display-lg">{t('title')}</h2>
           <p className="mb-8 text-body-lg opacity-90">{t('subtitle')}</p>
-          <button className="cursor-pointer rounded-xl bg-white px-10 py-4 font-bold text-primary shadow-lg transition-all hover:bg-surface-container-low active:scale-95">
+          <Button
+            variant="secondary"
+            size="large"
+            className="rounded-xl bg-white px-10 font-bold text-primary shadow-lg transition-all hover:bg-surface-container-low"
+          >
             {t('become_seller')}
-          </button>
+          </Button>
         </div>
 
         <div className="relative z-10 mt-12 flex w-full flex-col items-center justify-center md:mt-0 md:w-1/2">

@@ -68,7 +68,7 @@ export const ResetPasswordForm = () => {
       return;
     }
     resetPassword(
-      { token, newPassword: values.newPassword },
+      { token, new_password: values.newPassword },
       {
         onSuccess: () => {
           toast.success('Password updated successfully. Please login.');
@@ -102,7 +102,7 @@ export const ResetPasswordForm = () => {
     if (token) {
       return (
         <>
-          <p className="mb-stack-lg max-w-[280px] font-body-lg text-body-lg text-secondary">
+          <p className="mb-stack-lg max-w-70 font-body-lg text-body-lg text-secondary">
             {t('set_new_password_subtitle')}
           </p>
 
@@ -215,7 +215,7 @@ export const ResetPasswordForm = () => {
 
     return (
       <>
-        <p className="mb-stack-lg max-w-[280px] font-body-lg text-body-lg text-secondary">
+        <p className="mb-stack-lg max-w-70 font-body-lg text-body-lg text-secondary">
           {t('reset_password_subtitle')}
         </p>
 
@@ -244,6 +244,7 @@ export const ResetPasswordForm = () => {
                         className="pr-4 pl-10"
                         placeholder={t('email_placeholder')}
                         type="email"
+                        data-testid="reset-email-input"
                       />
                     </div>
                   </FormControl>
@@ -258,6 +259,7 @@ export const ResetPasswordForm = () => {
               className="w-full gap-2"
               type="submit"
               disabled={isPending}
+              data-testid="reset-submit-btn"
             >
               {isPending && <Loader2 className="h-5 w-5 animate-spin text-white" />}
               <span>{isPending ? t('sending_button') : t('submit_button')}</span>
@@ -277,7 +279,7 @@ export const ResetPasswordForm = () => {
           style={{ animationDelay: '0s' }}
         ></div>
         <div
-          className="bg-blob right-[-5%] bottom-[-10%] h-[500px] w-[500px] bg-secondary-fixed"
+          className="bg-blob right-[-5%] bottom-[-10%] h-125 w-125 bg-secondary-fixed"
           style={{ animationDelay: '2s' }}
         ></div>
       </div>

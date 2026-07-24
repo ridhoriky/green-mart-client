@@ -49,7 +49,7 @@ export const VerifyEmailForm = () => {
 
   const handleVerify = (values: VerifyEmailFormValues) => {
     verifyEmail(
-      { email: pendingEmail, otpCode: values.otpCode },
+      { email: pendingEmail, otp_code: values.otpCode },
       {
         onError: (err) => {
           const message = getAuthErrorMessage(err, 'Verification failed. Please try again.');

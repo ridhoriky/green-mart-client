@@ -1,6 +1,7 @@
 'use client';
 
 import { zodResolver } from '@hookform/resolvers/zod';
+import { GoogleLogin } from '@react-oauth/google';
 import { Loader2 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
@@ -31,7 +32,7 @@ export const SignUpForm = () => {
   const [showPassword, setShowPassword] = React.useState(false);
 
   const { mutate: register, isPending, error } = useRegister();
-  const { initiateLogin: loginWithGoogle, isPending: isGooglePending } = useGoogleLogin();
+  const { handleGoogleSuccess } = useGoogleLogin();
 
   const form = useForm<RegisterFormValues>({
     resolver: zodResolver(registerSchema),
@@ -54,7 +55,7 @@ export const SignUpForm = () => {
 
       <main className="relative flex flex-1 items-center justify-center px-margin-mobile py-8 md:px-0 md:py-12">
         {/* Registration Content Shell */}
-        <div className="relative z-10 my-auto grid w-full max-w-[1100px] grid-cols-1 overflow-hidden rounded-xl bg-surface-container-lowest shadow-2xl md:grid-cols-2">
+        <div className="relative z-10 my-auto grid w-full max-w-275 grid-cols-1 overflow-hidden rounded-xl bg-surface-container-lowest shadow-2xl md:grid-cols-2">
           {/* Left Side: Brand Imagery & Messaging */}
           <section className="relative hidden flex-col justify-between overflow-hidden bg-primary p-12 text-on-primary md:flex">
             {/* Background Graphic Pattern */}
@@ -145,6 +146,7 @@ export const SignUpForm = () => {
                             className="bg-surface-container-low pl-10"
                             placeholder={t('fullname_placeholder')}
                             type="text"
+                            data-testid="name-input"
                           />
                         </div>
                       </FormControl>
@@ -174,6 +176,7 @@ export const SignUpForm = () => {
                             className="bg-surface-container-low pl-10"
                             placeholder={t('email_placeholder')}
                             type="email"
+                            data-testid="email-input"
                           />
                         </div>
                       </FormControl>
@@ -203,6 +206,7 @@ export const SignUpForm = () => {
                             className="bg-surface-container-low pr-12 pl-10"
                             placeholder={t('password_placeholder')}
                             type={showPassword ? 'text' : 'password'}
+                            data-testid="password-input"
                           />
                           <button
                             className="absolute top-1/2 right-3 -translate-y-1/2 cursor-pointer text-outline transition-colors hover:text-primary"
@@ -229,6 +233,7 @@ export const SignUpForm = () => {
                     id="signup-terms"
                     required
                     aria-label="Terms of Service and Privacy Policy"
+                    data-testid="terms-checkbox"
                   />
                   <label
                     className="cursor-pointer font-body-sm text-body-sm text-secondary select-none"
@@ -263,6 +268,7 @@ export const SignUpForm = () => {
                   className="mt-4 w-full tracking-widest"
                   type="submit"
                   disabled={isPending}
+                  data-testid="signup-submit-btn"
                 >
                   {isPending ? (
                     <>
@@ -291,16 +297,14 @@ export const SignUpForm = () => {
               </p>
 
               {/* Social Registration - Google Only & Full Width */}
-              <div className="w-full">
+              <div className="relative w-full">
+                {/* Visible Custom Button */}
                 <Button
                   type="button"
                   variant="outline"
                   size="medium"
                   className="w-full gap-2 bg-surface-container-lowest hover:bg-surface-container-low active:scale-95"
-                  onClick={() => {
-                    loginWithGoogle();
-                  }}
-                  disabled={isPending || isGooglePending}
+                  disabled={isPending}
                 >
                   <svg className="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true">
                     <path
@@ -324,6 +328,20 @@ export const SignUpForm = () => {
                     {t('google_button')}
                   </span>
                 </Button>
+
+                {/* Invisible Google Login Overlay */}
+                <div className="absolute inset-0 z-10 h-full w-full cursor-pointer overflow-hidden opacity-0 [&_div]:h-full [&_div]:w-full [&_div]:max-w-none [&_iframe]:absolute [&_iframe]:inset-0 [&_iframe]:h-full [&_iframe]:min-h-full [&_iframe]:w-full [&_iframe]:min-w-full">
+                  <GoogleLogin
+                    onSuccess={handleGoogleSuccess}
+                    onError={() => {
+                      toast.error('Google sign-in was cancelled or failed.');
+                    }}
+                    theme="outline"
+                    size="large"
+                    shape="rectangular"
+                    width="100%"
+                  />
+                </div>
               </div>
             </footer>
           </section>

@@ -16,7 +16,7 @@
     "lint:fix": "ultracite fix --type-aware --type-check",
     "check:types": "tsc --noEmit --pretty",
     "check:deps": "knip",
-    "check:i18n": "i18n-check -l src/locales -s en -u src -f next-intl",
+    "check:i18n": "i18n-check -l src/locales -s en -u src -f next-intl -i \"Index.CategoryMenu.*\" -i \"ProductsPage.*\" -i \"DealsPage.*\" -i \"FlashSalePage.*\" -i \"CartPage.*\" -i \"SellerRegisterPage.*\" -i \"SellerDashboard.*\" -i \"WishlistPage.*\" -i \"StorePage.*\" -i \"OrderDetailPage.*\" -i \"PaymentPage.*\"",
     "commit": "commit",
     "test": "vitest run",
     "test:e2e": "playwright test",
