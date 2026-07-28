@@ -65,9 +65,11 @@ Below are the primary commands configured in this project:
 | `npm run lint` | Runs rapid code style and lint checks with Oxlint/Ultracite |
 | `npm run lint:fix` | Automatically resolves fixable lint/formatting issues |
 | `npm run check:types` | Runs static type safety check across all files |
+| `npm run check:deps` | Checks for unused files and dependencies using Knip |
 | `npm run check:i18n` | Validates missing, unused, or invalid localized keys |
 | `npm run test` | Runs unit tests using Vitest |
 | `npm run test:e2e` | Runs E2E and integration tests using Playwright |
+| `npm run storybook` | Starts Storybook component explorer locally |
 
 ---
 
@@ -108,3 +110,10 @@ We follow the [Conventional Commits](https://www.conventionalcommits.org/) speci
 - `refactor`: Restructuring code with no behavior changes
 - `test`: Adding or editing tests
 - `chore`: Maintenance (dependencies, configurations, etc.)
+
+---
+
+## 🙏 Acknowledgements & Attribution
+
+This project was bootstrapped and built upon the excellent [Next-js-Boilerplate](https://github.com/ixartz/Next-js-Boilerplate) created by [@ixartz](https://github.com/ixartz). Special thanks to the original author and community maintainers for providing a robust foundation for Next.js, internationalization (`next-intl`), tooling, and developer experience best practices.
+
