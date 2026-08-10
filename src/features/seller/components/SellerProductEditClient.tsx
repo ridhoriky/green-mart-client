@@ -4,7 +4,7 @@ import { useTranslations } from 'next-intl';
 import { useSellerProductDetailQuery } from '../hooks/useSellerProducts';
 import { SellerProductForm } from './SellerProductForm';
 
-export function SellerProductEditClient({ id }: { id: string }) {
+export const SellerProductEditClient = ({ id }: { id: string }) => {
   const t = useTranslations('SellerProducts');
   const { data: product, isLoading, error } = useSellerProductDetailQuery(id);
 
@@ -25,4 +25,4 @@ export function SellerProductEditClient({ id }: { id: string }) {
   }
 
   return <SellerProductForm initialData={product} />;
-}
+};

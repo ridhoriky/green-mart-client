@@ -46,7 +46,7 @@ const flattenCategories = (nodes: CategoryTreeNode[]): { id: string; name: strin
   return result;
 };
 
-export function SellerProductForm({ initialData }: SellerProductFormProps) {
+export const SellerProductForm = ({ initialData }: SellerProductFormProps) => {
   const t = useTranslations('SellerProducts');
   const router = useRouter();
   const createMutation = useCreateProductMutation();
@@ -227,4 +227,4 @@ export function SellerProductForm({ initialData }: SellerProductFormProps) {
       </div>
     </form>
   );
-}
+};
