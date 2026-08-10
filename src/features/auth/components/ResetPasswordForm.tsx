@@ -277,11 +277,11 @@ export const ResetPasswordForm = () => {
         <div
           className="bg-blob top-[-10%] left-[-5%] h-96 w-96 bg-primary-fixed"
           style={{ animationDelay: '0s' }}
-        ></div>
+        />
         <div
           className="bg-blob right-[-5%] bottom-[-10%] h-125 w-125 bg-secondary-fixed"
           style={{ animationDelay: '2s' }}
-        ></div>
+        />
       </div>
 
       <main className="relative z-10 flex flex-1 items-center justify-center px-margin-mobile py-8 md:py-12">

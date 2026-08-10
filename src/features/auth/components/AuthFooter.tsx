@@ -21,7 +21,7 @@ export const AuthFooter = () => {
               {t('support')}
             </Link>
           </div>
-          <div className="hidden h-4 w-px bg-outline-variant/50 sm:block"></div>
+          <div className="hidden h-4 w-px bg-outline-variant/50 sm:block" />
           <LocaleSwitcher />
         </div>
       </div>
